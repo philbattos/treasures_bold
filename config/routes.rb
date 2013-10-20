@@ -1,4 +1,34 @@
 CacheMapActiveRecord::Application.routes.draw do
+  devise_for :users
+  
+  root 'searches#new'
+
+  # landings custom routes
+  get 'search_results', to: 'landings#index', as: :search_results
+  get 'places/:id', to: 'landings#show', as: :place
+
+  # minings custom routes
+  get 'search', to: 'searches#new'
+  get 'minings', to: 'searches#index'
+  get 'minings/data', to: 'searches#index'
+
+  resources :users
+  resources :searches, only: [:create]
+  # resources :landings, only: :show
+
+  ### Current routes
+  ### non-members
+  # /search         (minings#new page)
+  # /search_results (map)
+  # /places/:id     (landings#show page)
+  
+  ### members
+  # none
+
+  ### super-members (admins)
+  # none
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -29,6 +29,8 @@ group :test do
 	gem "capybara", "1.1.4"
 	gem "simplecov", :require => false
 	gem "rspec-pride"
+	gem "shoulda-matchers"
+	gem "guard"
 end
 
 group :development, :test do
@@ -55,11 +57,11 @@ group :doc do
 end
 
 # gem 'cancan'
-# gem 'devise'
+gem 'devise'
 
 ### Searching
 gem 'tire'
-gem 'searchkick'
+# gem 'searchkick'
 # gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 # gem 'elasticsearch-transport', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 
