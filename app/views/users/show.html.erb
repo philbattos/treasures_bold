@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+signed_in: <%= user_signed_in? %><br>
+username: <%= current_user.username %><br>
+email: <%= current_user.email %><br>
+user_session: <%= user_session %><br>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

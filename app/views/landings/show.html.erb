@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Place Name:</strong>
+  <%= @landing.feature_name %>
+</p>
+
+<p>
+  <strong>Place Type:</strong>
+  <%= @landing.feature_class %>
+</p>
+
+<p>
+  <strong>Elevation (in feet):</strong>
+  <%= @landing.elevation %>
+</p>
+
+<p>
+  <strong>County, State:</strong>
+  <%= @landing.county %>, <%= @landing.state %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @landing.lat_decimal %><br>
+  <strong>Longitude:</strong>
+  <%= @landing.long_decimal %>
+</p>
+
+<p>
+  <strong>USGS Feature ID:</strong>
+  <%= @landing.feature_id %>
+</p>
+
+<%= link_to 'New Search', search_path %>

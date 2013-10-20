@@ -1,0 +1,72 @@
+<!-- app/views/landings/_map_results.html.erb -->
+
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhaz5wjB5uu0vCAjTFLT8o5om2zk7UMYk&sensor=false">
+  </script>
+  <script type="text/javascript">
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(42.500, -110.500),
+        zoom: 6,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.MEDIUM
+        },
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
+      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+      <% @search_results.each do |landing| %>
+
+        var geo<%= landing.feature_id %> = new google.maps.LatLng(<%= landing.lat_decimal %>, <%= landing.long_decimal %>);
+        
+        var marker<%= landing.feature_id %> = new google.maps.Marker({
+          position: geo<%= landing.feature_id %>,
+          map: map,
+          title: "<%= landing.feature_name %>"
+        });
+        
+        var contentString =
+          '<div id="firstHeading" class="firstHeading", style="font-size: 18px"><b><%= landing.feature_name %></b>'+
+          // '<div id="bodyContent">'+
+          '<br><b>Location-type:</b> <%= landing.feature_class %>' +
+          '<br><b>County:</b> <%= landing.county %>, <%= landing.state %>' +
+          '<br><b>Latitude:</b> <%= landing.lat_decimal %>' +
+          '<br><b>Longitude:</b> <%= landing.long_decimal %>' +
+          '<br><b>Elevation:</b> <%= landing.elevation %> ft.' +
+          '</div>';
+        
+        var infowindow<%= landing.feature_id %> = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        // closeInfoWindow = function() {
+        //   infoWindow.close();
+        // };
+
+        // mouseover markers to display infowindows
+        google.maps.event.addListener(marker<%= landing.feature_id %>, 'mouseover', function() {
+          infowindow<%= landing.feature_id %>.open(map, marker<%= landing.feature_id %>);
+        })
+
+        google.maps.event.addListener(marker<%= landing.feature_id %>, 'mouseout', function() {
+          infowindow<%= landing.feature_id %>.close(map, marker<%= landing.feature_id %>);
+        });
+        
+        google.maps.event.addListener(marker<%= landing.feature_id %>, 'click', function() {
+          infowindow<%= landing.feature_id %>.open(map, marker<%= landing.feature_id %>);
+        });
+      <% end %>
+
+        var bounds = new google.maps.LatLngBounds();
+      <% @search_results.each do |landing| %>
+          bounds.extend(geo<%= landing.feature_id %>);
+      <% end %>
+          map.fitBounds(bounds);
+    };
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
