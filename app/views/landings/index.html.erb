@@ -2,16 +2,47 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Results that match your search:</strong>
-  <%= @search_results.size %>
-</p>
+Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28">
 
 <% content_for :map do %>
   <%= render "map_results" %>
 <% end %>
 
-<div id="map-canvas" style="height: 600px; width: 800px; border: 2px solid darkgreen; box-shadow: 0px 0px 8px;">
+<div>
+  <table border="0">
+    <tbody>
+      <tr>
+        <td>
+          <div id="map-canvas" style="height: 600px; width: 800px; border: 2px solid darkgreen; box-shadow: 0px 0px 8px;">
+          </div>
+        </td>
+        <td>
+          <div>
+            <table border="0">
+              <thead>
+                <tr>
+                  <th colspan="2"><h2>Legend</h2></th>
+                </tr>
+                <tr>
+                  <th>Search Term</th>
+                  <th rowspan="2">Marker</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @search_results.each do |keyword, map_data| %>
+                <tr>
+                  <td><strong>Term: </strong>"<%= keyword %>"<br>
+                      <strong>Number: </strong><%= map_data[:landings].count %></td>
+                  <td><img src="<%= map_data[:marker] %>"></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <table>
@@ -27,13 +58,15 @@
   </thead>
 
   <tbody>
-    <% @search_results.each do |landing| %>
+    <% @search_results.each do |keyword, map_data| %>
+      <% map_data[:landings].each do |landing| %>
       <tr>
         <td><%= landing.feature_id %></td>
         <td><%= landing.feature_name %></td>
         <td><%= landing.feature_class %></td>
         <td><%= link_to 'Show', place_path(id: landing.feature_id) %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

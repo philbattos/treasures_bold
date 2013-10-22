@@ -20,14 +20,28 @@
         };
       var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-      <% @search_results.each do |landing| %>
+      <% @search_results.each do |keyword, map_data| %>
+        <% map_data[:landings].each do |landing| %>
 
-        var geo<%= landing.feature_id %> = new google.maps.LatLng(<%= landing.lat_decimal %>, <%= landing.long_decimal %>);
+        var coordinates = new google.maps.LatLng(<%= landing.lat_decimal %>, <%= landing.long_decimal %>);
+
+        // var landings_data = { 
+        //   featureID: <%= landing.feature_id %>,
+        //   latCoords: <%= landing.lat_decimal %>,
+        //   longCoords: <%= landing.long_decimal %>
+        //  };
+        // var something = landings_data[featureID]
+
+        var geo<%= landing.feature_id %> = coordinates;
+
+        var markerIcon = '<%= map_data[:marker] %>';
         
         var marker<%= landing.feature_id %> = new google.maps.Marker({
           position: geo<%= landing.feature_id %>,
           map: map,
-          title: "<%= landing.feature_name %>"
+          icon: markerIcon,
+          // icon: 'http://maps.google.com/mapfiles/ms/icons/purple.png',
+          // title: "<%= landing.feature_name %>"
         });
         
         var contentString =
@@ -41,7 +55,8 @@
           '</div>';
         
         var infowindow<%= landing.feature_id %> = new google.maps.InfoWindow({
-          content: contentString
+          content: contentString,
+          disableAutoPan: true
         });
 
         // closeInfoWindow = function() {
@@ -57,14 +72,18 @@
           infowindow<%= landing.feature_id %>.close(map, marker<%= landing.feature_id %>);
         });
         
+        // this is not working because of the mouseover function above
         google.maps.event.addListener(marker<%= landing.feature_id %>, 'click', function() {
           infowindow<%= landing.feature_id %>.open(map, marker<%= landing.feature_id %>);
         });
+        <% end %>
       <% end %>
 
         var bounds = new google.maps.LatLngBounds();
-      <% @search_results.each do |landing| %>
+      <% @search_results.each do |keyword, map_data| %>
+        <% map_data[:landings].each do |landing| %>
           bounds.extend(geo<%= landing.feature_id %>);
+        <% end %>
       <% end %>
           map.fitBounds(bounds);
     };

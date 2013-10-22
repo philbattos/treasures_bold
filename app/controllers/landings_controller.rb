@@ -7,7 +7,8 @@ class LandingsController < ApplicationController
   # GET /landings
   # GET /landings.json
   def index
-    @search_results = Landing.search @search_query
+    @search_results = Landing.compile_search_data @search_query
+    # @search_results = Landing.search @search_query
   end
 
   # GET /landings/1

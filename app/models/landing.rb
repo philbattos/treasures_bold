@@ -26,6 +26,8 @@ class Landing < ActiveRecord::Base
 	# end
 
 	### Redefine Tire's Search method
+	# Note: currently default search finds *any* matching instance
+	# ex. search for "spring mountain" returns anything matching "spring" or "mountain"
 	def self.search(params)
 		tire.search do
 			size 100 # number of search results returned
@@ -38,6 +40,26 @@ class Landing < ActiveRecord::Base
 				end
 			end
 		end
+	end
+
+	def self.marker_color 
+		[ "http://maps.google.com/mapfiles/ms/icons/green.png",
+			"http://maps.google.com/mapfiles/ms/icons/blue.png",
+			"http://maps.google.com/mapfiles/ms/icons/pink.png",
+			"http://maps.google.com/mapfiles/ms/icons/orange.png",
+			"http://maps.google.com/mapfiles/ms/icons/purple-dot.png",
+			"http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" ]
+	end
+
+	def self.compile_search_data(search_query)
+		search_results = Hash.new { |hash,key| hash[key] = {} }
+		search_terms = search_query.split(" ")
+		search_terms.each_with_index do |term, index| 
+		  term = term.to_sym
+		  search_results[term][:landings] = search term
+		  search_results[term][:marker] = marker_color[index]
+		end
+		search_results
 	end
 
 end
