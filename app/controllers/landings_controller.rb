@@ -3,12 +3,32 @@ class LandingsController < ApplicationController
   before_action :import_search_query, only: [:index]
   before_filter :authenticate_user!, except: [:index, :show]
   # before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  load_and_authorize_resource except: [:index, :show]
+  layout "application"
 
   # GET /landings
   # GET /landings.json
   def index
-    @search_results = Landing.compile_search_data @search_query
-    # @search_results = Landing.search @search_query
+    if @search_query == "[blank]"
+      redirect_to search_path, notice: "There are no results for '#{@search_query}'. Please enter a new search."
+    else
+      @search_results = Landing.compile_search_data @search_query
+      binding.pry
+      # render :layout => 'application'
+      # @search_results = Landing.search @search_query
+    end
+  end
+
+  def search
+    @landing = Landing.find_by_feature_id(params[:feature_id])
+
+    if @landing
+      redirect_to place_path(id: @landing.feature_id)
+    # elsif params[:feature_id]
+      # flash[:notice] = "Please enter a valid USGS ID number"
+    else
+      # render action: 'search', notice: "Invalid search"
+    end
   end
 
   # GET /landings/1
@@ -75,12 +95,13 @@ class LandingsController < ApplicationController
       if params[:search]
         @search_query = params[:search][:verbatim]
       else
-        @search_query = "no results"
+        @search_query = "[blank]"
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def landing_params
-      params.require(:landing).permit(:feature_id, :feature_name, :feature_class)
+      # the params passed to .permit are the fields that Tire searches
+      params.require(:landing).permit(:feature_name, :feature_class)
     end
 end

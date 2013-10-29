@@ -7,6 +7,8 @@ class Search < ActiveRecord::Base
 	validates :verbatim, presence: true
 	# validates :terms, presence: true
 
+	belongs_to :user
+
 	before_save :parse_search_terms
 
 	def parse_search_terms

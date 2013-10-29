@@ -15,5 +15,25 @@ user_session: <%= user_session %><br>
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+<table>
+  <thead>
+    <tr>
+      <th>Search Query</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.searches.each do |search| %>
+      <tr>
+        <td><%= search[:verbatim] %></td>
+        <td><%= search[:created_at].strftime "%b %d, %Y" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>
+
+<%= link_to 'Home', search_path %> |
+<%= link_to 'Edit User', edit_user_path(@user) %> |

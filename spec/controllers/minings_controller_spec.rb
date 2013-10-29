@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe MiningsController do
+describe SearchesController do
 
   # This should return the minimal set of attributes required to create a valid
   # Mining. As you add validations to Mining, be sure to
@@ -30,131 +30,131 @@ describe MiningsController do
   # MiningsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all minings as @minings" do
-      mining = Mining.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:minings).should eq([mining])
-    end
-  end
+#   describe "GET index" do
+#     it "assigns all minings as @minings" do
+#       mining = Mining.create! valid_attributes
+#       get :index, {}, valid_session
+#       assigns(:minings).should eq([mining])
+#     end
+#   end
 
-  describe "GET show" do
-    it "assigns the requested mining as @mining" do
-      mining = Mining.create! valid_attributes
-      get :show, {:id => mining.to_param}, valid_session
-      assigns(:mining).should eq(mining)
-    end
-  end
+#   describe "GET show" do
+#     it "assigns the requested mining as @mining" do
+#       mining = Mining.create! valid_attributes
+#       get :show, {:id => mining.to_param}, valid_session
+#       assigns(:mining).should eq(mining)
+#     end
+#   end
 
-  describe "GET new" do
-    it "assigns a new mining as @mining" do
-      get :new, {}, valid_session
-      assigns(:mining).should be_a_new(Mining)
-    end
-  end
+#   describe "GET new" do
+#     it "assigns a new mining as @mining" do
+#       get :new, {}, valid_session
+#       assigns(:mining).should be_a_new(Mining)
+#     end
+#   end
 
-  describe "GET edit" do
-    it "assigns the requested mining as @mining" do
-      mining = Mining.create! valid_attributes
-      get :edit, {:id => mining.to_param}, valid_session
-      assigns(:mining).should eq(mining)
-    end
-  end
+#   describe "GET edit" do
+#     it "assigns the requested mining as @mining" do
+#       mining = Mining.create! valid_attributes
+#       get :edit, {:id => mining.to_param}, valid_session
+#       assigns(:mining).should eq(mining)
+#     end
+#   end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Mining" do
-        expect {
-          post :create, {:mining => valid_attributes}, valid_session
-        }.to change(Mining, :count).by(1)
-      end
+#   describe "POST create" do
+#     describe "with valid params" do
+#       it "creates a new Mining" do
+#         expect {
+#           post :create, {:mining => valid_attributes}, valid_session
+#         }.to change(Mining, :count).by(1)
+#       end
 
-      it "assigns a newly created mining as @mining" do
-        post :create, {:mining => valid_attributes}, valid_session
-        assigns(:mining).should be_a(Mining)
-        assigns(:mining).should be_persisted
-      end
+#       it "assigns a newly created mining as @mining" do
+#         post :create, {:mining => valid_attributes}, valid_session
+#         assigns(:mining).should be_a(Mining)
+#         assigns(:mining).should be_persisted
+#       end
 
-      it "redirects to the created mining" do
-        post :create, {:mining => valid_attributes}, valid_session
-        response.should redirect_to(Mining.last)
-      end
-    end
+#       it "redirects to the created mining" do
+#         post :create, {:mining => valid_attributes}, valid_session
+#         response.should redirect_to(Mining.last)
+#       end
+#     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved mining as @mining" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Mining.any_instance.stub(:save).and_return(false)
-        post :create, {:mining => { "verbatim" => "invalid value" }}, valid_session
-        assigns(:mining).should be_a_new(Mining)
-      end
+#     describe "with invalid params" do
+#       it "assigns a newly created but unsaved mining as @mining" do
+#         # Trigger the behavior that occurs when invalid params are submitted
+#         Mining.any_instance.stub(:save).and_return(false)
+#         post :create, {:mining => { "verbatim" => "invalid value" }}, valid_session
+#         assigns(:mining).should be_a_new(Mining)
+#       end
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Mining.any_instance.stub(:save).and_return(false)
-        post :create, {:mining => { "verbatim" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
+#       it "re-renders the 'new' template" do
+#         # Trigger the behavior that occurs when invalid params are submitted
+#         Mining.any_instance.stub(:save).and_return(false)
+#         post :create, {:mining => { "verbatim" => "invalid value" }}, valid_session
+#         response.should render_template("new")
+#       end
+#     end
+#   end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested mining" do
-        mining = Mining.create! valid_attributes
-        # Assuming there are no other minings in the database, this
-        # specifies that the Mining created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Mining.any_instance.should_receive(:update).with({ "verbatim" => "MyString" })
-        put :update, {:id => mining.to_param, :mining => { "verbatim" => "MyString" }}, valid_session
-      end
+#   describe "PUT update" do
+#     describe "with valid params" do
+#       it "updates the requested mining" do
+#         mining = Mining.create! valid_attributes
+#         # Assuming there are no other minings in the database, this
+#         # specifies that the Mining created on the previous line
+#         # receives the :update_attributes message with whatever params are
+#         # submitted in the request.
+#         Mining.any_instance.should_receive(:update).with({ "verbatim" => "MyString" })
+#         put :update, {:id => mining.to_param, :mining => { "verbatim" => "MyString" }}, valid_session
+#       end
 
-      it "assigns the requested mining as @mining" do
-        mining = Mining.create! valid_attributes
-        put :update, {:id => mining.to_param, :mining => valid_attributes}, valid_session
-        assigns(:mining).should eq(mining)
-      end
+#       it "assigns the requested mining as @mining" do
+#         mining = Mining.create! valid_attributes
+#         put :update, {:id => mining.to_param, :mining => valid_attributes}, valid_session
+#         assigns(:mining).should eq(mining)
+#       end
 
-      it "redirects to the mining" do
-        mining = Mining.create! valid_attributes
-        put :update, {:id => mining.to_param, :mining => valid_attributes}, valid_session
-        response.should redirect_to(mining)
-      end
-    end
+#       it "redirects to the mining" do
+#         mining = Mining.create! valid_attributes
+#         put :update, {:id => mining.to_param, :mining => valid_attributes}, valid_session
+#         response.should redirect_to(mining)
+#       end
+#     end
 
-    describe "with invalid params" do
-      it "assigns the mining as @mining" do
-        mining = Mining.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Mining.any_instance.stub(:save).and_return(false)
-        put :update, {:id => mining.to_param, :mining => { "verbatim" => "invalid value" }}, valid_session
-        assigns(:mining).should eq(mining)
-      end
+#     describe "with invalid params" do
+#       it "assigns the mining as @mining" do
+#         mining = Mining.create! valid_attributes
+#         # Trigger the behavior that occurs when invalid params are submitted
+#         Mining.any_instance.stub(:save).and_return(false)
+#         put :update, {:id => mining.to_param, :mining => { "verbatim" => "invalid value" }}, valid_session
+#         assigns(:mining).should eq(mining)
+#       end
 
-      it "re-renders the 'edit' template" do
-        mining = Mining.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Mining.any_instance.stub(:save).and_return(false)
-        put :update, {:id => mining.to_param, :mining => { "verbatim" => "invalid value" }}, valid_session
-        response.should render_template("edit")
-      end
-    end
-  end
+#       it "re-renders the 'edit' template" do
+#         mining = Mining.create! valid_attributes
+#         # Trigger the behavior that occurs when invalid params are submitted
+#         Mining.any_instance.stub(:save).and_return(false)
+#         put :update, {:id => mining.to_param, :mining => { "verbatim" => "invalid value" }}, valid_session
+#         response.should render_template("edit")
+#       end
+#     end
+#   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested mining" do
-      mining = Mining.create! valid_attributes
-      expect {
-        delete :destroy, {:id => mining.to_param}, valid_session
-      }.to change(Mining, :count).by(-1)
-    end
+#   describe "DELETE destroy" do
+#     it "destroys the requested mining" do
+#       mining = Mining.create! valid_attributes
+#       expect {
+#         delete :destroy, {:id => mining.to_param}, valid_session
+#       }.to change(Mining, :count).by(-1)
+#     end
 
-    it "redirects to the minings list" do
-      mining = Mining.create! valid_attributes
-      delete :destroy, {:id => mining.to_param}, valid_session
-      response.should redirect_to(minings_url)
-    end
-  end
+#     it "redirects to the minings list" do
+#       mining = Mining.create! valid_attributes
+#       delete :destroy, {:id => mining.to_param}, valid_session
+#       response.should redirect_to(minings_url)
+#     end
+#   end
 
 end

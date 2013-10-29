@@ -1,35 +1,32 @@
 require "spec_helper"
 
-describe MiningsController do
+describe SearchesController do
   describe "routing" do
+    
+    describe "home page" do
+      describe "/" do
+        it "routes to #new" do
+          get("/").should route_to "searches#new"
+        end
+      end
 
-    it "routes to #index" do
-      get("/minings").should route_to("minings#index")
+      describe "/search" do
+        it "routes to #new" do
+          get("/search").should route_to "searches#new"
+        end
+      end
     end
 
-    it "routes to #new" do
-      get("/minings/new").should route_to("minings#new")
+    describe "new searches" do
+      it "routes to #create" do
+        post("/searches").should route_to "searches#create"
+      end
     end
 
-    it "routes to #show" do
-      get("/minings/1").should route_to("minings#show", :id => "1")
+    describe "/minings" do
+      it "routes to #index" do
+        get("/minings").should route_to "searches#index"
+      end
     end
-
-    it "routes to #edit" do
-      get("/minings/1/edit").should route_to("minings#edit", :id => "1")
-    end
-
-    it "routes to #create" do
-      post("/minings").should route_to("minings#create")
-    end
-
-    it "routes to #update" do
-      put("/minings/1").should route_to("minings#update", :id => "1")
-    end
-
-    it "routes to #destroy" do
-      delete("/minings/1").should route_to("minings#destroy", :id => "1")
-    end
-
   end
 end

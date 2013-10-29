@@ -1,29 +1,19 @@
-<%= form_for(@landing) do |f| %>
-  <% if @landing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@landing.errors.count, "error") %> prohibited this landing from being saved:</h2>
-
-      <ul>
-      <% @landing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_tag("/places", method: "get") do |f| %>
 
   <div class="field">
-    <%= f.label :feature_id %><br>
-    <%= f.number_field :feature_id %>
+    <%= label_tag :feature_id, "Feature ID" %><br>
+    <%= text_field_tag :feature_id %>
   </div>
-  <div class="field">
-    <%= f.label :feature_name %><br>
-    <%= f.text_field :feature_name %>
-  </div>
-  <div class="field">
-    <%= f.label :feature_class %><br>
-    <%= f.text_field :feature_class %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "Search" %>
   </div>
+
 <% end %>
+
+
+<% unless @landing.nil? %>
+  <%= @landing.feature_id %><br>
+  <%= @landing.feature_name %><br>
+<% end %>
+

@@ -4,13 +4,15 @@ CacheMapActiveRecord::Application.routes.draw do
   root 'searches#new'
 
   # landings custom routes
-  get 'search_results', to: 'landings#index', as: :search_results
-  get 'places/:id', to: 'landings#show', as: :place
+  get 'search_results',  to: 'landings#index',  as: :search_results
+  get 'places/:id',      to: 'landings#show',   as: :place
+  get 'places',          to: 'landings#search', as: :landing_search
 
   # minings custom routes
-  get 'search', to: 'searches#new'
-  get 'minings', to: 'searches#index'
-  get 'minings/data', to: 'searches#index'
+  get 'search',          to: 'searches#new'
+  get 'minings',         to: 'searches#index'
+  # get 'minings/data', to: 'searches#index'
+  # get 'advanced_search', to: 'searches#index'
 
   resources :users
   resources :searches, only: [:create]

@@ -1,0 +1,10 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.homepage {
+	background: url('treasure_map_compass_x.jpg') no-repeat center center fixed;
+	min-height: 700px;
+	background-size: cover;
+}

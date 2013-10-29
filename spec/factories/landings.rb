@@ -3,7 +3,10 @@
 FactoryGirl.define do
   factory :landing do
     feature_id 1
-    feature_name "Example Landing"
-    feature_class "Landing Class"
+    feature_name "abcdefg hijklm nopq"
+    feature_class "zyxwv utsrqp"
+    county "onmlkj"
+    lat_decimal 35.0214
+    long_decimal -105.29
   end
 end

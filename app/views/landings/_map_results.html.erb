@@ -25,17 +25,12 @@
 
         var coordinates = new google.maps.LatLng(<%= landing.lat_decimal %>, <%= landing.long_decimal %>);
 
-        // var landings_data = { 
-        //   featureID: <%= landing.feature_id %>,
-        //   latCoords: <%= landing.lat_decimal %>,
-        //   longCoords: <%= landing.long_decimal %>
-        //  };
-        // var something = landings_data[featureID]
-
         var geo<%= landing.feature_id %> = coordinates;
 
+        // assign marker color/icon for each different search term
         var markerIcon = '<%= map_data[:marker] %>';
         
+        // create markers for each landing
         var marker<%= landing.feature_id %> = new google.maps.Marker({
           position: geo<%= landing.feature_id %>,
           map: map,
@@ -44,6 +39,7 @@
           // title: "<%= landing.feature_name %>"
         });
         
+        // content to be displayed in infoWindows
         var contentString =
           '<div id="firstHeading" class="firstHeading", style="font-size: 18px"><b><%= landing.feature_name %></b>'+
           // '<div id="bodyContent">'+
@@ -54,14 +50,11 @@
           '<br><b>Elevation:</b> <%= landing.elevation %> ft.' +
           '</div>';
         
+        // create infoWindows for each marker
         var infowindow<%= landing.feature_id %> = new google.maps.InfoWindow({
           content: contentString,
           disableAutoPan: true
         });
-
-        // closeInfoWindow = function() {
-        //   infoWindow.close();
-        // };
 
         // mouseover markers to display infowindows
         google.maps.event.addListener(marker<%= landing.feature_id %>, 'mouseover', function() {
@@ -73,7 +66,7 @@
         });
         
         // this is not working because of the mouseover function above
-        google.maps.event.addListener(marker<%= landing.feature_id %>, 'click', function() {
+        google.maps.event.addListenerOnce(marker<%= landing.feature_id %>, 'click', function() {
           infowindow<%= landing.feature_id %>.open(map, marker<%= landing.feature_id %>);
         });
         <% end %>

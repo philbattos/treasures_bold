@@ -1,6 +1,8 @@
 class SearchesController < ApplicationController
   before_action :set_search, only: [:show, :destroy]
-  before_filter :authenticate_user!, only: [:destroy]
+  before_filter :authenticate_user!, only: [:index, :destroy]
+  load_and_authorize_resource except: [:new, :create]
+  # layout "homepage", only: :new
 
   # GET /searches
   # GET /searches.json
@@ -15,6 +17,7 @@ class SearchesController < ApplicationController
 
   def new
     @search = Search.new
+    render :layout => 'homepage'
   end
 
   # POST /searches
@@ -22,7 +25,8 @@ class SearchesController < ApplicationController
   def create
     redirect_to search_results_path(params: params)
     begin
-      @search = Search.new(search_params)
+      # @search = Search.new(search_params)
+      @search = current_user.searches.build(search_params)
       @search.save || Search.new(params).save
     rescue Exception => exc 
       # send message to log or database or somewhere if @search is not saved

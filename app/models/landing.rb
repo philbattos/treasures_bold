@@ -2,8 +2,10 @@ class Landing < ActiveRecord::Base
 	include Tire::Model::Search
 	include Tire::Model::Callbacks
 
+	validates :feature_id, presence: true
 	validates :feature_name, presence: true
-	validates :feature_class, presence: true
+	validates :lat_decimal, presence: true
+	validates :long_decimal, presence: true
 
 	tire.mapping do
 		indexes :feature_id, :type => :integer, :index => :not_analyzed
