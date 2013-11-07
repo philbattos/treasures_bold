@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :enter_keywords %><br>
+    <% f.label :enter_keywords %><br>
     <%= f.text_field :verbatim %>
   </div>
 
-  <div class="btn btn-primary btn-lg">
-    <%= f.submit "Search" %>
+  <div class="field">
+    <%= submit_tag "Search", verbatim: nil, class: "btn btn-large" %>
   </div>
 <% end %>

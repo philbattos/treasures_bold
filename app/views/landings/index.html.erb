@@ -1,77 +1,84 @@
-<h1>Listing landings</h1>
+<div class="container-fluid">
+  <div class="row-fluid">
 
-<p id="notice"><%= notice %></p>
+    <div class="span9">
+      <div class="results-title">
+        <!-- <h1>Search Results</h1> -->
+        <!-- <br> -->
+          <!-- Map inserted into application layout -->
+          <% content_for :map do %>
+            <%= render "map_results" %>
+          <% end %>
 
-Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28">
-
-<% content_for :map do %>
-  <%= render "map_results" %>
-<% end %>
-
-<div>
-  <table border="0">
-    <tbody>
-      <tr>
-        <td>
-          <div id="map-canvas" style="height: 600px; width: 800px; border: 2px solid darkgreen; box-shadow: 0px 0px 8px;">
+          <div id="map-canvas">
           </div>
-        </td>
-        <td>
-          <div>
-            <table border="0">
-              <thead>
-                <tr>
-                  <th colspan="2"><h2>Legend</h2></th>
-                </tr>
-                <tr>
-                  <th>Search Term</th>
-                  <th rowspan="2">Marker</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @search_results.each do |keyword, map_data| %>
-                <tr>
-                  <td><strong>Term: </strong>"<%= keyword %>"<br>
-                      <strong>Number: </strong><%= map_data[:landings].count %></td>
-                  <td><img src="<%= map_data[:marker] %>"></td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Feature name</th>
-      <th>Feature class</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @search_results.each do |keyword, map_data| %>
-      <% map_data[:landings].each do |landing| %>
-      <tr>
-        <td><%= landing.feature_id %></td>
-        <td><%= landing.feature_name %></td>
-        <td><%= landing.feature_class %></td>
-        <td><%= link_to 'Show', place_path(id: landing.feature_id) %></td>
-      </tr>
+          <!-- end map -->
+        <%= bootstrap_flash %>
+      </div><!-- /results-title -->
+    </div><!-- /span9 -->
+        
+    <div class="span3">
+      <% if @search_results.size > 1 %>
+      <div class="legend-box">
+        <div class="well">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2"><h2>Legend</h2></th>
+              </tr>
+              <tr>
+                <th>Search</th>
+                <th>Marker</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @search_results.each do |keyword, map_data| %>
+              <tr>
+                <td>"<%= keyword %>"
+                <td><img src="<%= map_data[:marker] %>">
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /well -->
+      </div><!-- /legend-box -->
       <% end %>
-    <% end %>
-  </tbody>
-</table>
 
+      <div class="results-list">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th colspan="2"><h2>Results</h2>
+              <% if @search_results.size < 2 %>
+              for "<%= @search_results.first.first %>"</th>
+              <% end %>
+            </tr>
+            <tr>
+              <th>Place</th>
+              <th rowspan="3" style="width: 20%;">Marker</th>
+            </tr>
+          </thead>
+          <% @search_results.each do |keyword, map_data| %>
+          <tbody>
+            <% map_data[:landings].each do |landing| %>
+            <tr>
+              <td><a href='/places'><strong>Name: </strong>Landing Name<br>
+                  <strong>Type: </strong><%= landing.feature_class %><br>
+                  <strong>County: </strong><%= landing.county %></a></td>
+              <td style="text-align: center"><img src="<%= map_data[:marker] %>"></td>
+            </tr>
+            
+            <% end %>
+          </tbody>
+          <% end %>
+        </table>
+      </div><!-- /results-list -->
+    </div><!-- /span3 -->
+  </div><!-- /row-fluid -->
+</div><!-- /container -->
+        
 <br>
-
-<%= link_to 'Back to Search Page', searches_path %>
+<%= link_to 'Back to Search Page', searches_path %><br>
 <%= link_to 'New Search', search_path %>
+
+<!-- Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28"> -->

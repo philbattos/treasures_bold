@@ -1,39 +1,87 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+      signed_in: <%= user_signed_in? %><br>
+      username: <%= current_user.username %><br>
+      email: <%= current_user.email %><br>
+      user_session: <%= user_session %><br>
+      <br>
+      <p>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </p>
 
-signed_in: <%= user_signed_in? %><br>
-username: <%= current_user.username %><br>
-email: <%= current_user.email %><br>
-user_session: <%= user_session %><br>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+    </div><!-- /span -->
+    <div class="span4">
+      <table>
+        <thead>
+          <tr>
+            <th><h1>User Dashboard</h1></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>See Profile Info</td>
+          </tr>
+          <tr>
+            <td>Edit Username and/or Password</td>
+          </tr>
+          <tr>
+            <td>See past searches</td>
+          </tr>          
+          <tr>
+            <td>See saved searches</td>
+          </tr>
+          <tr>
+            <td>See saved places</td>
+          </tr>
+          <tr>
+            <td>Add/edit places to "saved" list</td>
+          </tr>
+          <tr>
+            <td>View/edit membership plan</td>
+          </tr>
+          <tr>
+            <td>Sign Out</td>
+          </tr>
+          <tr>
+            <td>View selected options for customized search?</td>
+          </tr>
+          <tr>
+            <td><b>LINK: </b><a href="http://econsultancy.com/us/blog/62844-24-beautifully-designed-web-dashboards-that-data-geeks-will-love">http://econsultancy.com/us/blog/62844-24-beautifully-designed-web-dashboards-that-data-geeks-will-love</td>
+          </tr>
+          <tr>
+            <td><b>LINK: </b><a href="http://speckyboy.com/2013/05/16/user-experience-trends-for-admin-dashboards/">http://speckyboy.com/2013/05/16/user-experience-trends-for-admin-dashboards/</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="span4">
+      <table>
+        <thead>
+          <tr>
+            <th>Search Query</th>
+            <th>Date</th>
+          </tr>
+        </thead>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+        <tbody>
+          <% @user.searches.each do |search| %>
+            <tr>
+              <td><%= search[:verbatim] %></td>
+              <td><%= search[:created_at].strftime "%b %d, %Y" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p id="notice"><%= notice %></p>
+    <%= link_to 'Home', search_path %> |
+    <%= link_to 'Edit User', edit_user_path(@user) %> |
+  </div><!-- /row -->
+</div><!-- /container -->
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-<table>
-  <thead>
-    <tr>
-      <th>Search Query</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.searches.each do |search| %>
-      <tr>
-        <td><%= search[:verbatim] %></td>
-        <td><%= search[:created_at].strftime "%b %d, %Y" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</p>
-
-<%= link_to 'Home', search_path %> |
-<%= link_to 'Edit User', edit_user_path(@user) %> |

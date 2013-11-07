@@ -4,7 +4,7 @@ class LandingsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   # before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   load_and_authorize_resource except: [:index, :show]
-  layout "application"
+  # layout "application"
 
   # GET /landings
   # GET /landings.json
@@ -13,7 +13,6 @@ class LandingsController < ApplicationController
       redirect_to search_path, notice: "There are no results for '#{@search_query}'. Please enter a new search."
     else
       @search_results = Landing.compile_search_data @search_query
-      binding.pry
       # render :layout => 'application'
       # @search_results = Landing.search @search_query
     end

@@ -15,3 +15,273 @@
  *= require_self
  *= require_tree .
  */
+
+h1, h2, h3, h4 {
+ 	margin: 0px 0;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+ 	/*color: darkblue;*/
+}
+
+body {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+ 	padding-top: 40px;
+}
+
+strong {
+ 	color: darkblue;
+}
+
+.row-fluid {
+ 	width: 100%;
+ 	/*padding-left: 30px;*/
+ 	/*padding-right: 30px;*/
+ 	background-color: #F0EAD6;
+}
+
+table {
+	border: solid #dddddd 0px;
+	/*border-radius: 4px;*/
+}
+
+/*Center the heading of the table*/
+.table > thead > tr:first-child > th {
+ 	text-align: center;
+ 	background-color: #eeeeee;
+}
+
+.table-striped > thead > tr > th {
+ 	background-color: #dddddd;
+}
+
+
+.table-striped {
+ 	margin-bottom: 5px;
+ 	text-align: right;
+}
+
+.table-striped > tbody > tr > td, 
+.table-striped > tbody > tr > th {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+ 	font-size: 16px;
+ 	vertical-align: middle;
+ 	padding: 5px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+ 	background-color: #ccffcc;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+ 	background-color: #EBD89D;
+}
+
+.table-striped > tbody > tr:nth-child(even):hover > td,
+.table-striped > tbody > tr:nth-child(even):hover > th {
+	background-color: goldenrod;
+}
+
+.table-striped > tbody > tr:nth-child(odd):hover > td,
+.table-striped > tbody > tr:nth-child(odd):hover > th {
+	background-color: #8BE08B;
+}
+
+/*.table-striped > tbody > tr > td > a,*/
+.table-striped > tbody > tr > td > a:hover,
+.table-striped > tbody > tr > th > a:hover {
+	background-color: transparent;
+	color: black;
+	/*font-weight: bold;*/
+}
+
+.table-striped > tbody > tr > td > a {
+	display: block;
+	text-decoration: none;
+}
+
+/*table heading text*/
+th {
+ 	color: darkblue;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+ 	font-size: 18px;
+}
+
+td {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+}
+
+/*remove padding for homepage background image*/
+.container-fluid {
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+}
+
+.navbar {
+	background-color: #3a3a3a;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	margin-bottom: 0px;
+ 	padding-left: 30px;
+ 	padding-right: 10px;
+}
+
+.navbar-inner {
+	/*background-image: linear-gradient(to bottom, #ffffff, goldenrod);*/
+	background-color: #3a3a3a;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	border: none;
+	border-radius: 0px;
+	/*padding: 10px;*/
+	/*border-bottom: 10px black;*/
+}
+
+.navbar .brand {
+	background-color: #3a3a3a;
+	color: gold;
+	text-shadow: 0 0px 0 #ffffff;
+	font-size: 28px;
+	font-weight: bold;
+	/*height: 40px;*/
+}
+
+a .brand {
+	background-color: #3a3a3a;
+	/*height: 100%;*/
+}
+
+.navbar .nav > li > a {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-size: 20px;
+	background-color: #3a3a3a;
+	color: gold;
+	text-shadow: none;
+	/*margin: 0px;*/
+	/*padding-left: 0px;*/
+}
+
+	.navbar .nav > li > a:hover {
+		color: white;
+		background-color: #222222;
+	}
+
+.nav-collapse,
+.nav-collapse > li {
+	background-color: #3a3a3a;
+}
+
+/*.nav-collapse > li > a,
+.nav-collapse > li > a:hover,
+.nav-collapse > li > a:focus {
+	background-color: #3a3a3a;
+}*/
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+	background-color: #3a3a3a;
+}
+
+.nav a,
+.nav a:hover {
+	color: white;
+}
+
+.btn .btn-navbar,
+.btn .btn-navbar .collapse,
+.btn .btn-navbar .nav-collapse .collapse {
+	background-color: #3a3a3a;
+}
+
+.btn-navbar {
+	background-color: #3a3a3a;
+}
+
+.navbar .divider-vertical {
+	border-left: 1px solid #777777;
+	border-right: 1px solid #777777;
+	margin: 0px;
+}
+
+.results-title {
+	padding-top: 20px;
+	text-align: center;
+}
+
+.results-title h1 {
+	/*color: #5C4112;*/
+}
+
+.legend-box {
+	margin-right: 30px;
+	/*min-width: 150px;*/
+	padding: 1px;
+	font-size: 10px
+}
+
+.results-list {
+	margin-right: 30px;
+}
+
+.btn-large {
+	background: goldenrod;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-size: 28px;
+	width: 50%;
+	text-shadow: none;
+	border: none;
+
+}
+
+.btn-large:hover {
+	background-color: gold;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+}
+
+/*legend-box sidebar*/
+.well {
+	padding: 0px;
+	margin: 20px;
+	/*background-color: #EBD89D;*/
+	border: solid 2px #D1BE86;
+	background-color: #D1BE86;
+}
+
+.well table {
+	background-color: #EBD89D;
+	width: 100%;
+}
+
+.well table > thead > tr:first-child > th,
+.well table > thead > tr:first-child > th > h2 {
+	background-color: #D1BE86;
+	color: #5C4112;
+}
+
+.well table > thead > tr > th,
+.well table > thead > tr > th {
+	background-color: #9C7C44;
+	color: #EBD89D;
+}
+
+/*.well table > thead > tr > th,*/
+.well table > tbody > tr > td {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	color: #5C4112;
+	/*font-size: 16px;*/
+}
+
+.well table > tbody > tr > td {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-size: 16px;
+	text-align: center;
+}
+
+.well table > tbody > tr:nth-child(even) > td {
+	background-color: #DBCA97;
+}
+
