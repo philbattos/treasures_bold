@@ -1,38 +1,41 @@
 class LandingsController < ApplicationController
   before_action :set_landing, only: [:show, :edit, :update, :destroy]
-  before_action :import_search_query, only: [:index]
-  before_filter :authenticate_user!, except: [:index, :show]
+  # before_action :import_search_query, only: [:search]
+  # before_filter :authenticate_user!, except: [:search, :show]
   # before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  load_and_authorize_resource except: [:index, :show]
+  load_and_authorize_resource except: [:about, :search, :show]
   # layout "application"
+
+  def about
+  end
 
   # GET /landings
   # GET /landings.json
   def index
-    if @search_query == "[blank]"
-      redirect_to search_path, notice: "There are no results for '#{@search_query}'. Please enter a new search."
-    else
-      @search_results = Landing.compile_search_data @search_query
-      # render :layout => 'application'
-      # @search_results = Landing.search @search_query
-    end
   end
 
   def search
-    @landing = Landing.find_by_feature_id(params[:feature_id])
-
-    if @landing
-      redirect_to place_path(id: @landing.feature_id)
-    # elsif params[:feature_id]
-      # flash[:notice] = "Please enter a valid USGS ID number"
+    import_search_query
+    if @search_query == "[blank]"
+      redirect_to search_path, notice: "There are no results for '#{@search_query}'. Please enter a new search."
     else
-      # render action: 'search', notice: "Invalid search"
+      @search_results = Landing.compile_results @search_query
     end
   end
 
   # GET /landings/1
   # GET /landings/1.json
   def show
+    @landing = Landing.find_by_feature_id(params[:id])
+
+    # if @landing
+      # render layout: "application"
+      # redirect_to place_path(id: @landing.feature_id)
+    # elsif params[:feature_id]
+      # flash[:notice] = "Please enter a valid USGS ID number"
+    # else
+      # render action: 'search', notice: "Invalid search"
+    # end
   end
 
   # GET /landings/new
@@ -91,8 +94,8 @@ class LandingsController < ApplicationController
     end
 
     def import_search_query
-      if params[:search]
-        @search_query = params[:search][:verbatim]
+      if params[:query]
+        @search_query = params[:query]
       else
         @search_query = "[blank]"
       end
@@ -101,6 +104,6 @@ class LandingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def landing_params
       # the params passed to .permit are the fields that Tire searches
-      params.require(:landing).permit(:feature_name, :feature_class)
+      params.require(:landing).permit(:feature_name, :feature_class, :state, :county)
     end
 end

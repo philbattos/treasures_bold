@@ -16,7 +16,22 @@
  *= require_tree .
  */
 
-h1, h2, h3, h4 {
+/* this stretches map to full container dimensions */
+/* without this, its necessary to explicitly define height of map-canvas */
+#full-size {
+	height: 100%;
+	width: 100%;
+	margin: 0; 
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+/* end full-size stretching */
+
+h1, h2, h3, h4, h5, h6 {
  	margin: 0px 0;
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
@@ -26,7 +41,15 @@ h1, h2, h3, h4 {
 body {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
+ 	/*margin-top: -40px;*/
  	padding-top: 40px;
+ 	/*position: fixed;  prevents pages from scrolling under navbar */
+}
+
+/* fix for zoom control on google maps */
+/* source: http://stackoverflow.com/questions/8879544/google-maps-zoom-control */
+img {
+	max-width: none;
 }
 
 strong {
@@ -35,14 +58,18 @@ strong {
 
 .row-fluid {
  	width: 100%;
- 	/*padding-left: 30px;*/
- 	/*padding-right: 30px;*/
- 	background-color: #F0EAD6;
+ 	/* padding-left: 30px; */
+ 	/* padding-right: 30px; */
 }
 
 table {
 	border: solid #dddddd 0px;
 	/*border-radius: 4px;*/
+}
+
+.table th,
+.table td {
+	padding: 4px;
 }
 
 /*Center the heading of the table*/
@@ -55,6 +82,10 @@ table {
  	background-color: #dddddd;
 }
 
+.table-striped > thead > tr > th:nth-child(even) {
+ 	text-align: center;
+ 	padding: none;
+}
 
 .table-striped {
  	margin-bottom: 5px;
@@ -207,6 +238,17 @@ a .brand {
 	margin: 0px;
 }
 
+.row-fluid > .span3 {
+	margin: 0px;
+	padding-right: 0px;
+}
+
+.side-panel {
+	/*max-height: 700px;*/
+	/*position: absolute;*/
+	/*overflow: auto;*/
+}
+
 .results-title {
 	padding-top: 20px;
 	text-align: center;
@@ -219,12 +261,96 @@ a .brand {
 .legend-box {
 	margin-right: 30px;
 	/*min-width: 150px;*/
-	padding: 1px;
-	font-size: 10px
+	/*padding: 1px;*/
+	font-size: 10px;
+	padding-right: 30px;
+	max-width: 250px;
+	margin-left: -2px;
+	padding-top: 20px;
+}
+
+.legend-box > .well {
+	margin: 0px;
+	padding: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
 
 .results-list {
-	margin-right: 30px;
+	/*margin-right: 30px;*/
+	/*margin-left: 30px;*/
+	/*margin-top: 15px;*/
+	/*overflow: scroll;*/
+	/*height: auto;*/
+	/*max-height: 400px;*/
+	height: 100%;
+	/*border: solid 1px;*/
+	/*box-shadow: 0px 10px 10px;*/
+}
+
+.results-heading {
+	/*height: 100%;*/
+	background-color: #A8A176;
+	/*color: gold;*/
+	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+
+.results-heading h1 {
+	/*text-align: center;*/
+	/*color: gold;*/
+}
+
+#landings-list {
+	height: 80%; /* 90% of total side panel */
+	overflow: scroll;
+	/*background-color: #F0EAD6;*/
+	/*background-color: white;*/
+}
+
+.results-footer {
+	background-color: #A8A176;
+	height: 100%;
+	box-shadow: 0px -2px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+#vert-scroll-off {
+	overflow-y: hidden;
+}
+
+#white-background {
+	background-color: white;
+}
+
+.results-list > table.table-striped {
+	/*background-color: red;*/
+	height: 100%;
+	max-height: 600px;
+}
+
+.results-list > table.table-striped > tbody > tr > td {
+	padding: 0px;
+}
+
+.results-items {
+	/*overflow: scroll;*/
+}
+
+.inner-results {
+	overflow: scroll;
+	max-height: 600px;
+}
+
+/*.inner-table {
+	overflow: scroll;
+	max-height: 400px;
+}*/
+
+.landing-list-marker {
+	text-align: center;
+	padding-top: 10px; /* center marker vertically */
+	vertical-align: middle;
+	/*width: 20%;*/
 }
 
 .btn-large {
@@ -283,5 +409,127 @@ a .brand {
 
 .well table > tbody > tr:nth-child(even) > td {
 	background-color: #DBCA97;
+}
+
+.span8 > .row-fluid,
+.span8 > .row-fluid > table {
+	/*border: solid 1px;*/
+	border-radius: 10px;
+	background-color: lightyellow;
+	padding: 40px;
+	margin: 20px;
+}
+
+.dashboard-profile > .span8 > p {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-size: 24px;
+}
+
+.dashboard-title,
+.dashboard-title > h1 {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-size: 70px;
+	text-align: right;
+	padding-top: 10px;
+	color: #D1BE86;
+}
+
+.dashboard-searches {
+	border: solid 1px;
+	border-radius: 10px;
+	background-color: tan;
+	padding: 40px;
+	margin: 20px;
+	width: 100%;
+}
+
+.input-large[class=input-large] {
+	height: 40px;
+	line-height: 30px;
+	font-size: 24px;
+	width: 100%;
+	margin-left: -10px;
+	/*padding: 10px;*/
+}
+
+.btn.btn-large {
+	width: 200px;
+}
+
+.btn.disabled {
+	background-color: lightgrey;
+}
+
+.blank-map,
+.blank-map p {
+	font-size: 80px;
+	color: grey;
+	margin-top: 120px;
+	line-height: 90px;
+}
+
+.search_description {
+	text-align: right;
+	/*vertical-align: middle;*/
+}
+
+.description_heading {
+	text-align: right;
+	padding-top: 8px;
+	/*vertical-align: middle;*/
+}
+
+.search_option {
+	text-align: left;
+}
+
+.highlight,
+strong > .highlight {
+	background-color: red;
+}
+
+.page-heading,
+.page-heading h1 {
+	text-align: center;
+}
+
+.new-background {
+	background-color: #CCE9FC;
+	/*border: 1px solid lightgrey;*/
+}
+
+ul#landing-list-items {
+	list-style: none;
+	margin-left: 0;
+	/*padding: 10px;*/
+	/*background-color: white;*/
+}
+
+li#landing-list-items {
+	/*background-color: red;*/
+	list-style: none;
+	margin-left: 0;
+	padding: 10px;
+	/*border: 1px solid white;*/
+	/*background-color: white;*/
+}
+
+#standard-background-color {
+	background-color: #F0EAD6;
+	height: 100%;
+}
+
+#place-details {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.landing-list-links {
+	text-align: right;
+	padding-top: 9px; /* center links vertically */
+}
+
+.landing-index {
+	text-align: center;
 }
 

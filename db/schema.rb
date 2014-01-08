@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025221609) do
+ActiveRecord::Schema.define(version: 20131229064043) do
 
   create_table "landings", force: true do |t|
     t.integer  "feature_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20131025221609) do
     t.string   "map_name"
   end
 
-  create_table "searches", force: true do |t|
+  create_table "queries", force: true do |t|
     t.string   "verbatim"
     t.text     "terms",      limit: 255
     t.datetime "created_at"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20131025221609) do
     t.integer  "user_id"
   end
 
-  add_index "searches", ["user_id"], name: "index_searches_on_user_id"
+  add_index "queries", ["user_id"], name: "index_queries_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

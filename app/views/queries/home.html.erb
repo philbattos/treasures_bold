@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <div class="homepage">
+        <div class="homepage-title">
+          Find Fenn's Treasure
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="feature-pane">
+
+      </div>
+      <div class="homepage-searchbox">
+
+        <%= bootstrap_flash %>
+
+        <h4>Enter clues or keywords<br>
+            to find places related to<br>
+            Forrest Fenn's treasure</h4>
+
+        <%= render 'form' %>
+
+        <h5><%= link_to 'Advanced Search', search_path %><h5>
+
+        <p id="notice"><%= notice %></p>
+        <p id="alert"></p>
+
+      </div>
+    </div>
+  </div>
+</div>

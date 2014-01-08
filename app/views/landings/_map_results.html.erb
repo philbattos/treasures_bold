@@ -1,9 +1,10 @@
 <!-- app/views/landings/_map_results.html.erb -->
 
-  <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhaz5wjB5uu0vCAjTFLT8o5om2zk7UMYk&sensor=false">
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhaz5wjB5uu0vCAjTFLT8o5om2zk7UMYk&sensor=false"></script>
   <script type="text/javascript">
+
+    var markers = {};
+
     function initialize() {
       var mapOptions = {
         center: new google.maps.LatLng(42.500, -110.500),
@@ -17,8 +18,8 @@
           style: google.maps.ZoomControlStyle.MEDIUM
         },
         mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
-      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+      };
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
       <% @search_results.each do |keyword, map_data| %>
         <% map_data[:landings].each do |landing| %>
@@ -34,14 +35,28 @@
         var marker<%= landing.feature_id %> = new google.maps.Marker({
           position: geo<%= landing.feature_id %>,
           map: map,
+          draggable: false,
           icon: markerIcon,
+          // animation: google.maps.Animation.DROP,
           // icon: 'http://maps.google.com/mapfiles/ms/icons/purple.png',
           // title: "<%= landing.feature_name %>"
         });
+        // google.maps.event.addListener(marker<%= landing.feature_id %>, 'click', toggleBounce);
+
+        // markers.push(marker<%= landing.feature_id %>);
+        markers[<%= landing.feature_id %>] = marker<%= landing.feature_id %>
+
+        // function toggleBounce() {
+        //   if (marker<%= landing.feature_id %>.getAnimation() !=null) {
+        //     marker<%= landing.feature_id %>.setAnimation(null);
+        //   } else {
+        //     marker<%= landing.feature_id %>.setAnimation(google.maps.Animation.BOUNCE);
+        //   }
+        // };
         
         // content to be displayed in infoWindows
         var contentString =
-          '<div id="firstHeading" class="firstHeading", style="font-size: 18px"><b><%= landing.feature_name %></b>'+
+          '<div id="firstHeading" class="firstHeading", style="font-size: 18px;"><b><%= landing.feature_name %></b>' +
           // '<div id="bodyContent">'+
           '<br><b>Location-type:</b> <%= landing.feature_class %>' +
           '<br><b>County:</b> <%= landing.county %>, <%= landing.state %>' +
@@ -61,24 +76,51 @@
           infowindow<%= landing.feature_id %>.open(map, marker<%= landing.feature_id %>);
         })
 
+        // remove infoWindow when mouse moves away
         google.maps.event.addListener(marker<%= landing.feature_id %>, 'mouseout', function() {
           infowindow<%= landing.feature_id %>.close(map, marker<%= landing.feature_id %>);
         });
         
         // this is not working because of the mouseover function above
-        google.maps.event.addListenerOnce(marker<%= landing.feature_id %>, 'click', function() {
+        google.maps.event.addListener(marker<%= landing.feature_id %>, 'click', function() {
           infowindow<%= landing.feature_id %>.open(map, marker<%= landing.feature_id %>);
+          // infowindow<%= landing.feature_id %>.close(map, marker<%= landing.feature_id %>);
         });
+
         <% end %>
       <% end %>
 
-        var bounds = new google.maps.LatLngBounds();
-      <% @search_results.each do |keyword, map_data| %>
-        <% map_data[:landings].each do |landing| %>
-          bounds.extend(geo<%= landing.feature_id %>);
+      var bounds = new google.maps.LatLngBounds();
+        <% @search_results.each do |keyword, map_data| %>
+          <% map_data[:landings].each do |landing| %>
+            bounds.extend(geo<%= landing.feature_id %>);
+          <% end %>
         <% end %>
-      <% end %>
-          map.fitBounds(bounds);
+      map.fitBounds(bounds);
     };
+
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    function myClick(feature_id) {
+      google.maps.event.trigger(markers[feature_id], 'click');
+    }
+
+    function myHover(feature_id) {
+      google.maps.event.trigger(markers[feature_id], 'mouseover');
+    }
+
+    function deleteMarker(feature_id) {
+      markers[feature_id].setMap(null);
+      markers[feature_id]=null;
+    }
+    
+    function toggleBounce(feature_id) {
+      var marker = markers[feature_id]
+      if (marker.getAnimation() != null) {
+        marker.setAnimation(null);
+      } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
   </script>

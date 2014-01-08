@@ -12,11 +12,11 @@
   </thead>
 
   <tbody>
-    <% @searches.each do |search| %>
+    <% @queries.each do |query| %>
       <tr>
-        <td><%= search[:verbatim] %></td>
-        <td><%= search[:terms] %></td>
-        <td><%= link_to 'Show', search %></td>
+        <td><%= query[:verbatim] %></td>
+        <td><%= query[:terms] %></td>
+        <td><%= link_to 'Show', search_path %></td>
 
       </tr>
     <% end %>

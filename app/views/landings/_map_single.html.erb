@@ -1,0 +1,76 @@
+<!-- app/views/landings/_map_results.html.erb -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhaz5wjB5uu0vCAjTFLT8o5om2zk7UMYk&sensor=false"></script>
+  <script type="text/javascript">
+
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(40.000, -108.000),
+        zoom: 8,
+        // mapTypeControl: true,
+        // mapTypeControlOptions: {
+        //   style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+        // },
+        // zoomControl: true,
+        // zoomControlOptions: {
+        //   style: google.maps.ZoomControlStyle.MEDIUM
+        // },
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+      };
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      var coordinates = new google.maps.LatLng(<%= @landing.lat_decimal %>, <%= @landing.long_decimal %>);
+        
+      // create a marker
+      var marker = new google.maps.Marker({
+        position: coordinates,
+        map: map,
+        draggable: false,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
+        animation: google.maps.Animation.DROP,
+        // title: "<%= @landing.feature_name %>"
+      });
+        
+      // content to be displayed in infoWindow
+      var contentString =
+        '<div id="firstHeading" class="firstHeading", style="font-size: 18px;"><b><%= @landing.feature_name %></b>' +
+        // '<div id="bodyContent">'+
+        '<br><b>Place Type:</b> <%= @landing.feature_class %>' +
+        '<br><b>County:</b> <%= @landing.county %>, <%= @landing.state %>' +
+        '<br><b>Latitude:</b> <%= @landing.lat_decimal %>' +
+        '<br><b>Longitude:</b> <%= @landing.long_decimal %>' +
+        '<br><b>Elevation:</b> <%= @landing.elevation %> ft.' +
+        '</div>';
+        
+      // create an infoWindow
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        disableAutoPan: true
+      });
+
+      // mouseover markers to display infowindow
+      google.maps.event.addListener(marker, 'mouseover', function() {
+        infowindow.open(map, marker);
+      });
+
+      // remove infoWindow when mouse moves away
+      google.maps.event.addListener(marker, 'mouseout', function() {
+        infowindow.close(map, marker);
+      });
+
+      var bounds = new google.maps.LatLngBounds();
+        bounds.extend(coordinates);
+
+      map.fitBounds(bounds);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    // function myClick(feature_id){
+    //   google.maps.event.trigger(markers[feature_id], 'click');
+    // }
+    // function myHover(feature_id){
+    //   google.maps.event.trigger(markers[feature_id], 'mouseover');
+    // }
+
+  </script>

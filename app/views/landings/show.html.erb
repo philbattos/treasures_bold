@@ -1,35 +1,97 @@
-<p id="notice"><%= notice %></p>
+<body style="position: fixed" id="vert-scroll-off">
+<%= bootstrap_flash %>
 
-<p>
-  <strong>Place Name:</strong>
-  <%= @landing.feature_name %>
-</p>
+<div class="container-fluid" id="full-size">
+  <div class="row-fluid" id="full-size">
+    <div class="span9" style="height: 100%; width: 75%">
 
-<p>
-  <strong>Place Type:</strong>
-  <%= @landing.feature_class %>
-</p>
+      <!-- Map inserted into application layout -->
+      <% content_for :map do %>
+        <%= render "map_single" %>
+      <% end %>
 
-<p>
-  <strong>Elevation:</strong>
-  <%= @landing.elevation %> ft.
-</p>
+      <div class="map-container">
+        <div class="map" id="map"></div>
+        <i class="map-top"></i>
+        <i class="map-right"></i>
+        <i class="map-bottom"></i>
+        <i class="map-left"></i>
+      </div>
 
-<p>
-  <strong>County, State:</strong>
-  <%= @landing.county %>, <%= @landing.state %>
-</p>
+        <!-- basic map-canvas; no shadow on map -->
+        <!-- <div id="map-canvas"> -->
+        <!-- </div>/map-canvas -->
+        <!-- end basic map-canvas -->
+      <!-- end map -->
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @landing.lat_decimal %><br>
-  <strong>Longitude:</strong>
-  <%= @landing.long_decimal %>
-</p>
+    </div><!-- /span9 -->
 
-<p>
-  <strong>USGS Feature ID:</strong>
-  <%= @landing.feature_id %>
-</p>
+    <!-- jQuery to change background color of listings on hover -->
+    <script>
+    // $( document ).ready(function() {
+    //   $( "div#fields" ).hide();
+    //   $( "a#reveal_fields" ).click(function( event ) {
+    //     $( "div#fields" ).slideToggle( "fast" );
+    //     $( "#fields_link" ).toggle();
+    //     event.preventDefault();
+    //   });
+    // });
+    $( document ).ready(function() {
+      $( "li" ).hover(function() {
+        $( this ).toggleClass( "new-background" );
+      });
+      // $( "li" ).click(function( event ) {
+      //   event.preventDefault();
+      // });
+    });
+      
+    </script>
+        
+    <div class="span3" style="height: 100%; width: 25%;">
+      <div class="row-fluid" style="height: 10%;">
+        <div class="results-heading">
+          <h1>Place Details</h1>
+        </div><!-- /results-heading -->
+      </div><!-- /row -->
+      <div class="row-fluid" id="landings-list"><!-- landings list -->
+        <div class="row-fluid" id="place-details">
+          <strong>Place Name:</strong>
+          <%= @landing.feature_name %>
+        </div>
 
-<%= link_to 'New Search', search_path %>
+        <div class="row-fluid" id="place-details">
+          <strong>Place Type:</strong>
+          <%= @landing.feature_class %>
+        </div>
+
+        <div class="row-fluid" id="place-details">
+          <strong>Elevation:</strong>
+          <%= @landing.elevation %> ft.
+        </div>
+
+        <div class="row-fluid" id="place-details">
+          <strong>County, State:</strong>
+          <%= @landing.county %>, <%= @landing.state %>
+        </div>
+
+        <div class="row-fluid" id="place-details">
+          <strong>Latitude:</strong>
+          <%= @landing.lat_decimal %><br>
+          <strong>Longitude:</strong>
+          <%= @landing.long_decimal %>
+        </div>
+
+        <div class="row-fluid" id="place-details">
+          <strong>USGS Feature ID:</strong>
+          <%= @landing.feature_id %>
+        </div>
+      </div><!-- /row -->
+      <div class="row-fluid" style="height: 10%;">
+        <div class="results-footer">
+        </div>
+      </div>
+    </div><!-- /span3 -->
+  </div><!-- /row-fluid -->
+</div><!-- /container -->
+
+

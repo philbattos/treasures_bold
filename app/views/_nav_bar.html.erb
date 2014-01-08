@@ -10,15 +10,17 @@
         <span class="icon-bar"></span>
       </a>
       
-      <a class="brand" href="/search">Treasure Finder</a>
+      <a class="brand" href="/">Treasure Finder</a>
       
       <div class="container-fluid nav-collapse">
+
         <ul class="nav">
           <li class="divider-vertical"></li>
-            <li><%= link_to "about", search_path %></li>
+          <li><%= link_to "search", search_path %></li>
           <li class="divider-vertical"></li>
-            <li><%= link_to "", "/path2" %></li>
+          <li><%= link_to "about", about_path %></li>
         </ul>
+
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>
           <% if current_user %>
@@ -26,9 +28,12 @@
               <li class="divider-vertical"></li>
             <li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to "Sign In", "users/sign_in" %></li>
+            <!-- change format of link to appear disabled -->
+            <li><a>not signed in</a></li>
+            <!-- <li><%= link_to "Sign In", sign_in_path %></li> -->
           <% end %>
         </ul>
+
       </div><!--/nav-collapse -->
     
     </div><!-- /container -->

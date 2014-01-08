@@ -1,22 +1,30 @@
 CacheMapActiveRecord::Application.routes.draw do
   devise_for :users
   
-  root 'searches#new'
+  root 'queries#home'
 
   # landings custom routes
-  get 'search_results',  to: 'landings#index',  as: :search_results
+  # get 'search_results',  to: 'landings#search',  as: :search_results
+  get 'search_results',  to: 'landings#search',  as: :search_landings
   get 'places/:id',      to: 'landings#show',   as: :place
-  get 'places',          to: 'landings#search', as: :landing_search
+  # get 'places',          to: 'landings#search', as: :landing_search
 
   # minings custom routes
-  get 'search',          to: 'searches#new'
-  get 'minings',         to: 'searches#index'
-  # get 'minings/data', to: 'searches#index'
-  # get 'advanced_search', to: 'searches#index'
+  get 'search',          to: 'queries#new',  as: :search
+  get 'minings',         to: 'queries#index'
+  # get 'minings/data', to: 'queries#index'
+  # get 'advanced_search', to: 'queries#index'
+
+  get 'about', to: 'landings#about', as: :about
+
+  devise_scope :user do
+    get "sign_in", to: "devise/sessions#new", as: :sign_in
+  end
 
   resources :users
-  resources :searches, only: [:create]
+  resources :queries, only: [:create]
   # resources :landings, only: :show
+
 
   ### Current routes
   ### non-members

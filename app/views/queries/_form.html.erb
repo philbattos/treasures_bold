@@ -1,0 +1,29 @@
+<%= form_for(@query) do |f| %>
+  <% if @query.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@query.errors.count, "error") %> prohibited this query from being saved:</h2>
+
+      <ul>
+      <% @query.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+  <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="Search Keyword"><br>
+
+  <input type="hidden" id="field_select_place_name" name="query[entries][entry1][fields][feature_name]" checked> 
+
+  <input type="hidden" id="field_select_place_type" name="query[entries][entry1][fields][feature_class]" checked>
+
+  <input type="hidden" id="state" name="query[entries][entry1][fields][state]" checked>
+
+  <input type="hidden" id="city" name="query[entries][entry1][fields][county]" checked>
+
+  <input type="hidden" id="filters" name="query[filters][none]">
+
+  <button type="submit" class="btn btn-large">Search</button>
+
+<% end %>

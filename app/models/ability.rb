@@ -9,13 +9,14 @@ class Ability
       # if user.admin?
       #   can :manage, :all
       # else
-        # can :read, :all
-        # can :index, Search
+      if user
         can :show, User, :id => user.id
         can :edit, User, :id => user.id
+        can :home, Query
+        # can :index, Query # list of all searches
         can :search, Landing
-        # can :index, User
-      # end
+        can :about, Landing
+      end
     
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

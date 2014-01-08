@@ -1,6 +1,189 @@
-<h1>Search for Places</h1>
-<h3>Enter a USGS ID# to find details about a specific place</h3>
+<body style="position: fixed" id="vert-scroll-off">
+<%= bootstrap_flash %>
 
-<%= render 'form' %>
+<div class="container-fluid" id="full-size">
+  <div class="row-fluid" id="full-size">
+    <div class="span9" style="height: 100%; width: 75%">
 
-<%= link_to 'Home', search_path %>
+      <!-- Map inserted into application layout -->
+      <% content_for :map do %>
+        <%= render "map_results" %>
+      <% end %>
+
+      <!-- map-canvas with shadow on map -->
+      <!-- source: http://stackoverflow.com/questions/11264240/add-inset-box-shadow-on-google-maps-element -->
+      <div class="map-container">
+        <div class="map" id="map"></div>
+        <i class="map-top"></i>
+        <i class="map-right"></i>
+        <i class="map-bottom"></i>
+        <i class="map-left"></i>
+      </div>
+      <!-- end map-canvas with shadow -->
+
+      <!-- example of google maps as background with iframe -->
+      <!-- http://googlemapsmania.blogspot.com/2012/10/using-z-index-with-google-maps.html -->
+
+      <!-- basic map-canvas; no shadow on map -->
+      <!-- <div id="map-canvas"> -->
+        <!-- <div class="blank-map"> -->
+          <!-- No Content<p> -->
+          <!-- Please enter a new <%= link_to "search", search_path %> -->
+        <!-- </div>/blank-map -->
+      <!-- </div>/map-canvas -->
+      <!-- end map -->
+      <!-- end basic map-canvas -->
+
+    </div><!-- /span9 -->
+
+    <div class="span3" style="height: 100%; width: 25%;">
+      <div class="row-fluid">
+        <div class="results-heading">
+          <h1>Search Results</h1>
+          <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3>
+          <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3>
+          <!-- @search_results.each {|keyword, map_data| puts map_data[:landings].size } -->
+        </div><!-- /results-heading -->
+      </div><!-- /row -->
+      <div class="row-fluid" id="landings-list">
+        <ul id="landing-list-items">
+          <% @search_results.each do |keyword, map_data| %>
+            <% map_data[:landings].each_with_index do |landing, index| %>
+
+              <li id="landing-list-items" data-landing="<%= landing.feature_id %>">
+              <div class="row-fluid">
+                <div class="span8"><!-- landing data -->
+                  <strong>Name: </strong>
+                  <a href="#"><%= landing.feature_name %></a><br>
+                  <strong>Type: </strong><%= landing.feature_class %><br>
+                  <strong>County: </strong><%= landing.county %><br>
+                </div><!-- /span8 -->
+                <div class="span2"><!-- landing marker -->
+                  <div class="landing-list-marker">
+                    <img src="<%= map_data[:marker] %>">
+                  </div><!-- /marker-format -->
+                </div><!-- /span2 -->
+                <div class="span2">
+                  <div class="landing-list-links">
+                    <%= link_to "open", place_path(landing.feature_id), target: "_blank" %><br>
+                    <a href="#" id="remove-landing" data-landing="<%= landing.feature_id %>">remove</a>
+                    <!-- <input type="checkbox" name="save" value="#{landing.feature_name}"> -->
+                  </div><!-- /landing-list-links -->
+                </div><!-- /span2 -->
+              </div><!-- /row -->
+              </li>
+            <% end %>
+          <% end %><!-- /@search_results -->
+        </ul>
+      </div><!-- /row -->
+      <div class="row-fluid" style="height: 10%;">
+        <div class="results-footer">
+        </div>
+      </div>
+    </div><!-- /span3 -->
+  </div><!-- /row-fluid -->
+</div><!-- /container -->
+
+<!-- jQuery for hover and removing landings from list -->
+<script>
+  $( document ).ready(function() {
+    $( 'li' ).hover(function() {
+      $( this ).toggleClass( 'new-background' );
+      var feature_id = $(this).data('landing');
+      toggleBounce(feature_id);
+    });
+  });
+
+  $( document ).ready(function() {
+    $( 'a#remove-landing' ).click(function( event ) {
+      $( this ).parent().parent().parent().parent().slideToggle();
+      var feature_id = $(this).data('landing');
+      deleteMarker(feature_id);
+      event.preventDefault();
+    });
+  });
+</script>
+
+    <!-- old: scrollable table results -->
+    <!-- <div class="span3"> -->
+      <!-- <div class="side-panel"> -->
+
+       <!--  <% if @search_results.size > 1 %>
+        <div class="legend-box">
+          <div class="well">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="3"><h2>Legend</h2></th>
+                </tr>
+                <tr>
+                  <th>Search</th>
+                  <th>Marker</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @search_results.each do |keyword, map_data| %>
+                <tr>
+                  <td>"<%= keyword %>"</td>
+                  <td><img src="<%= map_data[:marker] %>"></td>
+                  <td><%= map_data[:landings].size %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div><!-- /well -->
+        <!-- </div>/legend-box -->
+        <!-- <% end %> -->
+
+        <!-- <div class="landings-list"> -->
+          <!-- <table class="table table-striped">
+            <thead>
+              <tr>
+                <th colspan="3"><h2>Results</h2>
+                <% if @search_results.size < 2 %>
+                <% end %>
+              </tr>
+              <tr>
+                <th style="width: 80%; padding-left: 15px">Place</th>
+                <th style="text-align: right;">Marker</th>
+                <!-- <th style="text-align: right">Save</th> -->
+              <!-- </tr> -->
+            <!-- </thead>
+            <tbody>
+              <tr>
+                <td colspan="3">
+                  <div class="inner-results">
+                    <table class="inner-table">
+                    <% @search_results.each do |keyword, map_data| %>
+                      <tbody>
+                      <% map_data[:landings].each do |landing| %>
+                        <tr>
+                          <td style="width: 70%"><strong>Name: </strong>
+                            <!-- <%= link_to landing.feature_name, place_path(landing.feature_id) %><br> -->
+                            <!-- <%= link_to landing.feature_name, :onclick => 'myClick("#{landing.feature_id}"); return false' %><br> -->
+                            <!-- <a href="#" onclick="myClick(<%= landing.feature_id %>); return false"><%= landing.feature_name %></a><br> -->
+                            <!-- <strong>Type: </strong><%= landing.feature_class %><br> -->
+                            <!-- <strong>County: </strong><%= landing.county %></td> -->
+                          <!-- <td class="marker-format"><img src="<%= map_data[:marker] %>"></td> -->
+                          <!-- <td style="width: 10%; vertical-align: middle;"><input type="checkbox" name="save_place" value="#{landing.feature_name}"></td> -->
+                        <!-- </tr>
+                      <% end %>
+                      </tbody>
+                    <% end %>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+        <!-- </div>/landings-list -->
+      <!-- </div>/side-panel -->
+    <!-- </div>/span3 -->
+    <!-- end scrollable table results -->
+
+  <!-- </div>/row-fluid -->
+<!-- </div>/container -->
+
+
+<!-- Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28"> -->
