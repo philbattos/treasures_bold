@@ -3,7 +3,7 @@
 
 <div class="container-fluid" id="full-size">
   <div class="row-fluid" id="full-size">
-    <div class="span9" style="height: 100%; width: 75%">
+    <div class="span9" style="height: 95%; width: 75%">
 
       <!-- Map inserted into application layout -->
       <% content_for :map do %>
@@ -36,12 +36,102 @@
 
     </div><!-- /span9 -->
 
-    <div class="span3" style="height: 100%; width: 25%;">
-      <div class="row-fluid">
+    <div class="span3" style="height: 95%; width: 25%;">
+      <div class="row-fluid" style="height: 5%;">
         <div class="results-heading">
-          <h1>Search Results</h1>
-          <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3>
-          <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3>
+         
+          <!-- Modal -->
+<!--           <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="myModalLabel">Legend</h3>
+            </div>
+            <div class="modal-body">
+              <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn-large" data-dismiss="modal" aria-hidden="true">Close</button>
+              <!-- <button class="btn btn-primary">Save changes</button> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!-- <div class="modal-header"> -->
+              <!-- <div class="modal-body"> -->
+
+           <div class="legend-box">
+             <div class="well">
+               <table>
+                 <thead>
+                   <tr>
+                     <th colspan="3"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button><h2>Legend</h2>
+                     </th>
+                   </tr>
+                   <tr>
+                     <th>Search</th>
+                     <th>Pin</th>
+                     <th>#</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <% @search_results.each do |keyword, map_data| %>
+                   <tr>
+                     <td>"<%= keyword %>"</td>
+                     <td><img src="<%= map_data[:marker] %>"></td>
+                     <td><%= map_data[:landings].size %></td>
+                   </tr>
+                   <% end %>
+                 </tbody>
+               </table>
+             </div><!-- /well -->
+           </div><!-- /legend-box -->
+
+           <div class="legend-box">
+            <div class="well">
+              <div class="row-fluid" id="legend-title">
+                <h2>Legend</h2>
+              </div><!-- /row -->
+              <div class="row-fluid" id="legend-headings">
+                <div class="span8">
+                  Search
+                </div><!-- /span8 -->
+                <div class="span2">
+                  Pin
+                </div>
+                <div class="span2">
+                  #
+                </div><!-- /span2 -->
+              </div><!-- /row -->
+
+              <% @search_results.each do |keyword, map_data| %>
+              <div class="row-fluid">
+                <div id="legend-row">
+                  <div class="span8">
+                    "<%= keyword %>"
+                  </div><!-- /span8 -->
+                  <div class="span2">
+                    <img src="<%= map_data[:marker] %>">
+                  </div>
+                  <div class="span2">
+                    <%= map_data[:landings].size %>
+                  </div><!-- /span2 -->
+                </div><!-- /legend-row -->
+              </div><!-- /row -->
+              <% end %>
+            </div><!-- /well -->
+          </div><!-- /legend-box -->
+
+         <!-- </div> -->
+         </div><!-- /modal -->
+
+          <!-- <h1>Search Results</h1>
+
+          <!-- Button to trigger modal -->
+          <!-- <a href="#myModal" role="button" class="btn" id="modal_button">Launch demo modal</a> -->
+
+          <a href="#" id="modal-link">Details</a>
+          <!-- <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3> -->
+          <!-- <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3> -->
           <!-- @search_results.each {|keyword, map_data| puts map_data[:landings].size } -->
         </div><!-- /results-heading -->
       </div><!-- /row -->
@@ -76,7 +166,7 @@
           <% end %><!-- /@search_results -->
         </ul>
       </div><!-- /row -->
-      <div class="row-fluid" style="height: 10%;">
+      <div class="row-fluid" style="height: 5%;">
         <div class="results-footer">
         </div>
       </div>
@@ -87,10 +177,10 @@
 <!-- jQuery for hover and removing landings from list -->
 <script>
   $( document ).ready(function() {
-    $( 'li' ).hover(function() {
+    $( 'li#landing-list-items' ).hover(function() {
       $( this ).toggleClass( 'new-background' );
       var feature_id = $(this).data('landing');
-      toggleBounce(feature_id);
+      toggleBounce(feature_id); // bouncing marker
     });
   });
 
@@ -102,6 +192,16 @@
       event.preventDefault();
     });
   });
+
+  $( '#modal-link' ).click(function() {
+    $('#myModal').modal({
+      backdrop: false
+      // keyboard: false
+    });
+  });
+  // $('#myModal').on('show', function () {
+  //   $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
+  // });
 </script>
 
     <!-- old: scrollable table results -->

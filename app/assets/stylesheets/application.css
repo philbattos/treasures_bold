@@ -259,21 +259,28 @@ a .brand {
 }
 
 .legend-box {
-	margin-right: 30px;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	/*margin-right: 30px;*/
 	/*min-width: 150px;*/
 	/*padding: 1px;*/
-	font-size: 10px;
-	padding-right: 30px;
-	max-width: 250px;
-	margin-left: -2px;
-	padding-top: 20px;
+	/*font-size: 10px;*/
+	/*padding-right: 30px;*/
+	/*max-width: 250px;*/
+	/*margin-left: -2px;*/
+	/*padding-top: 20px;*/
+	width: 80%;
+	margin-left: 20%;
+	box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.4);
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
 }
 
 .legend-box > .well {
 	margin: 0px;
 	padding: 0px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
+	/*border-top-left-radius: 0px;*/
+	/*border-bottom-left-radius: 0px;*/
 }
 
 .results-list {
@@ -289,9 +296,11 @@ a .brand {
 }
 
 .results-heading {
-	/*height: 100%;*/
-	background-color: #A8A176;
-	/*color: gold;*/
+	height: 100%;
+	background-color: #D1BE86;
+	color: #5C4112;
+	font-size: 36px;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
 	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);
 	text-align: center;
 }
@@ -302,14 +311,16 @@ a .brand {
 }
 
 #landings-list {
-	height: 80%; /* 90% of total side panel */
-	overflow: scroll;
+	height: 90%; /* 90% of total side panel */
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-top: 3px;
 	/*background-color: #F0EAD6;*/
 	/*background-color: white;*/
 }
 
 .results-footer {
-	background-color: #A8A176;
+	background-color: #D1BE86;
 	height: 100%;
 	box-shadow: 0px -2px 5px 0 rgba(0, 0, 0, 0.5);
 }
@@ -370,28 +381,31 @@ a .brand {
 
 /*legend-box sidebar*/
 .well {
-	padding: 0px;
+	/*padding: 0px;*/
 	margin: 20px;
-	/*background-color: #EBD89D;*/
-	border: solid 2px #D1BE86;
 	background-color: #D1BE86;
+	border: solid 1px #D1BE86;
+	border-radius: 20px 20px 20px 20px;
 }
 
 .well table {
 	background-color: #EBD89D;
 	width: 100%;
+	border-radius: 20px 20px 20px 20px;
 }
 
 .well table > thead > tr:first-child > th,
 .well table > thead > tr:first-child > th > h2 {
 	background-color: #D1BE86;
 	color: #5C4112;
+	border-radius: 20px 20px 20px 20px;
 }
 
 .well table > thead > tr > th,
 .well table > thead > tr > th {
 	background-color: #9C7C44;
 	color: #EBD89D;
+	/*border-radius: 20px 20px 0px 0px;*/
 }
 
 /*.well table > thead > tr > th,*/
@@ -399,6 +413,11 @@ a .brand {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
 	color: #5C4112;
 	/*font-size: 16px;*/
+	border-radius: 0 0 20px 20px;
+}
+
+.well table > tbody > tr {
+	border-radius: 0 0 20px 20px;
 }
 
 .well table > tbody > tr > td {
@@ -495,7 +514,9 @@ strong > .highlight {
 
 .new-background {
 	background-color: #CCE9FC;
-	/*border: 1px solid lightgrey;*/
+	/*padding: 10px;*/
+	margin: -1px;
+	border: 1px solid lightgrey;
 }
 
 ul#landing-list-items {
@@ -508,7 +529,7 @@ ul#landing-list-items {
 li#landing-list-items {
 	/*background-color: red;*/
 	list-style: none;
-	margin-left: 0;
+	/*margin-left: 0;*/
 	padding: 10px;
 	/*border: 1px solid white;*/
 	/*background-color: white;*/
@@ -533,3 +554,43 @@ li#landing-list-items {
 	text-align: center;
 }
 
+/*#myModal {*/
+	/*width: 200px;*/
+	/*margin: -30px 0px 0px 150px;*/
+	/*width: 100%;*/
+/*}*/
+
+/*body #myModal {
+	width: 20%;
+	margin-top: 35%;
+	margin-left: -48%;
+}*/
+
+body #myModal {
+	width: 20%;
+	margin-top: 1%;
+	margin-left: 4%;
+	border: none;
+	border-radius: 20px 20px 20px 20px;
+	background: transparent;
+	box-shadow: none;
+}
+
+/* alignment of close button on modal */
+.close {
+	margin-right: 7px;
+	margin-left: -20px;
+}
+
+#legend-headings {
+	background-color: #9C7C44;
+	color: #EBD89D;
+	font-size: 19px;
+	/*line-height: 22px;*/
+	height: 20px;
+	padding-top: 2px;
+}
+
+#legend-row {
+	font-size: 16px;
+}
