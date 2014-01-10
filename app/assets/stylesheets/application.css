@@ -620,7 +620,7 @@ body #statsModal {
 	/*vertical-align: bottom;*/
 }
 
-/* alignment of close button on modal */
+/* alignment of close button on legend-box and stats-box */
 .close {
 	margin-right: 7px;
 	margin-left: -20px;

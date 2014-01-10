@@ -52,7 +52,7 @@
             <div class="legend-box">
               <div class="row-fluid">
                 <div class="legend-title">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                  <button type="button" class="close" id="close-legend-box" data-dismiss="modal" aria-hidden="true">x</button>
                   <h2>Legend</h2>
                 </div><!-- /legend-title -->
               </div><!-- /row -->
@@ -84,7 +84,7 @@
             <div class="stats-box">
               <div class="row-fluid">
                 <div class="stats-title">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                  <button type="button" class="close" id="close-stats-box" data-dismiss="modal" aria-hidden="true">x</button>
                   <h2>Statistics</h2>
                 </div><!-- /stats-title -->
               </div><!-- /row -->
@@ -201,7 +201,15 @@
       $( '.legend-box' ).fadeToggle( 'fast' );
       event.preventDefault();
     });
+    $( '#close-legend-box' ).click(function( event ) {
+      $( '.legend-box' ).fadeToggle( 'fast' );
+      event.preventDefault();
+    });
     $( '#stats-button' ).click(function( event ) {
+      $( '.stats-box' ).fadeToggle( 'fast' );
+      event.preventDefault();
+    });
+    $( '#close-stats-box' ).click(function( event ) {
       $( '.stats-box' ).fadeToggle( 'fast' );
       event.preventDefault();
     });
