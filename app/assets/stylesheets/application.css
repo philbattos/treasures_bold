@@ -311,6 +311,7 @@ a .brand {
 
 .results-heading {
 	height: 100%;
+	/*width: 100%;*/
 	background-color: #D1BE86;
 	color: #5C4112;
 	/*font-size: 36px;*/
