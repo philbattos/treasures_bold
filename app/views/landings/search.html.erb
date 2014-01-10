@@ -57,30 +57,24 @@
               </div><!-- /row -->
               <div class="row-fluid">
                 <div id="legend-headings">
-                  <div class="span7">
+                  <div class="span8">
                     Keywords
                   </div>
-                  <div class="span3">
-                    Pin
-                  </div>
-                  <div class="span2">
-                    #
-                  </div><!-- /span2 -->
+                  <div class="span4">
+                    Marker
+                  </div><!-- /span3 -->
                 </div><!-- /legend-headings -->
               </div><!-- /row -->
               <% @search_results.each do |keyword, map_data| %>
               <% next if keyword.nil? %>
               <div class="row-fluid">
                 <div id="legend-row">
-                  <div class="span7" style="padding-top: 10px; padding-bottom: 5px;">
+                  <div class="span8" style="padding-top: 10px; padding-bottom: 5px;">
                     "<%= keyword %>"
                   </div>
-                  <div class="span3" style="padding-top: 5px; padding-bottom: 5px;">
+                  <div class="span4" style="padding-top: 5px; padding-bottom: 5px;">
                     <img src="<%= map_data[:marker] %>">
                   </div>
-                  <div class="span2" style="padding-top: 10px; padding-bottom: 5px;">
-                    <%= map_data[:landings].size %>
-                  </div><!-- /span2 -->
                 </div><!-- /legend-row -->
               </div><!-- /row -->
               <% end %>
@@ -88,38 +82,38 @@
 
             <div class="stats-box">
               <div class="row-fluid">
-                <div class="legend-title">
+                <div class="stats-title">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                   <h2>Statistics</h2>
-                </div><!-- /legend-title -->
+                </div><!-- /stats-title -->
               </div><!-- /row -->
               <div class="row-fluid">
-                <div id="legend-headings">
-                  <div class="span5">
+                <div id="stats-headings">
+                  <div class="span6">
                     Searches
                   </div>
                   <div class="span3">
                     Found
                   </div>
-                  <div class="span4">
-                    Showing
+                  <div class="span3">
+                    Map
                   </div><!-- /span2 -->
-                </div><!-- /legend-headings -->
+                </div><!-- /stats-headings -->
               </div><!-- /row -->
               <% @search_results.each do |keyword, map_data| %>
               <% next if keyword.nil? %>
               <div class="row-fluid">
-                <div id="legend-row">
-                  <div class="span5" style="padding-top: 10px; padding-bottom: 5px;">
+                <div class="stats-row">
+                  <div class="span6" style="padding-top: 10px; padding-bottom: 10px;">
                     "<%= keyword %>"
                   </div>
-                  <div class="span3" style="padding-top: 5px; padding-bottom: 5px;">
+                  <div class="span3" style="padding-top: 10px; padding-bottom: 10px;">
                     <%= map_data[:quantity] %>
                   </div>
-                  <div class="span4" style="padding-top: 10px; padding-bottom: 5px;">
+                  <div class="span3" style="padding-top: 10px; padding-bottom: 10px;">
                     <%= map_data[:quantity] %>
                   </div><!-- /span2 -->
-                </div><!-- /legend-row -->
+                </div><!-- /stats-row -->
               </div><!-- /row -->
               <% end %>
             </div><!-- /stats-box -->
@@ -191,10 +185,10 @@
     $( '.legend-box' ).hide();
     $( '.stats-box' ).hide();
     $( '#legend-button' ).click(function( event ) {
-      $( '.legend-box' ).fadeToggle();
+      $( '.legend-box' ).fadeToggle( 'fast' );
     });
     $( '#stats-button' ).click(function( event ) {
-      $( '.stats-box' ).fadeToggle();
+      $( '.stats-box' ).fadeToggle( 'fast' );
     });
   });
 

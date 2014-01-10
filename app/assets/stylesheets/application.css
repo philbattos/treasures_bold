@@ -274,7 +274,7 @@ a .brand {
 	opacity: 0.8;
 	line-height: none;
 	/*box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.3);*/
-	margin-bottom: 10px;
+	margin-bottom: 10px; /* create space before stats-box */
 }
 
 .stats-box {
@@ -330,7 +330,7 @@ a .brand {
 	height: 87%; /* 90% of total side panel */
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding-top: 4px;
+	padding-top: 3px;
 	/*padding-bottom: 20px;*/
 	/*background-color: #F0EAD6;*/
 	/*background-color: white;*/
@@ -639,6 +639,15 @@ body #statsModal {
 	padding-top: 2px;
 }
 
+#stats-headings {
+	background-color: #9C7C44;
+	color: #EBD89D;
+	font-size: 20px;
+	/*line-height: 22px;*/
+	height: 20px;
+	padding-top: 2px;
+}
+
 #legend-row {
 	/*display: block;*/
 	background-color: #EBD89D;
@@ -646,10 +655,13 @@ body #statsModal {
 	border-top: 3px solid #D1BE86;
 	/*vertical-align: center;*/
 }
-/*#legend-row-dark {
-	background-color: #D1BE86;
-	font-size: 16px;
-}*/
+
+.stats-row {
+	background-color: #EBD89D;
+	font-size: 18px;
+	border-top: 3px solid #D1BE86;
+	/*padding: 10px;*/
+}
 
 .row-fluid #fields_link [class*="span"] {
 	min-height: 30px;
