@@ -33,9 +33,12 @@ class Landing < ActiveRecord::Base
 			next if keyword.empty?
 			search_results[keyword][:landings] = search(data, filters)
 			search_results[keyword][:marker] = select_marker(name)
-			search_results[keyword][:quantity] = search_results[keyword][:landings].size
+			search_results[keyword][:total_found] = search_results[keyword][:landings].size
 		end
 
+		# restrict number of results to be mapped
+		search_results.each {|keyword, map_data| map_data[:landings] = map_data[:landings][0..9] }
+		
 		search_results
 	end
 
