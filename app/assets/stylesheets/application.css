@@ -274,6 +274,20 @@ a .brand {
 	opacity: 0.8;
 	line-height: none;
 	/*box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.3);*/
+	margin-bottom: 10px;
+}
+
+.stats-box {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	width: 80%; /* 80% of underlying modal canvas */
+	border: 3px solid #9C7C44;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background-color: #EBD89D;
+	opacity: 0.8;
+	line-height: none;
+	/*box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.3);*/
 }
 
 .legend-box > .well {
@@ -574,7 +588,17 @@ body #legendModal {
 	box-shadow: none;
 }
 
-#modal-button {
+body #statsModal {
+	width: 22%;
+	margin-top: 12%;
+	margin-left: 6%;
+	border: none;
+	border-radius: 20px 20px 20px 20px;
+	background: transparent;
+	box-shadow: none;
+}
+
+.modal-button {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
 	background-color: #EBD89D;
 	color: #5C4112;
@@ -587,10 +611,6 @@ body #legendModal {
 	display: inline-block;
 	border-radius: 5px;
 	opacity: none;
-}
-
-.btn .modal-button {
-	background-color: red;
 }
 
 .legend-button {

@@ -41,8 +41,9 @@
         <div class="results-heading">
 
           <!-- Button to trigger modal -->
-            <a href="#legendModal" role="button" id="modal-button">Legend</a>
+            <a href="#legendModal" role="button" class="modal-button" id="legend-button">Legend</a>
           <!-- <a href="#" id="modal-link"><h1>Details</h1></a> -->
+            <a href="#statsModal" role="button" class="modal-button" id="stats-button">Stats</a>
 
           <!-- Modal: legend-box -->
           <div id="legendModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="legendModalLabel" aria-hidden="true">
@@ -84,6 +85,44 @@
               </div><!-- /row -->
               <% end %>
             </div><!-- /legend-box -->
+
+            <div class="stats-box">
+              <div class="row-fluid">
+                <div class="legend-title">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                  <h2>Statistics</h2>
+                </div><!-- /legend-title -->
+              </div><!-- /row -->
+              <div class="row-fluid">
+                <div id="legend-headings">
+                  <div class="span5">
+                    Searches
+                  </div>
+                  <div class="span3">
+                    Found
+                  </div>
+                  <div class="span4">
+                    Showing
+                  </div><!-- /span2 -->
+                </div><!-- /legend-headings -->
+              </div><!-- /row -->
+              <% @search_results.each do |keyword, map_data| %>
+              <% next if keyword.nil? %>
+              <div class="row-fluid">
+                <div id="legend-row">
+                  <div class="span5" style="padding-top: 10px; padding-bottom: 5px;">
+                    "<%= keyword %>"
+                  </div>
+                  <div class="span3" style="padding-top: 5px; padding-bottom: 5px;">
+                    <%= map_data[:quantity] %>
+                  </div>
+                  <div class="span4" style="padding-top: 10px; padding-bottom: 5px;">
+                    <%= map_data[:quantity] %>
+                  </div><!-- /span2 -->
+                </div><!-- /legend-row -->
+              </div><!-- /row -->
+              <% end %>
+            </div><!-- /stats-box -->
 
           </div><!-- /legendModal -->
 
@@ -147,12 +186,31 @@
     });
   });
 
-  $( '#modal-button' ).click(function() {
-    $('#legendModal').modal({
-      backdrop: false
-      // keyboard: false
+  $( document ).ready(function() {
+    $( '#legendModal' ).show();
+    $( '.legend-box' ).hide();
+    $( '.stats-box' ).hide();
+    $( '#legend-button' ).click(function( event ) {
+      $( '.legend-box' ).fadeToggle();
+    });
+    $( '#stats-button' ).click(function( event ) {
+      $( '.stats-box' ).fadeToggle();
     });
   });
+
+  // $( '#legend-button' ).click(function() {
+  //   $('#legendModal').modal({
+  //     backdrop: false
+  //     // keyboard: false
+  //   });
+  // });
+
+  // $( '#stats-button' ).click(function() {
+  //   $('#statsModal').modal({
+  //     backdrop: false
+  //     // keyboard: false
+  //   });
+  // });
   // $('#legendModal').on('show', function () {
   //   $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
   // });

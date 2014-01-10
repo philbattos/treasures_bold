@@ -41,7 +41,7 @@ class Landing < ActiveRecord::Base
 
 	def self.search(entry, filters=nil)
 		tire.search do # (load: true) tells Tire to search objects in database, not indexed objects
-			# size 100
+			size 100
 			query do
 				boolean do
 					selected_fields = entry[:fields].keys
