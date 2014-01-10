@@ -37,102 +37,56 @@
     </div><!-- /span9 -->
 
     <div class="span3" style="height: 95%; width: 25%;">
-      <div class="row-fluid" style="height: 5%;">
+      <div class="row-fluid" style="height: 8%; min-height: 50px;">
         <div class="results-heading">
-         
-          <!-- Modal -->
-<!--           <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel">Legend</h3>
-            </div>
-            <div class="modal-body">
-              <p>One fine body…</p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn-large" data-dismiss="modal" aria-hidden="true">Close</button>
-              <!-- <button class="btn btn-primary">Save changes</button> -->
-            <!-- </div> -->
-          <!-- </div> -->
 
-          <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <!-- <div class="modal-header"> -->
-              <!-- <div class="modal-body"> -->
+          <!-- Button to trigger modal -->
+            <a href="#legendModal" role="button" id="modal-button">Legend</a>
+          <!-- <a href="#" id="modal-link"><h1>Details</h1></a> -->
 
-           <div class="legend-box">
-             <div class="well">
-               <table>
-                 <thead>
-                   <tr>
-                     <th colspan="3"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button><h2>Legend</h2>
-                     </th>
-                   </tr>
-                   <tr>
-                     <th>Search</th>
-                     <th>Pin</th>
-                     <th>#</th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                   <% @search_results.each do |keyword, map_data| %>
-                   <tr>
-                     <td>"<%= keyword %>"</td>
-                     <td><img src="<%= map_data[:marker] %>"></td>
-                     <td><%= map_data[:landings].size %></td>
-                   </tr>
-                   <% end %>
-                 </tbody>
-               </table>
-             </div><!-- /well -->
-           </div><!-- /legend-box -->
+          <!-- Modal: legend-box -->
+          <div id="legendModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="legendModalLabel" aria-hidden="true">
 
-           <div class="legend-box">
-            <div class="well">
-              <div class="row-fluid" id="legend-title">
-                <h2>Legend</h2>
-              </div><!-- /row -->
-              <div class="row-fluid" id="legend-headings">
-                <div class="span8">
-                  Search
-                </div><!-- /span8 -->
-                <div class="span2">
-                  Pin
-                </div>
-                <div class="span2">
-                  #
-                </div><!-- /span2 -->
-              </div><!-- /row -->
-
-              <% @search_results.each do |keyword, map_data| %>
+            <div class="legend-box">
               <div class="row-fluid">
-                <div id="legend-row">
-                  <div class="span8">
-                    "<%= keyword %>"
-                  </div><!-- /span8 -->
-                  <div class="span2">
-                    <img src="<%= map_data[:marker] %>">
+                <div class="legend-title">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                  <h2>Legend</h2>
+                </div><!-- /legend-title -->
+              </div><!-- /row -->
+              <div class="row-fluid">
+                <div id="legend-headings">
+                  <div class="span7">
+                    Keywords
+                  </div>
+                  <div class="span3">
+                    Pin
                   </div>
                   <div class="span2">
+                    #
+                  </div><!-- /span2 -->
+                </div><!-- /legend-headings -->
+              </div><!-- /row -->
+              <% @search_results.each do |keyword, map_data| %>
+              <% next if keyword.nil? %>
+              <div class="row-fluid">
+                <div id="legend-row">
+                  <div class="span7" style="padding-top: 10px; padding-bottom: 5px;">
+                    "<%= keyword %>"
+                  </div>
+                  <div class="span3" style="padding-top: 5px; padding-bottom: 5px;">
+                    <img src="<%= map_data[:marker] %>">
+                  </div>
+                  <div class="span2" style="padding-top: 10px; padding-bottom: 5px;">
                     <%= map_data[:landings].size %>
                   </div><!-- /span2 -->
                 </div><!-- /legend-row -->
               </div><!-- /row -->
               <% end %>
-            </div><!-- /well -->
-          </div><!-- /legend-box -->
+            </div><!-- /legend-box -->
 
-         <!-- </div> -->
-         </div><!-- /modal -->
+          </div><!-- /legendModal -->
 
-          <!-- <h1>Search Results</h1>
-
-          <!-- Button to trigger modal -->
-          <!-- <a href="#myModal" role="button" class="btn" id="modal_button">Launch demo modal</a> -->
-
-          <a href="#" id="modal-link">Details</a>
-          <!-- <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3> -->
-          <!-- <h3>Showing <%= @search_results[:spring][:quantity] %> places for "<%= @search_results.keys.first %>"</h3> -->
-          <!-- @search_results.each {|keyword, map_data| puts map_data[:landings].size } -->
         </div><!-- /results-heading -->
       </div><!-- /row -->
       <div class="row-fluid" id="landings-list">
@@ -193,97 +147,16 @@
     });
   });
 
-  $( '#modal-link' ).click(function() {
-    $('#myModal').modal({
+  $( '#modal-button' ).click(function() {
+    $('#legendModal').modal({
       backdrop: false
       // keyboard: false
     });
   });
-  // $('#myModal').on('show', function () {
+  // $('#legendModal').on('show', function () {
   //   $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
   // });
 </script>
-
-    <!-- old: scrollable table results -->
-    <!-- <div class="span3"> -->
-      <!-- <div class="side-panel"> -->
-
-       <!--  <% if @search_results.size > 1 %>
-        <div class="legend-box">
-          <div class="well">
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="3"><h2>Legend</h2></th>
-                </tr>
-                <tr>
-                  <th>Search</th>
-                  <th>Marker</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @search_results.each do |keyword, map_data| %>
-                <tr>
-                  <td>"<%= keyword %>"</td>
-                  <td><img src="<%= map_data[:marker] %>"></td>
-                  <td><%= map_data[:landings].size %></td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div><!-- /well -->
-        <!-- </div>/legend-box -->
-        <!-- <% end %> -->
-
-        <!-- <div class="landings-list"> -->
-          <!-- <table class="table table-striped">
-            <thead>
-              <tr>
-                <th colspan="3"><h2>Results</h2>
-                <% if @search_results.size < 2 %>
-                <% end %>
-              </tr>
-              <tr>
-                <th style="width: 80%; padding-left: 15px">Place</th>
-                <th style="text-align: right;">Marker</th>
-                <!-- <th style="text-align: right">Save</th> -->
-              <!-- </tr> -->
-            <!-- </thead>
-            <tbody>
-              <tr>
-                <td colspan="3">
-                  <div class="inner-results">
-                    <table class="inner-table">
-                    <% @search_results.each do |keyword, map_data| %>
-                      <tbody>
-                      <% map_data[:landings].each do |landing| %>
-                        <tr>
-                          <td style="width: 70%"><strong>Name: </strong>
-                            <!-- <%= link_to landing.feature_name, place_path(landing.feature_id) %><br> -->
-                            <!-- <%= link_to landing.feature_name, :onclick => 'myClick("#{landing.feature_id}"); return false' %><br> -->
-                            <!-- <a href="#" onclick="myClick(<%= landing.feature_id %>); return false"><%= landing.feature_name %></a><br> -->
-                            <!-- <strong>Type: </strong><%= landing.feature_class %><br> -->
-                            <!-- <strong>County: </strong><%= landing.county %></td> -->
-                          <!-- <td class="marker-format"><img src="<%= map_data[:marker] %>"></td> -->
-                          <!-- <td style="width: 10%; vertical-align: middle;"><input type="checkbox" name="save_place" value="#{landing.feature_name}"></td> -->
-                        <!-- </tr>
-                      <% end %>
-                      </tbody>
-                    <% end %>
-                    </table>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-        <!-- </div>/landings-list -->
-      <!-- </div>/side-panel -->
-    <!-- </div>/span3 -->
-    <!-- end scrollable table results -->
-
-  <!-- </div>/row-fluid -->
-<!-- </div>/container -->
 
 
 <!-- Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28"> -->
