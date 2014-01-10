@@ -330,7 +330,7 @@ a .brand {
 	height: 87%; /* 90% of total side panel */
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding-top: 3px;
+	padding-top: 4px;
 	/*padding-bottom: 20px;*/
 	/*background-color: #F0EAD6;*/
 	/*background-color: white;*/
