@@ -162,8 +162,10 @@
   </div><!-- /row-fluid -->
 </div><!-- /container -->
 
-<!-- jQuery for hover and removing landings from list -->
+<!-- jQuery -->
 <script>
+
+  // bounce map marker on hover in sidebar
   $( document ).ready(function() {
     $( 'li#landing-list-items' ).hover(function() {
       $( this ).toggleClass( 'new-background' );
@@ -172,6 +174,7 @@
     });
   });
 
+  // remove map marker from sidebar
   $( document ).ready(function() {
     $( 'a#remove-landing' ).click(function( event ) {
       $( this ).parent().parent().parent().parent().slideToggle();
@@ -181,15 +184,15 @@
     });
   });
 
+  // hide sidebar and enlarge map
   // $( document ).ready(function() {
   //   $( '#hide-sidebar' ).click(function( event ) {
-  //     $( '#results-sidebar' ).css('padding-left', '200px');
-  //     // $( '#map-span' ).css('width', '100%');
+  //     $( '#full-size' ).css( 'width', '125%' );
   //     mapResize();
-  //     // $( '#map-span' ).show();
   //   });
   // });
 
+  // show legend and stats on map
   $( document ).ready(function() {
     $( '#legendModal' ).show();
     $( '.legend-box' ).hide();
@@ -204,22 +207,6 @@
     });
   });
 
-  // $( '#legend-button' ).click(function() {
-  //   $('#legendModal').modal({
-  //     backdrop: false
-  //     // keyboard: false
-  //   });
-  // });
-
-  // $( '#stats-button' ).click(function() {
-  //   $('#statsModal').modal({
-  //     backdrop: false
-  //     // keyboard: false
-  //   });
-  // });
-  // $('#legendModal').on('show', function () {
-  //   $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
-  // });
 </script>
 
 

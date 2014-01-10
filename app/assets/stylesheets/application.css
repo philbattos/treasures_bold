@@ -666,3 +666,8 @@ body #statsModal {
 .row-fluid #fields_link [class*="span"] {
 	min-height: 30px;
 }
+
+#hidden-sidebar {
+	width: 125%;
+	height: 100%;
+}
