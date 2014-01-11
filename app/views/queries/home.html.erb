@@ -1,32 +1,39 @@
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span9">
-      <div class="homepage">
-        <div class="homepage-title">
-          Find Fenn's Treasure
-        </div>
+<div class="container-fluid full-size standard-background-color">
+  <div class="row-fluid full-size">
+    <div class="span9 full-size">
+      <div class="homepage full-size">
       </div>
-    </div>
+    </div><!-- /span9 -->
     <div class="span3">
-      <div class="feature-pane">
+      <div class="row-fluid">
+        <div class='homepage-title'>
+          Treasures Bold
+        </div>
+        <div class='homepage-subtitle'>
+          Search and Map Clues to Find the Fenn Treasure
+        </div>
+        <div class="homepage-gold-chest">
+        </div>
+      </div><!-- /row -->
+      <div class="row-fluid">
+        <div class='search-description'>
+          <%= bootstrap_flash %>
 
-      </div>
-      <div class="homepage-searchbox">
+          Enter clues or keywords<br>
+          to find places related to<br>
+          Forrest Fenn's treasure
+        </div><!-- /search-description -->
+      </div><!-- /row -->
+      <div class='row-fluid'>
+        <div class="homepage-searchbox">
 
-        <%= bootstrap_flash %>
+          <%= render 'form' %>
+          <%= link_to 'Advanced Search', search_path %>
 
-        <h4>Enter clues or keywords<br>
-            to find places related to<br>
-            Forrest Fenn's treasure</h4>
-
-        <%= render 'form' %>
-
-        <h5><%= link_to 'Advanced Search', search_path %><h5>
-
+        </div><!-- /homepage-searchbox -->
         <p id="notice"><%= notice %></p>
         <p id="alert"></p>
-
-      </div>
-    </div>
-  </div>
-</div>
+      </div><!-- /row -->
+    </div><!-- /span3 -->
+  </div><!-- /row -->
+</div><!-- /container -->

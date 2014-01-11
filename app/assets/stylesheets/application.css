@@ -25,6 +25,13 @@
 	padding: 0;
 }
 
+.full-size {
+	height: 100%;
+	width: 100%;
+	margin: 0; 
+	padding: 0;
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -42,7 +49,7 @@ body {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
  	/*margin-top: -40px;*/
- 	padding-top: 40px;
+ 	/*padding-top: 40px;*/
  	/*position: fixed;  prevents pages from scrolling under navbar */
 }
 
@@ -54,6 +61,17 @@ img {
 
 strong {
  	color: darkblue;
+}
+
+/*remove padding for homepage background image*/
+/*.container-fluid {
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+}*/
+
+.container-fluid.standard-background-color {
+	background-color: #F0EAD6;
+	height: 100%;
 }
 
 .row-fluid {
@@ -150,12 +168,6 @@ th {
 td {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
-}
-
-/*remove padding for homepage background image*/
-.container-fluid {
- 	padding-left: 0px;
- 	padding-right: 0px;
 }
 
 .navbar {
@@ -554,11 +566,6 @@ li#landing-list-items {
 	/*background-color: white;*/
 }
 
-#standard-background-color {
-	background-color: #F0EAD6;
-	height: 100%;
-}
-
 #place-details {
 	font-size: 20px;
 	padding: 5px;
@@ -668,6 +675,7 @@ body #statsModal {
 	min-height: 30px;
 }
 
+/* resizing to hide search results sidebar */
 #hidden-sidebar {
 	width: 125%;
 	height: 100%;

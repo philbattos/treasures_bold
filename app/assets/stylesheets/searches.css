@@ -4,7 +4,7 @@
 */
 
 .homepage {
-	background: #f1f1f1; /* fallback light-grey color */
+	background: #F0EAD6; /* fallback light-grey color */
 	background-image: url('old_map.jpg'); /* fallback image */
 	/*background: url('treasure_map_compass_x.jpg') no-repeat center center fixed; */
   background: -webkit-linear-gradient(right, rgba(240,234,214,255) 0%,rgba(0,0,0,0) 50%), url('treasure_map_compass_x.jpg') no-repeat center center;
@@ -12,53 +12,89 @@
 	/*-webkit-mask-image: -webkit-gradient(linear, left 10%, right top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
 	/*background-image: url('treasure_map_compass_x.jpg'), -webkit-gradient(linear, left top, left bottom, from(white), to(black));*/
 	/*background-image: -webkit-radial-gradient(left, rgba(0,0,0,0) 50%, rgba(255,255,255,255) 90%), url('treasure_map_compass_x.jpg');*/
-	width: 100%;
-	min-height: 800px;
+	/*width: 100%;*/
+	/*height: 100%;*/
+	/*min-height: 800px;*/
 	background-size: cover;
-	margin-left: -30px;
-	margin-right: 200px;
-	padding: 0 15px;
+	/*margin-left: -30px;*/
+	/*margin-right: 200px;*/
+	/*padding: 0 15px;*/
+	position: relative;
+	z-index: 1;
 }
+
+/*.title-panel {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}*/
 
 .homepage-title {
-	font-size: 80px;
-	line-height: 70px;
-	font-weight: bold;
-	text-align: right;
-	margin-right: -300px;
-	padding-top: 50px;
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
+	font-size: 90px;
+	line-height: 120%;
+	font-weight: bold;
+	text-align: right;
+	padding-top: 40px;
+	position: relative;
+	z-index: 3;
+	margin-left: -250%;
+	float: right;
 }
 
-.feature-pane {
-	margin-top: 150px;
+.homepage-subtitle {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+	font-size: 28px;
+	line-height: 100%;
+	font-weight: bold;
+	text-align: right;
+	padding-top: 150px;
+	position: relative;
+	z-index: 4;
+	margin-left: -250%;
+}
+
+.homepage-gold-chest {
+	margin-top: 20px;
 	height: 270px;
   width: 270px;
-	margin-bottom: 30px;
-  background: -webkit-radial-gradient(center, rgba(0,0,0,0) 40%,rgba(240,234,214,255) 72%), url('treasure_chest_short.jpg') no-repeat center 20%;
+	margin-bottom: 20px;
+  background: -webkit-radial-gradient(center, rgba(0,0,0,0) 40%, rgba(240,234,214,255) 72%), url('treasure_chest_short.jpg') no-repeat center 20%;
 	/*background: url('treasure_chest_short.jpg') no-repeat center 20%;*/
   /*box-shadow: inset 0px 0px 30px rgba(1,1,1,1);*/
+  float: right;
+  position: relative;
+  z-index: 2;
 }
 
-.homepage-treasure-chest {
-	/*-webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);*/
-	/*-webkit-linear-gradient(top,  rgba(232, 227, 227, 0.95) 0%,rgba(246, 242, 242, 0.95) 100%); /* Chrome10+,Safari5.1+ */
+.search-description {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	color: #3a3a3a;
+	font-size: 24px;
+	line-height: 100%;
+	text-align: right;
+	/*margin-left: -40px;*/
+	position: relative;
+	z-index: 5;
 }
 
 .homepage-searchbox {
-	/*margin-top: 300px;*/
-	text-align: center;
-	margin-right: 30px;
+	width: 70%;
+	float: right;
+	text-align: right;
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
- 	font-size: 50px;
+ 	/*font-size: 50px;*/
+ 	position: relative;
+ 	z-index: 5;
 }
 
-.old_map {
+/*.old_map {
 	background: -webkit-linear-gradient(left, rgba(255,215,0,255), rgba(0,0,0,0) 100%), url('old_map.jpg') no-repeat;
 	width: 100%;
 	min-height: 700px;
 	background-size: cover;
 	padding-right: 300px;
-}
+}*/
