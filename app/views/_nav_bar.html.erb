@@ -1,25 +1,27 @@
-<!-- <div class="homepage"> -->
 <div class="container-fluid">
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      
+  <div class="navbar navbar-fixed-top">
+    <!-- <div class="navbar-inner"> -->
+        
       <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
       
-      <a class="brand" href="/">Treasure Finder</a>
-      
-      <div class="container-fluid nav-collapse">
+      <a class="brand" href="/">Treasures Bold</a>
 
-        <ul class="nav">
-          <li class="divider-vertical"></li>
-          <li><%= link_to "search", search_path %></li>
-          <li class="divider-vertical"></li>
-          <li><%= link_to "about", about_path %></li>
-        </ul>
+      <ul class="nav">
+        <li class="divider-vertical"></li>
+        <li><%= link_to "search", search_path %></li>
+        <li class="divider-vertical"></li>
+        <li><%= link_to "about", about_path %></li>
+        <li class="divider-vertical"></li>
+        <li><%= link_to "chase", "/chase" %></li>
+      </ul>
+      
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
 
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>
@@ -34,9 +36,9 @@
           <% end %>
         </ul>
 
-      </div><!--/nav-collapse -->
-    
-    </div><!-- /container -->
-  </div>
-</div>
-</div>
+      </div><!--/container nav-collapse -->
+      
+    <!-- </div>/navbar-inner -->
+  </div><!-- /navbar navbar-fixed-top -->
+</div><!-- /container -->
+

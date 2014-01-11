@@ -48,8 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
- 	/*margin-top: -40px;*/
- 	/*padding-top: 40px;*/
+ 	padding-top: 40px; /* prevents navbar from covering top of page */
  	/*position: fixed;  prevents pages from scrolling under navbar */
 }
 
@@ -170,40 +169,45 @@ td {
  	color: #3a3a3a;
 }
 
-.navbar {
-	background-color: #3a3a3a;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
- 	margin-bottom: 0px;
- 	padding-left: 30px;
- 	padding-right: 10px;
+/***********************/
+/***** navbar code *****/
+/***********************/
+
+/* container-fluid */
+.navbar,
+.navbar.navbar-fixed-top {
+	font-family: "Modern Antiqua", serif;
+	background-color: #C9AD71;
+ 	/*margin-bottom: 0px;*/
+ 	/*padding-left: 30px;*/
+ 	/*padding-right: 10px;*/
+ 	/*opacity: 0.1;*/
+ 	/*border-bottom: 1px;*/
 }
 
 .navbar-inner {
+	/*font-family: "IM Fell DW Pica", "Modern Antiqua", serif;*/
 	/*background-image: linear-gradient(to bottom, #ffffff, goldenrod);*/
-	background-color: #3a3a3a;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
-	border: none;
-	border-radius: 0px;
+	/*background-color: #9C7C44;*/
+	/*border: none;*/
+	/*border-radius: 0px;*/
 	/*padding: 10px;*/
 	/*border-bottom: 10px black;*/
 }
 
+/* .navbar .brand = .navbar a.brand = .navbar > .brand = .navbar > a.brand */
 .navbar .brand {
-	background-color: #3a3a3a;
-	color: gold;
-	text-shadow: 0 0px 0 #ffffff;
+	font-family: "Modern Antiqua", "Garamond", "Arial", serif;
+	background-color: #C9AD71;
+	color: #3a3a3a;
+	text-shadow: none;
 	font-size: 28px;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	/*height: 40px;*/
 }
 
-a .brand {
-	background-color: #3a3a3a;
-	/*height: 100%;*/
-}
-
 .navbar .nav > li > a {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: "Arial", serif;
 	font-size: 20px;
 	background-color: #3a3a3a;
 	color: gold;
@@ -254,6 +258,11 @@ a .brand {
 	border-right: 1px solid #777777;
 	margin: 0px;
 }
+
+/***********************/
+/*** end navbar code ***/
+/***********************/
+
 
 .row-fluid > .span3 {
 	margin: 0px;

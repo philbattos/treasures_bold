@@ -36,7 +36,7 @@
 	line-height: 120%;
 	font-weight: bold;
 	text-align: right;
-	padding-top: 40px;
+	padding-top: 25px;
 	position: relative;
 	z-index: 3;
 	margin-left: -250%;
@@ -81,7 +81,7 @@
 }
 
 .homepage-searchbox {
-	width: 70%;
+	width: 75%;
 	float: right;
 	text-align: right;
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
