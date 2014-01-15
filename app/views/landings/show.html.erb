@@ -1,9 +1,9 @@
-<body class="nonscroll hide-scroll">
+<body class="navbar-adjustment nonscroll hide-scroll">
 <%= bootstrap_flash %>
 
-<div class="container-fluid" id="full-size">
+<div class="container-fluid navbar-adjustment" id="full-size">
   <div class="row-fluid" id="full-size">
-    <div class="span9" style="height: 100%; width: 75%">
+    <div class="span9" id="map-span" style="height: 95%; width: 75%">
 
       <!-- Map inserted into application layout -->
       <% content_for :map do %>
@@ -25,29 +25,8 @@
       <!-- end map -->
 
     </div><!-- /span9 -->
-
-    <!-- jQuery to change background color of listings on hover -->
-    <script>
-    // $( document ).ready(function() {
-    //   $( "div#fields" ).hide();
-    //   $( "a#reveal_fields" ).click(function( event ) {
-    //     $( "div#fields" ).slideToggle( "fast" );
-    //     $( "#fields_link" ).toggle();
-    //     event.preventDefault();
-    //   });
-    // });
-    $( document ).ready(function() {
-      $( "li" ).hover(function() {
-        $( this ).toggleClass( "new-background" );
-      });
-      // $( "li" ).click(function( event ) {
-      //   event.preventDefault();
-      // });
-    });
-      
-    </script>
         
-    <div class="span3" style="height: 100%; width: 25%;">
+    <div class="span3" style="height: 95%; width: 25%;">
       <div class="row-fluid" style="height: 10%;">
         <div class="results-heading">
           <h1>Place Details</h1>

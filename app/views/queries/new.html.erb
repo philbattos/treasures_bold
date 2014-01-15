@@ -73,17 +73,43 @@
     		</div><!-- /span4 -->
 				<div class="span5">
 				  <label class="checkbox-inline">
-				    <input type="checkbox" id="field_select_place_name" name="query[entries][entry1][fields][feature_name]" checked> Place Name
+				    <input type="checkbox" id="field_select_place_name" name="query[entries][entry1][fields][feature_name]"> Place Name
 				  </label>	  
 				  <label class="checkbox-inline">
-				    <input type="checkbox" id="field_select_place_type" name="query[entries][entry1][fields][feature_class]" checked> Place Type (river, mountain, town, etc.)
+				    <input type="checkbox" id="field_select_place_type" name="query[entries][entry1][fields][feature_class]"> Place Type (river, mountain, town, etc.)
 				  </label>
 				  <label class="checkbox-inline">
-				    <input type="checkbox" id="state" name="query[entries][entry1][fields][state]" checked> State
+				    <input type="checkbox" id="state" name="query[entries][entry1][fields][state]"> State
 				  </label>
 				  <label class="checkbox-inline">
-				    <input type="checkbox" id="city" name="query[entries][entry1][fields][county]" checked> County
+				    <input type="checkbox" id="city" name="query[entries][entry1][fields][county]"> County
 				  </label>
+
+		    	
+	      	<div class="row-fluid">
+	      		<div class="span2">
+	  		    	Place Name
+	  		    </div>
+	  		    <div class="span10">
+				    	<div class="checkboxThree">
+				    		<input type="checkbox" value="1" id="checkboxThreeInput" name="query[entries][entry1][fields][feature_name]" checked/>
+				  	  	<label for="checkboxThreeInput"></label>
+				    	</div>
+		    	  </div><!-- /span10 -->
+		    	</div><!-- /row -->
+
+		    	<div class="row-fluid">
+		    		<div class="span2">
+				    	County
+				    </div>
+				    <div class="span10">
+				    	<div class="checkboxThree">
+				    		<input type="checkbox" value="1" id="checkboxThreeInput" name="query[entries][entry1][fields][county]" checked/>
+				  	  	<label class= "checkbox-inline" for="checkboxThreeInput"></label>
+				    	</div>
+				    </div><!-- /span10 -->
+				  </div><!-- /row -->
+
 				  <a href="#" id="reveal_fields">[Hide]</a>
 				  <br>
 				  <br>
@@ -166,6 +192,7 @@
 
 			<div class="row-fluid" id="fields2_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
 					<a href="#" id="reveal_fields2">Show Searchable Fields</a>
@@ -175,6 +202,7 @@
 
 			<div class="row-fluid" id="entry2_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
 					<a href="#" id="reveal_entry2">Add Search Entry</a>
@@ -210,6 +238,7 @@
 
 			<div class="row-fluid" id="excluded_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
 					<a href="#" id="reveal_excluded">Enter Terms to Exclude from Search</a>
@@ -277,15 +306,19 @@
 
 			<div class="row-fluid" id="cust_elev_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
 					<a href="#" id="reveal_cust_elev">Custom Elevation</a>
 				  <br>
 				</div><!-- /span5 -->
+				<div class="span3">
+				</div>
 			</div><!-- /row -->
 
 			<div class="row-fluid" id="elevation_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
 					<a href="#" id="reveal_elev">Elevation Options</a>
@@ -334,6 +367,7 @@
 
 			<div class="row-fluid" id="coords_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
 					<a href="#" id="reveal_coords">Enter Coordinates Range</a>
@@ -372,10 +406,13 @@
 
 			<div class="row-fluid" id="default_link">
 				<div class="span4">
+					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_default">View Default Settings</a>
-				  <br>
+					<div class="search-options-link">
+						<a href="#" id="reveal_default">View Default Settings</a>
+					  <br>
+					</div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
