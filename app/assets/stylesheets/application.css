@@ -16,6 +16,13 @@
  *= require_tree .
  */
 
+/* color scheme */
+/* http://colorschemedesigner.com/ */
+/* RGB: B09768 */
+/**** primary colors: #B09768 #84765B #725722 #D8C195 #D8C7A7 */
+/* complement colors: #4A5975 #404858 #182A4C #8798BA #94A1BA */
+/* custom charcoal color: #3a3a3a */
+
 /* this stretches map to full container dimensions */
 /* without this, its necessary to explicitly define height of map-canvas */
 #full-size {
@@ -38,17 +45,17 @@ html, body {
 }
 /* end full-size stretching */
 
+/*/*/
 h1, h2, h3, h4, h5, h6 {
  	margin: 0px 0;
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
- 	/*color: darkblue;*/
 }
 
 body {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
  	color: #3a3a3a;
- 	padding-top: 40px; /* prevents navbar from covering top of page */
+ 	/*padding-top: 47px; /* prevents navbar from covering top of page */
  	/*position: fixed;  prevents pages from scrolling under navbar */
 }
 
@@ -58,21 +65,19 @@ img {
 	max-width: none;
 }
 
-strong {
- 	color: darkblue;
-}
-
-/*remove padding for homepage background image*/
-/*.container-fluid {
+/* remove padding for homepage background image and for collapsed navbar */
+.container-fluid {
  	padding-left: 0px;
  	padding-right: 0px;
-}*/
-
-.container-fluid.standard-background-color {
-	background-color: #F0EAD6;
-	height: 100%;
 }
 
+.standard-background-color {
+	background-color: #D8C7A7;
+	height: 100%;
+	/*padding-top: 47px;*/
+}
+
+/*/*/
 .row-fluid {
  	width: 100%;
  	min-height: 0px;
@@ -80,178 +85,91 @@ strong {
  	/* padding-right: 30px; */
 }
 
+/*/*/
 .row-fluid [class*="span"] {
 	min-height: 0px;
 }
 
-table {
-	border: solid #dddddd 0px;
-	/*border-radius: 4px;*/
+/*/*/
+.row-fluid > .span3 {
+	margin: 0px;
+	padding-right: 0px;
 }
 
-.table th,
-.table td {
-	padding: 4px;
+/* make page static (unable to scroll) */
+.nonscroll {
+	position: fixed;
 }
 
-/*Center the heading of the table*/
-.table > thead > tr:first-child > th {
- 	text-align: center;
- 	background-color: #eeeeee;
-}
-
-.table-striped > thead > tr > th {
- 	background-color: #dddddd;
-}
-
-.table-striped > thead > tr > th:nth-child(even) {
- 	text-align: center;
- 	padding: none;
-}
-
-.table-striped {
- 	margin-bottom: 5px;
- 	text-align: right;
-}
-
-.table-striped > tbody > tr > td, 
-.table-striped > tbody > tr > th {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
- 	color: #3a3a3a;
- 	font-size: 16px;
- 	vertical-align: middle;
- 	padding: 5px;
-}
-
-.table-striped > tbody > tr:nth-child(odd) > td,
-.table-striped > tbody > tr:nth-child(odd) > th {
- 	background-color: #ccffcc;
-}
-
-.table-striped > tbody > tr:nth-child(even) > td,
-.table-striped > tbody > tr:nth-child(even) > th {
- 	background-color: #EBD89D;
-}
-
-.table-striped > tbody > tr:nth-child(even):hover > td,
-.table-striped > tbody > tr:nth-child(even):hover > th {
-	background-color: goldenrod;
-}
-
-.table-striped > tbody > tr:nth-child(odd):hover > td,
-.table-striped > tbody > tr:nth-child(odd):hover > th {
-	background-color: #8BE08B;
-}
-
-/*.table-striped > tbody > tr > td > a,*/
-.table-striped > tbody > tr > td > a:hover,
-.table-striped > tbody > tr > th > a:hover {
-	background-color: transparent;
-	color: black;
-	/*font-weight: bold;*/
-}
-
-.table-striped > tbody > tr > td > a {
-	display: block;
-	text-decoration: none;
-}
-
-/*table heading text*/
-th {
- 	color: darkblue;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
- 	color: #3a3a3a;
- 	font-size: 18px;
-}
-
-td {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
- 	color: #3a3a3a;
+/* hide scrollbar */
+.hide-scroll {
+	overflow-y: hidden;
 }
 
 /***********************/
 /***** navbar code *****/
 /***********************/
 
-/* container-fluid */
-.navbar,
-.navbar.navbar-fixed-top {
-	font-family: "Modern Antiqua", serif;
-	background-color: #C9AD71;
- 	/*margin-bottom: 0px;*/
- 	/*padding-left: 30px;*/
- 	/*padding-right: 10px;*/
- 	/*opacity: 0.1;*/
- 	/*border-bottom: 1px;*/
+/* add padding so page doesn't slide up under navbar */
+.navbar-adjustment {
+	padding-top: 47px;
 }
 
-.navbar-inner {
-	/*font-family: "IM Fell DW Pica", "Modern Antiqua", serif;*/
+/* container-fluid */
+.navbar {
+	font-family: "Modern Antiqua", serif;
+	background-color: #725722;
+ 	/*border-bottom: 10px solid #404858;*/
+}
+
+.navbar-fixed-top {
+	margin-bottom: 0;
+}
+
+.navbar .navbar-inner {
+	background-color: #725722;
+	border-bottom: 8px solid #404858;
+	background-image: none;
+ 	padding-left: 30px;
+ 	padding-right: 10px;
 	/*background-image: linear-gradient(to bottom, #ffffff, goldenrod);*/
-	/*background-color: #9C7C44;*/
-	/*border: none;*/
-	/*border-radius: 0px;*/
 	/*padding: 10px;*/
-	/*border-bottom: 10px black;*/
 }
 
 /* .navbar .brand = .navbar a.brand = .navbar > .brand = .navbar > a.brand */
-.navbar .brand {
+.navbar .navbar-inner .brand {
 	font-family: "Modern Antiqua", "Garamond", "Arial", serif;
-	background-color: #C9AD71;
-	color: #3a3a3a;
+	background-color: #725722;
+	/*background-image: linear-gradient(to bottom, #182A4C, #404858);*/
+	color: #D8C7A7;
 	text-shadow: none;
 	font-size: 28px;
-	/*font-weight: bold;*/
-	/*height: 40px;*/
+	font-weight: bold;
+	height: 100%;
+	/*border-bottom: 2px;*/
 }
 
+.navbar .nav > li,
 .navbar .nav > li > a {
 	font-family: "Arial", serif;
 	font-size: 20px;
-	background-color: #3a3a3a;
-	color: gold;
+	background-color: #725722;
+	color: #D8C7A7;
 	text-shadow: none;
-	/*margin: 0px;*/
-	/*padding-left: 0px;*/
 }
 
-	.navbar .nav > li > a:hover {
-		color: white;
-		background-color: #222222;
-	}
-
-.nav-collapse,
-.nav-collapse > li {
-	background-color: #3a3a3a;
+.navbar .nav.pull-right > li {
+	padding: 10px 15px 10px; /* bootstrap default for .navbar .nav > li > a */
+	font-family: "Arial", serif;
+	font-size: 20px;
+	background-color: #725722;
+	color: #D8C7A7;
+	/*text-shadow: none;*/
 }
-
-/*.nav-collapse > li > a,
-.nav-collapse > li > a:hover,
-.nav-collapse > li > a:focus {
-	background-color: #3a3a3a;
-}*/
-
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
-	background-color: #3a3a3a;
-}
-
-.nav a,
-.nav a:hover {
-	color: white;
-}
-
-.btn .btn-navbar,
-.btn .btn-navbar .collapse,
-.btn .btn-navbar .nav-collapse .collapse {
-	background-color: #3a3a3a;
-}
-
-.btn-navbar {
-	background-color: #3a3a3a;
-}
+		.navbar .nav > li > a:hover {
+			background-color: #404858;
+			color: #D8C7A7;
+		}
 
 .navbar .divider-vertical {
 	border-left: 1px solid #777777;
@@ -259,30 +177,27 @@ td {
 	margin: 0px;
 }
 
+/***** collapsed navbar *****/
+.nav-collapse .nav.pull-right li {
+
+}
+
+/* button in collapsed navbar to show more links */
+.btn.btn-navbar {
+	background: #B09768;
+}
+		.btn.btn-navbar:hover {
+			background: #D8C195;
+		}
+
+		/* lines on collapsed navbar button */
+		.btn.btn-navbar .icon-bar {
+			background-color: #404858;
+		}
+
 /***********************/
 /*** end navbar code ***/
 /***********************/
-
-
-.row-fluid > .span3 {
-	margin: 0px;
-	padding-right: 0px;
-}
-
-.side-panel {
-	/*max-height: 700px;*/
-	/*position: absolute;*/
-	/*overflow: auto;*/
-}
-
-.results-title {
-	padding-top: 20px;
-	text-align: center;
-}
-
-.results-title h1 {
-	/*color: #5C4112;*/
-}
 
 .legend-box {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
@@ -311,25 +226,7 @@ td {
 	/*box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.3);*/
 }
 
-.legend-box > .well {
-	margin: 0px;
-	padding: 0px;
-	/*border-top-left-radius: 0px;*/
-	/*border-bottom-left-radius: 0px;*/
-}
-
-.results-list {
-	/*margin-right: 30px;*/
-	/*margin-left: 30px;*/
-	/*margin-top: 15px;*/
-	/*overflow: scroll;*/
-	/*height: auto;*/
-	/*max-height: 400px;*/
-	height: 100%;
-	/*border: solid 1px;*/
-	/*box-shadow: 0px 10px 10px;*/
-}
-
+/*/*/
 .results-heading {
 	height: 100%;
 	/*width: 100%;*/
@@ -343,11 +240,13 @@ td {
 	min-height: 40px;
 }
 
-.results-heading h1 {
-	/*text-align: center;*/
-	/*color: gold;*/
+.results-footer {
+	background-color: #D1BE86;
+	height: 100%;
+	box-shadow: 0px -2px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
+/*/*/
 #landings-list {
 	height: 87%; /* 90% of total side panel */
 	overflow-y: scroll;
@@ -358,44 +257,7 @@ td {
 	/*background-color: white;*/
 }
 
-.results-footer {
-	background-color: #D1BE86;
-	height: 100%;
-	box-shadow: 0px -2px 5px 0 rgba(0, 0, 0, 0.5);
-}
-
-#vert-scroll-off {
-	overflow-y: hidden;
-}
-
-#white-background {
-	background-color: white;
-}
-
-.results-list > table.table-striped {
-	/*background-color: red;*/
-	height: 100%;
-	max-height: 600px;
-}
-
-.results-list > table.table-striped > tbody > tr > td {
-	padding: 0px;
-}
-
-.results-items {
-	/*overflow: scroll;*/
-}
-
-.inner-results {
-	overflow: scroll;
-	max-height: 600px;
-}
-
-/*.inner-table {
-	overflow: scroll;
-	max-height: 400px;
-}*/
-
+/*/*/
 .landing-list-marker {
 	text-align: center;
 	padding-top: 10px; /* center marker vertically */
@@ -403,70 +265,33 @@ td {
 	/*width: 20%;*/
 }
 
-.btn-large {
-	background: goldenrod;
+.input-large[class=input-large] {
+	height: 40px;
+	line-height: 30px;
+	font-size: 24px;
+	width: 100%;
+	margin-left: -10px;
+	/*padding: 10px;*/
+}
+
+.btn-large.homepage {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	background: #4A5975;
+	color: #D8C7A7;
+	/*color: white;*/
 	font-size: 28px;
-	width: 50%;
+	width: 70%;
 	text-shadow: none;
 	border: none;
-
 }
 
-.btn-large:hover {
-	background-color: gold;
+.btn-large.homepage:hover {
+	background-color: #404858;
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
 }
 
-/*legend-box sidebar*/
-.well {
-	/*padding: 0px;*/
-	/*margin: 20px;*/
-	background-color: #EBD89D;
-	border: solid 2px #9C7C44;
-	border-radius: 20px;
-}
-
-.well table {
-	background-color: #EBD89D;
-	width: 100%;
-	border-radius: 20px 20px 20px 20px;
-}
-
-.well table > thead > tr:first-child > th,
-.well table > thead > tr:first-child > th > h2 {
-	background-color: #D1BE86;
-	color: #5C4112;
-	border-radius: 20px 20px 20px 20px;
-}
-
-.well table > thead > tr > th,
-.well table > thead > tr > th {
-	background-color: #9C7C44;
-	color: #EBD89D;
-	/*border-radius: 20px 20px 0px 0px;*/
-}
-
-/*.well table > thead > tr > th,*/
-.well table > tbody > tr > td {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
-	color: #5C4112;
-	/*font-size: 16px;*/
-	border-radius: 0 0 20px 20px;
-}
-
-.well table > tbody > tr {
-	border-radius: 0 0 20px 20px;
-}
-
-.well table > tbody > tr > td {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
-	font-size: 16px;
-	text-align: center;
-}
-
-.well table > tbody > tr:nth-child(even) > td {
-	background-color: #DBCA97;
+.btn.disabled {
+	background-color: lightgrey;
 }
 
 .span8 > .row-fluid,
@@ -499,23 +324,6 @@ td {
 	padding: 40px;
 	margin: 20px;
 	width: 100%;
-}
-
-.input-large[class=input-large] {
-	height: 40px;
-	line-height: 30px;
-	font-size: 24px;
-	width: 100%;
-	margin-left: -10px;
-	/*padding: 10px;*/
-}
-
-.btn.btn-large {
-	width: 200px;
-}
-
-.btn.disabled {
-	background-color: lightgrey;
 }
 
 .blank-map,
@@ -689,3 +497,92 @@ body #statsModal {
 	width: 125%;
 	height: 100%;
 }
+
+/*** reexamine ***/
+/*/*/
+table {
+	border: solid #dddddd 0px;
+	/*border-radius: 4px;*/
+}
+
+.table th,
+.table td {
+	padding: 4px;
+}
+
+/*Center the heading of the table*/
+.table > thead > tr:first-child > th {
+ 	text-align: center;
+ 	background-color: #eeeeee;
+}
+
+.table-striped > thead > tr > th {
+ 	background-color: #dddddd;
+}
+
+.table-striped > thead > tr > th:nth-child(even) {
+ 	text-align: center;
+ 	padding: none;
+}
+
+.table-striped {
+ 	margin-bottom: 5px;
+ 	text-align: right;
+}
+
+.table-striped > tbody > tr > td, 
+.table-striped > tbody > tr > th {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+ 	font-size: 16px;
+ 	vertical-align: middle;
+ 	padding: 5px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+ 	background-color: #ccffcc;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+ 	background-color: #EBD89D;
+}
+
+.table-striped > tbody > tr:nth-child(even):hover > td,
+.table-striped > tbody > tr:nth-child(even):hover > th {
+	background-color: goldenrod;
+}
+
+.table-striped > tbody > tr:nth-child(odd):hover > td,
+.table-striped > tbody > tr:nth-child(odd):hover > th {
+	background-color: #8BE08B;
+}
+
+/*.table-striped > tbody > tr > td > a,*/
+.table-striped > tbody > tr > td > a:hover,
+.table-striped > tbody > tr > th > a:hover {
+	background-color: transparent;
+	color: black;
+	/*font-weight: bold;*/
+}
+
+.table-striped > tbody > tr > td > a {
+	display: block;
+	text-decoration: none;
+}
+
+/*table heading text*/
+th {
+ 	color: darkblue;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+ 	font-size: 18px;
+}
+
+td {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+ 	color: #3a3a3a;
+}
+
+

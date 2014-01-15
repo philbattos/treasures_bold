@@ -7,7 +7,7 @@
 	background: #F0EAD6; /* fallback light-grey color */
 	background-image: url('old_map.jpg'); /* fallback image */
 	/*background: url('treasure_map_compass_x.jpg') no-repeat center center fixed; */
-  background: -webkit-linear-gradient(right, rgba(240,234,214,255) 0%,rgba(0,0,0,0) 50%), url('treasure_map_compass_x.jpg') no-repeat center center;
+  background: -webkit-linear-gradient(right, rgba(216,199,167,255) 0%,rgba(0,0,0,0) 50%), url('treasure_map_compass_x.jpg') no-repeat center center;
   /*background: -webkit-radial-gradient(right, rgba(255,255,255,255) 0%,rgba(0,0,0,0) 80%), url('treasure_map_compass_x.jpg') no-repeat center center;*/
 	/*-webkit-mask-image: -webkit-gradient(linear, left 10%, right top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));*/
 	/*background-image: url('treasure_map_compass_x.jpg'), -webkit-gradient(linear, left top, left bottom, from(white), to(black));*/
@@ -61,7 +61,7 @@
 	height: 270px;
   width: 270px;
 	margin-bottom: 20px;
-  background: -webkit-radial-gradient(center, rgba(0,0,0,0) 40%, rgba(240,234,214,255) 72%), url('treasure_chest_short.jpg') no-repeat center 20%;
+  background: -webkit-radial-gradient(center, rgba(0,0,0,0) 40%, rgba(216,199,167,255) 72%), url('treasure_chest_short.jpg') no-repeat center 20%;
 	/*background: url('treasure_chest_short.jpg') no-repeat center 20%;*/
   /*box-shadow: inset 0px 0px 30px rgba(1,1,1,1);*/
   float: right;
@@ -71,7 +71,7 @@
 
 .search-description {
 	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
-	color: #3a3a3a;
+	color: #725722;
 	font-size: 24px;
 	line-height: 100%;
 	text-align: right;
