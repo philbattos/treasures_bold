@@ -572,7 +572,7 @@ input#elevation_5000 {
 /**
  * Checkbox Three
  */
-.checkboxThree {
+.checkbox-slider {
 	width: 75px;
 	height: 26px;
 	background: #404858;
@@ -585,7 +585,7 @@ input#elevation_5000 {
 /**
  * Create the text for the On position
  */
-.checkboxThree:before {
+.checkbox-slider:before {
 	content: 'On';
 	position: absolute;
 	top: 4px;
@@ -598,7 +598,7 @@ input#elevation_5000 {
 /**
  * Create the label for the off position
  */
-.checkboxThree:after {
+.checkbox-slider:after {
 	content: 'Off';
 	position: absolute;
 	top: 4px;
@@ -611,7 +611,7 @@ input#elevation_5000 {
 /**
  * Create the pill to click
  */
-.checkboxThree label {
+.checkbox-slider label {
 	display: block;
 	width: 30px;
 	height: 16px;
@@ -633,9 +633,38 @@ input#elevation_5000 {
 /**
  * Create the checkbox event for the label
  */
-.checkboxThree input[type=checkbox]:checked + label {
+.checkbox-slider input[type=checkbox]:checked + label {
 	left: 39px;
 	background: #94A1BA;
+}
+
+.checkbox-slider-text {
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	line-height: 30px;
+	font-size: 20px;
+	text-align: right;
+	/*display: block;*/
+}
+
+.checkbox-slider-text-small {
+	font-size: 18px;
+}
+
+.hide-link,
+.hide-link a {
+	font-size: 12px;
+	text-align: center;
+	font-family: "Arial";
+	padding-bottom: 12px;
+}
+
+.show-link,
+.show-link a,
+.show-link a:visited {
+	font-size: 20px;
+	/*text-align: center;*/
+	font-family: "Arial";
+	color: #4A5975;
 }
 
 /*** reexamine ***/

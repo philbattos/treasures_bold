@@ -35,7 +35,7 @@
 	    	</div><!-- /span5 -->
 	    </div><!-- /row -->
 
-	    <div class="row-fluid">
+	    <div class="row-fluid" style="background-color: #B09768;">
 				<div class="span4">
 					<div class="description_heading">
 	    			<h3>Search Terms</h3>
@@ -65,14 +65,16 @@
 			});
 			</script>
 
-	    <div class="row-fluid" id="fields">
+	    <div class="row-fluid" id="fields" style="background-color: #B09768;">
 				<div class="span4">
 					<div class="description_heading">
 	    			<h3>Search Fields</h3>
 	    		</div><!-- /description_heading -->
     		</div><!-- /span4 -->
 				<div class="span5">
-				  <label class="checkbox-inline">
+
+					<!-- simple input checkboxes -->
+<!-- 				  <label class="checkbox-inline">
 				    <input type="checkbox" id="field_select_place_name" name="query[entries][entry1][fields][feature_name]"> Place Name
 				  </label>	  
 				  <label class="checkbox-inline">
@@ -83,36 +85,73 @@
 				  </label>
 				  <label class="checkbox-inline">
 				    <input type="checkbox" id="city" name="query[entries][entry1][fields][county]"> County
-				  </label>
+				  </label> -->
 
 		    	
 	      	<div class="row-fluid">
-	      		<div class="span2">
-	  		    	Place Name
-	  		    </div>
-	  		    <div class="span10">
-				    	<div class="checkboxThree">
-				    		<input type="checkbox" value="1" id="checkboxThreeInput" name="query[entries][entry1][fields][feature_name]" checked/>
-				  	  	<label for="checkboxThreeInput"></label>
+	      		<div class="span3">
+	      			<div class="checkbox-slider-text">
+		  		    	Place Name
+		  		    </div><!-- /checkbox-slider-text -->
+	  		    </div><!-- /span3 -->
+	  		    <div class="span9">
+				    	<div class="checkbox-slider">
+				    		<input type="checkbox" value="1" id="checkbox-slider-place-name" name="query[entries][entry1][fields][feature_name]" checked/>
+				  	  	<label for="checkbox-slider-place-name"></label>
 				    	</div>
-		    	  </div><!-- /span10 -->
+		    	  </div><!-- /span9 -->
+		    	</div><!-- /row -->
+
+	      	<div class="row-fluid">
+	      		<div class="span3">
+	      			<div class="checkbox-slider-text">
+		  		    	Place Type
+		  		    </div><!-- /checkbox-slider-text -->
+	  		    </div><!-- /span3 -->
+	  		    <div class="span9">
+				    	<div class="checkbox-slider">
+				    		<input type="checkbox" value="1" id="checkbox-slider-place-type" name="query[entries][entry1][fields][feature_class]" checked/>
+				  	  	<label for="checkbox-slider-place-type"></label>
+				    	</div>
+		    	  </div><!-- /span9 -->
+		    	</div><!-- /row -->
+
+	      	<div class="row-fluid">
+	      		<div class="span3">
+	      			<div class="checkbox-slider-text">
+		  		    	State
+		  		    </div><!-- /checkbox-slider-text -->
+	  		    </div><!-- /span3 -->
+	  		    <div class="span9">
+				    	<div class="checkbox-slider">
+				    		<input type="checkbox" value="1" id="checkbox-slider-state" name="query[entries][entry1][fields][state]" checked/>
+				  	  	<label for="checkbox-slider-state"></label>
+				    	</div>
+		    	  </div><!-- /span9 -->
 		    	</div><!-- /row -->
 
 		    	<div class="row-fluid">
-		    		<div class="span2">
-				    	County
-				    </div>
-				    <div class="span10">
-				    	<div class="checkboxThree">
-				    		<input type="checkbox" value="1" id="checkboxThreeInput" name="query[entries][entry1][fields][county]" checked/>
-				  	  	<label class= "checkbox-inline" for="checkboxThreeInput"></label>
+		    		<div class="span3">
+		    			<div class="checkbox-slider-text">
+					    	County
+					    </div>
+				    </div><!-- /span3 -->
+				    <div class="span9">
+				    	<div class="checkbox-slider">
+				    		<input type="checkbox" value="1" id="checkbox-slider-county" name="query[entries][entry1][fields][county]" checked/>
+				  	  	<label class= "checkbox-inline" for="checkbox-slider-county"></label>
 				    	</div>
-				    </div><!-- /span10 -->
+				    </div><!-- /span9 -->
 				  </div><!-- /row -->
 
-				  <a href="#" id="reveal_fields">[Hide]</a>
-				  <br>
-				  <br>
+  			  <div class="row-fluid">
+  			  	<div class="span6">
+  			  		<div class="hide-link">
+							  <a href="#" id="reveal_fields">hide</a>
+							</div>
+						</div>
+					</div>
+
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -120,8 +159,9 @@
 				<div class="span4">
 				</div>
 				<div class="span5">
-					<a href="#" id="reveal_fields">Show Searchable Fields</a>
-				  <br>
+					<div class="show-link">
+						<a href="#" id="reveal_fields">show searchable fields</a>
+				  </div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -172,21 +212,71 @@
 	    		</div><!-- /description_heading -->
     		</div><!-- /span4 -->
 				<div class="span5">
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="field_select_place_name" name="query[entries][entry2][fields][feature_name]" checked> Place Name
-				  </label>	  
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="field_select_place_type" name="query[entries][entry2][fields][feature_class]" checked> Place Type (river, mountain, town, etc.)
-				  </label>
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="state" name="query[entries][entry2][fields][state]" checked> State
-				  </label>
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="city" name="query[entries][entry2][fields][county]" checked> County
-				  </label>
-				  <a href="#" id="reveal_fields2">[Hide]</a>
-				  <br>
-				  <br>
+
+        	<div class="row-fluid">
+        		<div class="span3">
+        			<div class="checkbox-slider-text">
+  	  		    	Place Name
+  	  		    </div><!-- /checkbox-slider-text -->
+    		    </div><!-- /span3 -->
+    		    <div class="span9">
+  			    	<div class="checkbox-slider">
+  			    		<input type="checkbox" value="1" id="checkbox-slider-place-name" name="query[entries][entry1][fields][feature_name]" checked/>
+  			  	  	<label for="checkbox-slider-place-name"></label>
+  			    	</div>
+  	    	  </div><!-- /span9 -->
+  	    	</div><!-- /row -->
+
+        	<div class="row-fluid">
+        		<div class="span3">
+        			<div class="checkbox-slider-text">
+  	  		    	Place Type
+  	  		    </div><!-- /checkbox-slider-text -->
+    		    </div><!-- /span3 -->
+    		    <div class="span9">
+  			    	<div class="checkbox-slider">
+  			    		<input type="checkbox" value="1" id="checkbox-slider-place-type" name="query[entries][entry1][fields][feature_class]" checked/>
+  			  	  	<label for="checkbox-slider-place-type"></label>
+  			    	</div>
+  	    	  </div><!-- /span9 -->
+  	    	</div><!-- /row -->
+
+        	<div class="row-fluid">
+        		<div class="span3">
+        			<div class="checkbox-slider-text">
+  	  		    	State
+  	  		    </div><!-- /checkbox-slider-text -->
+    		    </div><!-- /span3 -->
+    		    <div class="span9">
+  			    	<div class="checkbox-slider">
+  			    		<input type="checkbox" value="1" id="checkbox-slider-state" name="query[entries][entry1][fields][state]" checked/>
+  			  	  	<label for="checkbox-slider-state"></label>
+  			    	</div>
+  	    	  </div><!-- /span9 -->
+  	    	</div><!-- /row -->
+
+  	    	<div class="row-fluid">
+  	    		<div class="span3">
+  	    			<div class="checkbox-slider-text">
+  				    	County
+  				    </div>
+  			    </div><!-- /span3 -->
+  			    <div class="span9">
+  			    	<div class="checkbox-slider">
+  			    		<input type="checkbox" value="1" id="checkbox-slider-county" name="query[entries][entry1][fields][county]" checked/>
+  			  	  	<label class= "checkbox-inline" for="checkbox-slider-county"></label>
+  			    	</div>
+  			    </div><!-- /span9 -->
+  			  </div><!-- /row -->
+
+  			  <div class="row-fluid">
+  			  	<div class="span6">
+  			  		<div class="hide-link">
+							  <a href="#" id="reveal_fields2">hide</a>
+							</div>
+						</div>
+					</div>
+
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -195,8 +285,9 @@
 					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_fields2">Show Searchable Fields</a>
-				  <br>
+					<div class="show-link">
+						<a href="#" id="reveal_fields2">show searchable fields</a>
+				  </div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -205,7 +296,9 @@
 					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_entry2">Add Search Entry</a>
+					<div class="show-link">
+						<a href="#" id="reveal_entry2">add search entry</a>
+					</div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -241,8 +334,9 @@
 					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_excluded">Enter Terms to Exclude from Search</a>
-				  <br>
+					<div class="show-link">
+						<a href="#" id="reveal_excluded">enter terms to exclude from search</a>
+				  </div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -309,8 +403,9 @@
 					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_cust_elev">Custom Elevation</a>
-				  <br>
+					<div class="show-link">
+						<a href="#" id="reveal_cust_elev">custom elevation</a>
+				  </div>
 				</div><!-- /span5 -->
 				<div class="span3">
 				</div>
@@ -321,8 +416,9 @@
 					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_elev">Elevation Options</a>
-				  <br>
+					<div class="show-link">
+						<a href="#" id="reveal_elev">elevation options</a>
+				  </div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -370,7 +466,9 @@
 					<br>
 				</div><!-- /span4 -->
 				<div class="span5">
-					<a href="#" id="reveal_coords">Enter Coordinates Range</a>
+					<div class="show-link">
+						<a href="#" id="reveal_coords">enter coordinates range</a>
+					</div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 
@@ -410,8 +508,9 @@
 				</div><!-- /span4 -->
 				<div class="span5">
 					<div class="search-options-link">
-						<a href="#" id="reveal_default">View Default Settings</a>
-					  <br>
+						<div class="show-link">
+							<a href="#" id="reveal_default">view default settings</a>
+					  </div>
 					</div>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
