@@ -1,5 +1,5 @@
 CacheMapActiveRecord::Application.routes.draw do
-  devise_for :users
+  # devise_for :users
   
   root 'queries#home'
 
@@ -17,11 +17,11 @@ CacheMapActiveRecord::Application.routes.draw do
 
   get 'about', to: 'landings#about', as: :about
 
-  devise_scope :user do
-    get "sign_in", to: "devise/sessions#new", as: :sign_in
-  end
+  # devise_scope :user do
+    # get "sign_in", to: "devise/sessions#new", as: :sign_in
+  # end
 
-  resources :users
+  # resources :users
   resources :queries, only: [:create]
   # resources :landings, only: :show
 

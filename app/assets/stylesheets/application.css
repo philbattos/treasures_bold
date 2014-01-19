@@ -48,12 +48,12 @@ html, body {
 /*/*/
 h1, h2, h3, h4, h5, h6 {
  	margin: 0px 0;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
  	color: #3a3a3a;
 }
 
 body {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
  	color: #3a3a3a;
  	/*padding-top: 47px; /* prevents navbar from covering top of page */
  	/*position: fixed;  prevents pages from scrolling under navbar */
@@ -68,14 +68,16 @@ img {
 /* configure links; need 'body' (not sure why) */
 body a {
 	color: #725722;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	line-height: 30px;
 	font-size: 20px;
+	text-decoration: none;
 }
 
 		body a:hover {
 			color: black;
 			background-color: inherit;
+			text-decoration: none;
 		}
 
 		/* not sure how 'focus' is different from 'hover' */
@@ -138,14 +140,13 @@ body a {
 
 /* add padding so page doesn't slide up under navbar */
 .navbar-adjustment {
-	padding-top: 47px;
+	padding-top: 57px; /* navbar + border = 58px */
 }
 
 /* container-fluid */
 .navbar {
-	font-family: "Modern Antiqua", serif;
+	/*font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;*/
 	background-color: #725722;
- 	/*border-bottom: 10px solid #404858;*/
 }
 
 .navbar-fixed-top {
@@ -164,12 +165,12 @@ body a {
 
 /* .navbar .brand = .navbar a.brand = .navbar > .brand = .navbar > a.brand */
 .navbar .navbar-inner .brand {
-	font-family: "Modern Antiqua", "Garamond", "Arial", serif;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
 	background-color: #725722;
 	/*background-image: linear-gradient(to bottom, #182A4C, #404858);*/
-	color: #D8C7A7;
+	color: goldenrod;
 	text-shadow: none;
-	font-size: 28px;
+	font-size: 30px;
 	font-weight: bold;
 	height: 100%;
 	/*border-bottom: 2px;*/
@@ -177,7 +178,7 @@ body a {
 
 .navbar .nav > li,
 .navbar .nav > li > a {
-	font-family: "Arial", serif;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
 	font-size: 20px;
 	background-color: #725722;
 	color: #D8C7A7;
@@ -186,11 +187,11 @@ body a {
 
 .navbar .nav.pull-right > li {
 	/*padding: 10px 15px 10px;  bootstrap default for .navbar .nav > li > a */
-	font-family: "Arial", serif;
-	font-size: 20px;
-	background-color: #725722;
-	color: #D8C7A7;
-	text-shadow: none;
+	/*font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;*/
+	/*font-size: 20px;*/
+	/*background-color: #725722;*/
+	/*color: #D8C7A7;*/
+	/*text-shadow: none;*/
 }
 		.navbar .nav > li > a:hover {
 			background-color: #404858;
@@ -234,7 +235,7 @@ body a {
 /***********************/
 
 .legend-box {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	width: 80%; /* 80% of underlying modal canvas */
 	border: 3px solid #9C7C44;
 	-webkit-border-radius: 20px;
@@ -248,7 +249,7 @@ body a {
 }
 
 .stats-box {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	width: 80%; /* 80% of underlying modal canvas */
 	border: 3px solid #9C7C44;
 	-webkit-border-radius: 20px;
@@ -267,7 +268,7 @@ body a {
 	background-color: #D1BE86;
 	color: #5C4112;
 	/*font-size: 36px;*/
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);
 	text-align: center;
 	/*line-height: 100%;*/
@@ -309,7 +310,7 @@ body a {
 }
 
 .btn-large.homepage {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	background: #4A5975;
 	color: #D8C7A7;
 	/*color: white;*/
@@ -321,7 +322,7 @@ body a {
 
 .btn-large.homepage:hover {
 	background-color: #404858;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 }
 
 .btn.disabled {
@@ -338,13 +339,13 @@ body a {
 }
 
 .dashboard-profile > .span8 > p {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	font-size: 24px;
 }
 
 .dashboard-title,
 .dashboard-title > h1 {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	font-size: 70px;
 	text-align: right;
 	padding-top: 10px;
@@ -388,9 +389,9 @@ strong > .highlight {
 	background-color: red;
 }
 
-.page-heading,
-.page-heading h1 {
+.page-heading {
 	text-align: center;
+	padding: 20px;
 }
 
 .new-background {
@@ -458,7 +459,7 @@ body #statsModal {
 }
 
 .modal-button {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	background-color: #EBD89D;
 	color: #5C4112;
 	border: 2px solid #9C7C44;
@@ -639,7 +640,7 @@ input#elevation_5000 {
 }
 
 .checkbox-slider-text {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	line-height: 30px;
 	font-size: 20px;
 	text-align: right;
@@ -650,21 +651,30 @@ input#elevation_5000 {
 	font-size: 18px;
 }
 
+.checkbox-slider-text-elevation {
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+	line-height: 30px;
+	font-size: 20px;
+	/*text-align: left;*/
+}
+
 .hide-link,
 .hide-link a {
 	font-size: 12px;
 	text-align: center;
 	font-family: "Arial";
 	padding-bottom: 12px;
+	text-decoration: none;
 }
 
 .show-link,
 .show-link a,
 .show-link a:visited {
-	font-size: 20px;
+	font-size: 16px;
 	/*text-align: center;*/
 	font-family: "Arial";
 	color: #4A5975;
+	text-decoration: none;
 }
 
 /*** reexamine ***/
@@ -701,7 +711,7 @@ table {
 
 .table-striped > tbody > tr > td, 
 .table-striped > tbody > tr > th {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
  	color: #3a3a3a;
  	font-size: 16px;
  	vertical-align: middle;
@@ -744,13 +754,13 @@ table {
 /*table heading text*/
 th {
  	color: darkblue;
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
  	color: #3a3a3a;
  	font-size: 18px;
 }
 
 td {
-	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
  	color: #3a3a3a;
 }
 

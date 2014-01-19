@@ -1,7 +1,7 @@
 class QueriesController < ApplicationController
   before_action :set_query, only: [:show, :destroy]
   # before_filter :authenticate_user!, only: [:index, :destroy]
-  load_and_authorize_resource except: [:new, :create]
+  # load_and_authorize_resource except: [:new, :create]
   # layout "homepage", only: :new
 
   ### new search on homepage

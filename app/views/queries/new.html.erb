@@ -1,10 +1,11 @@
 <!-- <body class="nonscroll hide-scroll"> -->
 
-<div class="container-fluid navbar-adjustment standard-background-color">
+<div class="container-fluid navbar-adjustment full-size standard-background-color">
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="page-heading">
 				<h1>Advanced Search Page</h1>
+				<h3>Select options to filter your search</h3>
 			</div><!-- /page_heading -->
 		</div><!-- /span12 -->
 	</div><!-- /row -->
@@ -221,8 +222,8 @@
     		    </div><!-- /span3 -->
     		    <div class="span9">
   			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-place-name" name="query[entries][entry1][fields][feature_name]" checked/>
-  			  	  	<label for="checkbox-slider-place-name"></label>
+  			    		<input type="checkbox" value="1" id="checkbox-slider-place-name-2" name="query[entries][entry2][fields][feature_name]" checked/>
+  			  	  	<label for="checkbox-slider-place-name-2"></label>
   			    	</div>
   	    	  </div><!-- /span9 -->
   	    	</div><!-- /row -->
@@ -235,8 +236,8 @@
     		    </div><!-- /span3 -->
     		    <div class="span9">
   			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-place-type" name="query[entries][entry1][fields][feature_class]" checked/>
-  			  	  	<label for="checkbox-slider-place-type"></label>
+  			    		<input type="checkbox" value="1" id="checkbox-slider-place-type-2" name="query[entries][entry2][fields][feature_class]" checked/>
+  			  	  	<label for="checkbox-slider-place-type-2"></label>
   			    	</div>
   	    	  </div><!-- /span9 -->
   	    	</div><!-- /row -->
@@ -249,8 +250,8 @@
     		    </div><!-- /span3 -->
     		    <div class="span9">
   			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-state" name="query[entries][entry1][fields][state]" checked/>
-  			  	  	<label for="checkbox-slider-state"></label>
+  			    		<input type="checkbox" value="1" id="checkbox-slider-state-2" name="query[entries][entry2][fields][state]" checked/>
+  			  	  	<label for="checkbox-slider-state-2"></label>
   			    	</div>
   	    	  </div><!-- /span9 -->
   	    	</div><!-- /row -->
@@ -263,8 +264,8 @@
   			    </div><!-- /span3 -->
   			    <div class="span9">
   			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-county" name="query[entries][entry1][fields][county]" checked/>
-  			  	  	<label class= "checkbox-inline" for="checkbox-slider-county"></label>
+  			    		<input type="checkbox" value="1" id="checkbox-slider-county-2" name="query[entries][entry2][fields][county]" checked/>
+  			  	  	<label for="checkbox-slider-county-2"></label>
   			    	</div>
   			    </div><!-- /span9 -->
   			  </div><!-- /row -->
@@ -362,9 +363,38 @@
 	    		</div><!-- /description_heading -->
     		</div><!-- /span4 -->
 				<div class="span5">
-			    <input id="elevation_5000" type="checkbox" value="yes" name="query[filters][elevation_5000]" checked> Only search places above 5000 ft.
-			    <br><input id="elevation_10200" type="checkbox" value="yes" name="query[filters][elevation_10200]" checked> Only search places below 10200 ft.
-			    <br>
+
+        	<div class="row-fluid">
+    		    <div class="span2" style="width: 70px;">
+  			    	<div class="checkbox-slider">
+  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_5000" name="query[filters][elevation_5000]" checked/>
+  			  	  	<label for="checkbox-slider-elevation_5000"></label>
+  			    	</div>
+  	    	  </div><!-- /span2 -->
+        		<div class="span10">
+        			<div class="checkbox-slider-text-elevation">
+  	  		    	Only search places above 5000 ft.
+  	  		    </div><!-- /checkbox-slider-text -->
+    		    </div><!-- /span10 -->
+  	    	</div><!-- /row -->
+
+        	<div class="row-fluid">
+    		    <div class="span2" style="width: 70px;">
+  			    	<div class="checkbox-slider">
+  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_10200" name="query[filters][elevation_10200]" checked/>
+  			  	  	<label for="checkbox-slider-elevation_10200"></label>
+  			    	</div>
+  	    	  </div><!-- /span2 -->
+        		<div class="span10">
+        			<div class="checkbox-slider-text-elevation">
+  	  		    	Only search places below 10200 ft.
+  	  		    </div><!-- /checkbox-slider-text -->
+    		    </div><!-- /span10 -->
+  	    	</div><!-- /row -->
+
+			    <!-- <input id="elevation_5000" type="checkbox" value="yes" name="query[filters][elevation_5000]" checked> Only search places above 5000 ft. -->
+			    <!-- <br><input id="elevation_10200" type="checkbox" value="yes" name="query[filters][elevation_10200]" checked> Only search places below 10200 ft. -->
+			    <!-- <br> -->
 			    <br>
 			  </div><!-- /span5 -->
 			</div><!-- /row -->
@@ -522,7 +552,7 @@
 		    	</div>
 	    	</div><!-- /span4 -->
 				<div class="span5">
-			    <button type="submit" class="btn btn-large">Search</button>
+			    <button type="submit" class="btn btn-large homepage">Search</button>
 				</div><!-- /span5 -->
 			</div><!-- /row -->
 

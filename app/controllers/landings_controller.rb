@@ -3,7 +3,7 @@ class LandingsController < ApplicationController
   # before_action :import_search_query, only: [:search]
   # before_filter :authenticate_user!, except: [:search, :show]
   # before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  load_and_authorize_resource except: [:about, :search, :show]
+  # load_and_authorize_resource except: [:about, :search, :show]
   # layout "application"
 
   def about
