@@ -201,7 +201,6 @@ body a {
 		.nav.pull-right > li.disabled a {
 			color: #B09768;
 		}
-
 				.nav.pull-right > li.disabled a:hover {
 					background-color: inherit;
 				}
@@ -308,6 +307,10 @@ body a {
 	margin-left: -10px;
 	/*padding: 10px;*/
 }
+
+/*button > .btn {
+	text-align: center;
+}*/
 
 .btn-large.homepage {
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
@@ -533,16 +536,13 @@ body #statsModal {
 	height: 100%;
 }
 
-.search-options-link a:visited {
-	/*font-family: "IM Fell DW Pica", "Modern Antiqua", serif;*/
-	/*line-height: 30px;*/
-	/*font-size: 20px;*/
-	/*color: red;*/
-}
-
 input {
 	/*color: green;*/
 	/*display: none;*/
+}
+
+input[type=text] {
+	margin-bottom: 0;
 }
 
 input[type="checkbox"] {
@@ -667,15 +667,67 @@ input#elevation_5000 {
 	text-decoration: none;
 }
 
-.show-link,
-.show-link a,
-.show-link a:visited {
+.show-link {
+	padding: 10px 0 10px 0;
+	/*padding-bottom: 10px;*/
+}
+		.show-link a,
+		.show-link a:visited {
+			font-size: 16px;
+			/*text-align: center;*/
+			font-family: "Arial";
+			color: #4A5975;
+			text-decoration: none;
+			padding: 7px;
+			/*border: 1px solid #D8C7A7;*/
+			border-radius: 0 0 15px 0;
+		}
+
+		.show-link a:hover {
+			background-color: #94A1BA;
+			padding: 7px;
+			border-radius: 0 0 15px 0;
+		}
+
+.show-link-selected {
+	/*border: 5px solid #4A5975;*/
+	background-color: #B09768;
+	color: black;
+}
+
+.show-fields-link,
+.show-fields-link a,
+.show-fields-link a:visited {
 	font-size: 16px;
-	/*text-align: center;*/
-	font-family: "Arial";
+	font-family: 'Arial';
 	color: #4A5975;
 	text-decoration: none;
+	padding: 7px;
+	border-radius: 5px;
+	text-indent: 30px;
 }
+
+.show-fields-link a:hover {
+	background-color: #94A1BA;
+	padding: 7px;
+	border-radius: 5px;
+}
+
+.search-options-sidebar {
+	border-left: 5px solid #B09768;
+}
+		.options-sidebar-heading {
+			font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+			font-size: 32px;
+			color: #3a3a3a;
+			background-color: #B09768;
+			text-decoration: none;
+			padding: 15px;
+			border-radius: 0 0 20px 0;
+			width: 180px;
+			margin-bottom: 10px;
+		}
+
 
 /*** reexamine ***/
 /*/*/

@@ -36,162 +36,421 @@
 	    	</div><!-- /span5 -->
 	    </div><!-- /row -->
 
-	    <div class="row-fluid" style="background-color: #B09768;">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Search Terms</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-    		<!-- <div class="span5"> -->
-	    		<!-- <p>Enter the word for something you would like to search for. It could be the name of a place, a word from FF's poem, or a random idea that you would like to explore. -->
-	    		<!-- <br>[link to More] -->
-	    		<!-- <p>Please enter only one word per box. If you would like to search for multiple terms, click "Add Another Search Term". Currently, users are able to search for up to two terms at once. --> 
-	    		<!-- <p>If you submit more than one search entry, the database will only find places that include BOTH search terms. (For example, if you put "canyon" in the first search box, and "brown" in the second, the database will only find places that include both "brown" and "canyon" in their fields.) -->
-	    	<!-- </div>/span5 -->
-				<div class="span5">
-			    <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="Search Keyword (required)" style="width: 90%;">
-			    <img src="http://maps.google.com/mapfiles/ms/icons/green.png" style="padding-bottom: 12px;">
-				</div><!-- /span5 -->
-			</div><!-- /row -->
+	    <div class='row-fluid'>
+	    	<div class='span9'>
 
-			<!-- jQuery to reveal/hide searchable fields -->
-			<script>
-			$( document ).ready(function() {
-				$( "div#fields" ).hide();
-			  $( "a#reveal_fields" ).click(function( event ) {
-			    $( "div#fields" ).slideToggle( "fast" );
-			    $( "#fields_link" ).toggle();
-			    event.preventDefault();
-			  });
-			});
-			</script>
+			    <div class="row-fluid">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Search Terms</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+		    		<!-- <div class="span5"> -->
+			    		<!-- <p>Enter the word for something you would like to search for. It could be the name of a place, a word from FF's poem, or a random idea that you would like to explore. -->
+			    		<!-- <br>[link to More] -->
+			    		<!-- <p>Please enter only one word per box. If you would like to search for multiple terms, click "Add Another Search Term". Currently, users are able to search for up to two terms at once. --> 
+			    		<!-- <p>If you submit more than one search entry, the database will only find places that include BOTH search terms. (For example, if you put "canyon" in the first search box, and "brown" in the second, the database will only find places that include both "brown" and "canyon" in their fields.) -->
+			    	<!-- </div>/span5 -->
+						<div class="span7">
+					    <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="Search Keyword (required)" style="width: 90%;">
+					    <img src="http://maps.google.com/mapfiles/ms/icons/green.png" style="padding-bottom: 12px;">
 
-	    <div class="row-fluid" id="fields" style="background-color: #B09768;">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Search Fields</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-				<div class="span5">
+					    <div class="row-fluid" id="fields_link">
+					    	<div class="show-fields-link">
+					    		<a href="#" id="reveal_fields">show searchable fields</a>
+					      </div>
+					    </div><!-- /row -->
 
-					<!-- simple input checkboxes -->
-<!-- 				  <label class="checkbox-inline">
-				    <input type="checkbox" id="field_select_place_name" name="query[entries][entry1][fields][feature_name]"> Place Name
-				  </label>	  
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="field_select_place_type" name="query[entries][entry1][fields][feature_class]"> Place Type (river, mountain, town, etc.)
-				  </label>
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="state" name="query[entries][entry1][fields][state]"> State
-				  </label>
-				  <label class="checkbox-inline">
-				    <input type="checkbox" id="city" name="query[entries][entry1][fields][county]"> County
-				  </label> -->
+						</div><!-- /span7 -->
+					</div><!-- /row -->
 
-		    	
-	      	<div class="row-fluid">
-	      		<div class="span3">
-	      			<div class="checkbox-slider-text">
-		  		    	Place Name
-		  		    </div><!-- /checkbox-slider-text -->
-	  		    </div><!-- /span3 -->
-	  		    <div class="span9">
-				    	<div class="checkbox-slider">
-				    		<input type="checkbox" value="1" id="checkbox-slider-place-name" name="query[entries][entry1][fields][feature_name]" checked/>
-				  	  	<label for="checkbox-slider-place-name"></label>
-				    	</div>
-		    	  </div><!-- /span9 -->
-		    	</div><!-- /row -->
+					<!-- jQuery to reveal/hide searchable fields -->
+					<script>
+					$( document ).ready(function() {
+						$( "div#fields" ).hide();
+					  $( "a#reveal_fields" ).click(function( event ) {
+					    $( "div#fields" ).slideToggle( "fast" );
+					    $( "#fields_link" ).toggle();
+					    event.preventDefault();
+					  });
+					});
+					</script>
 
-	      	<div class="row-fluid">
-	      		<div class="span3">
-	      			<div class="checkbox-slider-text">
-		  		    	Place Type
-		  		    </div><!-- /checkbox-slider-text -->
-	  		    </div><!-- /span3 -->
-	  		    <div class="span9">
-				    	<div class="checkbox-slider">
-				    		<input type="checkbox" value="1" id="checkbox-slider-place-type" name="query[entries][entry1][fields][feature_class]" checked/>
-				  	  	<label for="checkbox-slider-place-type"></label>
-				    	</div>
-		    	  </div><!-- /span9 -->
-		    	</div><!-- /row -->
+			    <div class="row-fluid" id="fields">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Search Fields</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+						<div class="span7">
 
-	      	<div class="row-fluid">
-	      		<div class="span3">
-	      			<div class="checkbox-slider-text">
-		  		    	State
-		  		    </div><!-- /checkbox-slider-text -->
-	  		    </div><!-- /span3 -->
-	  		    <div class="span9">
-				    	<div class="checkbox-slider">
-				    		<input type="checkbox" value="1" id="checkbox-slider-state" name="query[entries][entry1][fields][state]" checked/>
-				  	  	<label for="checkbox-slider-state"></label>
-				    	</div>
-		    	  </div><!-- /span9 -->
-		    	</div><!-- /row -->
+							<!-- simple input checkboxes -->
+		<!-- 				  <label class="checkbox-inline">
+						    <input type="checkbox" id="field_select_place_name" name="query[entries][entry1][fields][feature_name]"> Place Name
+						  </label>	  
+						  <label class="checkbox-inline">
+						    <input type="checkbox" id="field_select_place_type" name="query[entries][entry1][fields][feature_class]"> Place Type (river, mountain, town, etc.)
+						  </label>
+						  <label class="checkbox-inline">
+						    <input type="checkbox" id="state" name="query[entries][entry1][fields][state]"> State
+						  </label>
+						  <label class="checkbox-inline">
+						    <input type="checkbox" id="city" name="query[entries][entry1][fields][county]"> County
+						  </label> -->
 
-		    	<div class="row-fluid">
-		    		<div class="span3">
-		    			<div class="checkbox-slider-text">
-					    	County
-					    </div>
-				    </div><!-- /span3 -->
-				    <div class="span9">
-				    	<div class="checkbox-slider">
-				    		<input type="checkbox" value="1" id="checkbox-slider-county" name="query[entries][entry1][fields][county]" checked/>
-				  	  	<label class= "checkbox-inline" for="checkbox-slider-county"></label>
-				    	</div>
-				    </div><!-- /span9 -->
-				  </div><!-- /row -->
+				    	
+			      	<div class="row-fluid">
+			      		<div class="span3">
+			      			<div class="checkbox-slider-text">
+				  		    	Place Name
+				  		    </div><!-- /checkbox-slider-text -->
+			  		    </div><!-- /span3 -->
+			  		    <div class="span9">
+						    	<div class="checkbox-slider">
+						    		<input type="checkbox" value="1" id="checkbox-slider-place-name" name="query[entries][entry1][fields][feature_name]" checked/>
+						  	  	<label for="checkbox-slider-place-name"></label>
+						    	</div>
+				    	  </div><!-- /span9 -->
+				    	</div><!-- /row -->
 
-  			  <div class="row-fluid">
-  			  	<div class="span6">
-  			  		<div class="hide-link">
-							  <a href="#" id="reveal_fields">hide</a>
+			      	<div class="row-fluid">
+			      		<div class="span3">
+			      			<div class="checkbox-slider-text">
+				  		    	Place Type
+				  		    </div><!-- /checkbox-slider-text -->
+			  		    </div><!-- /span3 -->
+			  		    <div class="span9">
+						    	<div class="checkbox-slider">
+						    		<input type="checkbox" value="1" id="checkbox-slider-place-type" name="query[entries][entry1][fields][feature_class]" checked/>
+						  	  	<label for="checkbox-slider-place-type"></label>
+						    	</div>
+				    	  </div><!-- /span9 -->
+				    	</div><!-- /row -->
+
+			      	<div class="row-fluid">
+			      		<div class="span3">
+			      			<div class="checkbox-slider-text">
+				  		    	State
+				  		    </div><!-- /checkbox-slider-text -->
+			  		    </div><!-- /span3 -->
+			  		    <div class="span9">
+						    	<div class="checkbox-slider">
+						    		<input type="checkbox" value="1" id="checkbox-slider-state" name="query[entries][entry1][fields][state]" checked/>
+						  	  	<label for="checkbox-slider-state"></label>
+						    	</div>
+				    	  </div><!-- /span9 -->
+				    	</div><!-- /row -->
+
+				    	<div class="row-fluid">
+				    		<div class="span3">
+				    			<div class="checkbox-slider-text">
+							    	County
+							    </div>
+						    </div><!-- /span3 -->
+						    <div class="span9">
+						    	<div class="checkbox-slider">
+						    		<input type="checkbox" value="1" id="checkbox-slider-county" name="query[entries][entry1][fields][county]" checked/>
+						  	  	<label class= "checkbox-inline" for="checkbox-slider-county"></label>
+						    	</div>
+						    </div><!-- /span9 -->
+						  </div><!-- /row -->
+
+		  			  <div class="row-fluid">
+		  			  	<div class="span6">
+		  			  		<div class="hide-link">
+									  <a href="#" id="reveal_fields">hide</a>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
 
-				</div><!-- /span5 -->
-			</div><!-- /row -->
+						</div><!-- /span7 -->
+					</div><!-- /row -->
 
-			<div class="row-fluid" id="fields_link">
-				<div class="span4">
-				</div>
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_fields">show searchable fields</a>
-				  </div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
+					<div class="row-fluid" id="entry2">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Search Terms</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+						<div class="span7">
+					    <input id="query_entry2" name="query[entries][entry2][keyword]" type="text" class="input-large" placeholder="Search Keyword (optional)" style="width: 90%;">
+					    <img src="http://maps.google.com/mapfiles/ms/icons/blue.png" style="padding-bottom: 12px;"></img>
+
+					    <div class="row-fluid" id="fields2_link">
+					    	<div class="show-fields-link">
+					    		<a href="#" id="reveal_fields2">show searchable fields</a>
+					      </div>
+					    </div><!-- /row -->
+
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+					
+					<div class="row-fluid" id="fields2">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Search Fields</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+						<div class="span7">
+
+		        	<div class="row-fluid">
+		        		<div class="span3">
+		        			<div class="checkbox-slider-text">
+		  	  		    	Place Name
+		  	  		    </div><!-- /checkbox-slider-text -->
+		    		    </div><!-- /span3 -->
+		    		    <div class="span9">
+		  			    	<div class="checkbox-slider">
+		  			    		<input type="checkbox" value="1" id="checkbox-slider-place-name-2" name="query[entries][entry2][fields][feature_name]" checked/>
+		  			  	  	<label for="checkbox-slider-place-name-2"></label>
+		  			    	</div>
+		  	    	  </div><!-- /span9 -->
+		  	    	</div><!-- /row -->
+
+		        	<div class="row-fluid">
+		        		<div class="span3">
+		        			<div class="checkbox-slider-text">
+		  	  		    	Place Type
+		  	  		    </div><!-- /checkbox-slider-text -->
+		    		    </div><!-- /span3 -->
+		    		    <div class="span9">
+		  			    	<div class="checkbox-slider">
+		  			    		<input type="checkbox" value="1" id="checkbox-slider-place-type-2" name="query[entries][entry2][fields][feature_class]" checked/>
+		  			  	  	<label for="checkbox-slider-place-type-2"></label>
+		  			    	</div>
+		  	    	  </div><!-- /span9 -->
+		  	    	</div><!-- /row -->
+
+		        	<div class="row-fluid">
+		        		<div class="span3">
+		        			<div class="checkbox-slider-text">
+		  	  		    	State
+		  	  		    </div><!-- /checkbox-slider-text -->
+		    		    </div><!-- /span3 -->
+		    		    <div class="span9">
+		  			    	<div class="checkbox-slider">
+		  			    		<input type="checkbox" value="1" id="checkbox-slider-state-2" name="query[entries][entry2][fields][state]" checked/>
+		  			  	  	<label for="checkbox-slider-state-2"></label>
+		  			    	</div>
+		  	    	  </div><!-- /span9 -->
+		  	    	</div><!-- /row -->
+
+		  	    	<div class="row-fluid">
+		  	    		<div class="span3">
+		  	    			<div class="checkbox-slider-text">
+		  				    	County
+		  				    </div>
+		  			    </div><!-- /span3 -->
+		  			    <div class="span9">
+		  			    	<div class="checkbox-slider">
+		  			    		<input type="checkbox" value="1" id="checkbox-slider-county-2" name="query[entries][entry2][fields][county]" checked/>
+		  			  	  	<label for="checkbox-slider-county-2"></label>
+		  			    	</div>
+		  			    </div><!-- /span9 -->
+		  			  </div><!-- /row -->
+
+		  			  <div class="row-fluid">
+		  			  	<div class="span6">
+		  			  		<div class="hide-link">
+									  <a href="#" id="reveal_fields2">hide</a>
+									</div>
+								</div>
+							</div>
+
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="excluded">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Excluded Terms</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+						<div class="span7">
+					    <input id="query_verbatim5" name="query[filters][exclude]" type="text" class="input-large" placeholder="Exclude Places with these Keywords" style="width: 90%;">
+					    <!-- <a href="#" id="reveal_excluded">[Hide]</a> -->
+					    <br>
+					    <br>
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="elevation">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Elevation</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+						<div class="span7">
+
+		        	<div class="row-fluid">
+		    		    <div class="span2" style="width: 70px;">
+		  			    	<div class="checkbox-slider">
+		  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_5000" name="query[filters][elevation_5000]" checked/>
+		  			  	  	<label for="checkbox-slider-elevation_5000"></label>
+		  			    	</div>
+		  	    	  </div><!-- /span2 -->
+		        		<div class="span10">
+		        			<div class="checkbox-slider-text-elevation">
+		  	  		    	Only search places above 5000 ft.
+		  	  		    </div><!-- /checkbox-slider-text -->
+		    		    </div><!-- /span10 -->
+		  	    	</div><!-- /row -->
+
+		        	<div class="row-fluid">
+		    		    <div class="span2" style="width: 70px;">
+		  			    	<div class="checkbox-slider">
+		  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_10200" name="query[filters][elevation_10200]" checked/>
+		  			  	  	<label for="checkbox-slider-elevation_10200"></label>
+		  			    	</div>
+		  	    	  </div><!-- /span2 -->
+		        		<div class="span10">
+		        			<div class="checkbox-slider-text-elevation">
+		  	  		    	Only search places below 10200 ft.
+		  	  		    </div><!-- /checkbox-slider-text -->
+		    		    </div><!-- /span10 -->
+		  	    	</div><!-- /row -->
+
+					    <!-- <input id="elevation_5000" type="checkbox" value="yes" name="query[filters][elevation_5000]" checked> Only search places above 5000 ft. -->
+					    <!-- <br><input id="elevation_10200" type="checkbox" value="yes" name="query[filters][elevation_10200]" checked> Only search places below 10200 ft. -->
+					    <!-- <br> -->
+					    <br>
+					  </div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="cust_elevation">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Custom Elevation</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+			    	<div class="span7">
+					    <input id="query_elevation_min" name="query[filters][elevation_min]" type="text" class="input-large" placeholder="Min Elevation" style="width: 170px">
+					    *
+					    <input id="query_elevation_max" name="query[filters][elevation_max]" type="text" class="input-large" placeholder="Max Elevation" style="width: 170px">
+					    <br>
+					    <br>
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="coordinates">
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Coordinates</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+			    	<div class="span7">
+					    <input id="query_elevation_min" name="query[filters][north_bound]" type="text" class="input-large" placeholder="Northern Boundary" style="width: 220px; margin-bottom: 10px;">
+					    *
+					    <input id="query_elevation_min" name="query[filters][south_bound]" type="text" class="input-large" placeholder="Southern Boundary" style="width: 220px; margin-bottom: 10px;">
+					    
+					    Latitude
+
+					    <br>
+					    <input id="query_elevation_max" name="query[filters][east_bound]" type="text" class="input-large" placeholder="Eastern Boundary" style="width: 220px;">
+					    *
+					    <input id="query_elevation_max" name="query[filters][west_bound]" type="text" class="input-large" placeholder="Western Boundary" style="width: 220px;">
+							
+							Longitude
+
+							<br>
+							<br>
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="default">
+			    	<div class="span5">
+			    		<div style="text-align: right;">
+				    		<h3>Default Settings</h3>
+				    	</div>
+			    	</div><!-- /span5 -->
+						<div class="span7">
+					    <fieldset disabled>
+						    <input id="search_area" type="checkbox" value="yes" name="query[filters][search_area]" checked> Only search locations within search area [change text color]
+						  </fieldset>
+						  <br>
+						  <br>
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="standard-background-color">
+			    	<div class="span5">
+			    		<div class="description_heading">
+				    		<!-- <h3>[description heading]</h3> -->
+				    	</div>
+			    	</div><!-- /span5 -->
+						<div class="span7">
+					    <button type="submit" class="btn btn-large homepage" align="middle">Search</button>
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+	    	</div><!-- /span9 -->
+
+	    	<div class='span3'>
+	    		<div class='search-options-sidebar'>
+
+						<div class="row-fluid">
+							<div class='options-sidebar-heading'>
+								<strong>Options</strong>
+							</div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="entry2_link">
+							<div class="show-link">
+								<a href="#" id="reveal_entry2">add search entry</a>
+							</div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="excluded_link">
+							<div class="show-link">
+								<a href="#" id="reveal_excluded">excluded terms</a>
+						  </div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="elevation_link">
+							<div class="show-link">
+								<a href="#" id="reveal_elev">elevation options</a>
+						  </div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="cust_elev_link">
+							<div class="show-link">
+								<a href="#" id="reveal_cust_elev">custom elevation</a>
+						  </div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="coords_link">
+							<div class="show-link">
+								<a href="#" id="reveal_coords">coordinates</a>
+							</div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="default_link">
+							<div class="show-link">
+								<a href="#" id="reveal_default">default settings</a>
+						  </div>
+						</div><!-- /row -->
+
+					</div><!-- /search-options-sidebar -->
+	    	</div><!-- /span3 -->
+	    </div><!-- /row -->
+
 
 			<!-- jQuery to reveal/hide second search term/fields -->
 			<script>
 			$( document ).ready(function() {
 				$( "div#entry2" ).hide();
-				$( "#fields2_link" ).hide();
+				// $( "#fields2_link" ).hide();
 			  $( "a#reveal_entry2" ).click(function( event ) {
-			    $( "div#entry2" ).fadeToggle();
-			    $( "div#entry2_link" ).toggle();
-			    $( "#fields2_link" ).toggle();
+			    $( "div#entry2" ).slideToggle( 'fast' );
+			    // $( this ).css({"background-color":"green"});
+			    $( this ).toggleClass( 'show-link-selected' );
+			    // $( "div#entry2_link" ).toggle();
+			    // $( "#fields2_link" ).toggle();
 			    // $( this ).hide();
 			    event.preventDefault();
 			  });
 			});
 			</script>
-
-			<div class="row-fluid" id="entry2">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Search Terms</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-				<div class="span5">
-			    <input id="query_entry2" name="query[entries][entry2][keyword]" type="text" class="input-large" placeholder="Search Keyword (optional)" style="width: 90%;">
-			    <img src="http://maps.google.com/mapfiles/ms/icons/blue.png" style="padding-bottom: 12px;"></img>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
 
 			<!-- jQuery to reveal/hide searchable fields -->
 			<script>
@@ -206,140 +465,18 @@
 			});
 			</script>
 
-			<div class="row-fluid" id="fields2">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Search Fields</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-				<div class="span5">
-
-        	<div class="row-fluid">
-        		<div class="span3">
-        			<div class="checkbox-slider-text">
-  	  		    	Place Name
-  	  		    </div><!-- /checkbox-slider-text -->
-    		    </div><!-- /span3 -->
-    		    <div class="span9">
-  			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-place-name-2" name="query[entries][entry2][fields][feature_name]" checked/>
-  			  	  	<label for="checkbox-slider-place-name-2"></label>
-  			    	</div>
-  	    	  </div><!-- /span9 -->
-  	    	</div><!-- /row -->
-
-        	<div class="row-fluid">
-        		<div class="span3">
-        			<div class="checkbox-slider-text">
-  	  		    	Place Type
-  	  		    </div><!-- /checkbox-slider-text -->
-    		    </div><!-- /span3 -->
-    		    <div class="span9">
-  			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-place-type-2" name="query[entries][entry2][fields][feature_class]" checked/>
-  			  	  	<label for="checkbox-slider-place-type-2"></label>
-  			    	</div>
-  	    	  </div><!-- /span9 -->
-  	    	</div><!-- /row -->
-
-        	<div class="row-fluid">
-        		<div class="span3">
-        			<div class="checkbox-slider-text">
-  	  		    	State
-  	  		    </div><!-- /checkbox-slider-text -->
-    		    </div><!-- /span3 -->
-    		    <div class="span9">
-  			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-state-2" name="query[entries][entry2][fields][state]" checked/>
-  			  	  	<label for="checkbox-slider-state-2"></label>
-  			    	</div>
-  	    	  </div><!-- /span9 -->
-  	    	</div><!-- /row -->
-
-  	    	<div class="row-fluid">
-  	    		<div class="span3">
-  	    			<div class="checkbox-slider-text">
-  				    	County
-  				    </div>
-  			    </div><!-- /span3 -->
-  			    <div class="span9">
-  			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-county-2" name="query[entries][entry2][fields][county]" checked/>
-  			  	  	<label for="checkbox-slider-county-2"></label>
-  			    	</div>
-  			    </div><!-- /span9 -->
-  			  </div><!-- /row -->
-
-  			  <div class="row-fluid">
-  			  	<div class="span6">
-  			  		<div class="hide-link">
-							  <a href="#" id="reveal_fields2">hide</a>
-							</div>
-						</div>
-					</div>
-
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="fields2_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_fields2">show searchable fields</a>
-				  </div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="entry2_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_entry2">add search entry</a>
-					</div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
 			<!-- jQuery to reveal/hide excluded terms field -->
 			<script>
 			$( document ).ready(function() {
 				$( "div#excluded" ).hide();
 			  $( "a#reveal_excluded" ).click(function( event ) {
 			    $( "div#excluded" ).slideToggle( "fast" );
-			    $( "#excluded_link" ).toggle();
+			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( this ).hide();
 			    event.preventDefault();
 			  });
 			});
 			</script>
-
-	    <div class="row-fluid" id="excluded">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Excluded Terms</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-				<div class="span5">
-			    <input id="query_verbatim5" name="query[filters][exclude]" type="text" class="input-large" placeholder="Exclude Places with these Keywords">
-			    <a href="#" id="reveal_excluded">[Hide]</a>
-			    <br>
-			    <br>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="excluded_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_excluded">enter terms to exclude from search</a>
-				  </div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
 
 			<!-- jQuery to reveal/hide elevation fields -->
 			<script>
@@ -347,57 +484,16 @@
 				$( "div#elevation" ).hide();
 				$( "#cust_elev_link" ).hide();
 			  $( "a#reveal_elev" ).click(function( event ) {
-			    $( "div#elevation" ).fadeToggle();
-			    $( "#elevation_link" ).toggle();
-			    $( "#cust_elev_link" ).toggle();
+			    $( "div#elevation" ).slideToggle();
+			    $( "div#cust_elevation" ).slideToggle();
+			    $( this ).toggleClass( 'show-link-selected' );
+			    // $( "#elevation_link" ).toggle();
+			    // $( "#cust_elev_link" ).slideToggle();
 			    // $( this ).hide();
 			    event.preventDefault();
 			  });
 			});
 			</script>
-
-	    <div class="row-fluid" id="elevation">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Elevation</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-				<div class="span5">
-
-        	<div class="row-fluid">
-    		    <div class="span2" style="width: 70px;">
-  			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_5000" name="query[filters][elevation_5000]" checked/>
-  			  	  	<label for="checkbox-slider-elevation_5000"></label>
-  			    	</div>
-  	    	  </div><!-- /span2 -->
-        		<div class="span10">
-        			<div class="checkbox-slider-text-elevation">
-  	  		    	Only search places above 5000 ft.
-  	  		    </div><!-- /checkbox-slider-text -->
-    		    </div><!-- /span10 -->
-  	    	</div><!-- /row -->
-
-        	<div class="row-fluid">
-    		    <div class="span2" style="width: 70px;">
-  			    	<div class="checkbox-slider">
-  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_10200" name="query[filters][elevation_10200]" checked/>
-  			  	  	<label for="checkbox-slider-elevation_10200"></label>
-  			    	</div>
-  	    	  </div><!-- /span2 -->
-        		<div class="span10">
-        			<div class="checkbox-slider-text-elevation">
-  	  		    	Only search places below 10200 ft.
-  	  		    </div><!-- /checkbox-slider-text -->
-    		    </div><!-- /span10 -->
-  	    	</div><!-- /row -->
-
-			    <!-- <input id="elevation_5000" type="checkbox" value="yes" name="query[filters][elevation_5000]" checked> Only search places above 5000 ft. -->
-			    <!-- <br><input id="elevation_10200" type="checkbox" value="yes" name="query[filters][elevation_10200]" checked> Only search places below 10200 ft. -->
-			    <!-- <br> -->
-			    <br>
-			  </div><!-- /span5 -->
-			</div><!-- /row -->
 
 			<!-- jQuery to reveal/hide custom elevation fields -->
 			<script>
@@ -412,149 +508,33 @@
 			});
 			</script>
 
-	    <div class="row-fluid" id="cust_elevation">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Custom Elevation</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-	    	<div class="span5">
-			    <input id="query_elevation_min" name="query[filters][elevation_min]" type="text" class="input-large" placeholder="Min Elevation" style="width: 170px">
-			    *
-			    <input id="query_elevation_max" name="query[filters][elevation_max]" type="text" class="input-large" placeholder="Max Elevation" style="width: 170px">
-			    <br><a href="#" id="reveal_cust_elev">[Hide]</a>
-			    <br>
-			    <br>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="cust_elev_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_cust_elev">custom elevation</a>
-				  </div>
-				</div><!-- /span5 -->
-				<div class="span3">
-				</div>
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="elevation_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_elev">elevation options</a>
-				  </div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
 			<!-- jQuery to reveal/hide custom coordinate fields -->
 			<script>
 			$( document ).ready(function() {
 				$( "div#coordinates" ).hide();
 			  $( "a#reveal_coords" ).click(function( event ) {
 			    $( "div#coordinates" ).slideToggle();
-			    $( "#coords_link" ).toggle();
+			    $( this ).toggleClass( 'show-link-selected' );
+			    // $( "#coords_link" ).toggle();
 			    // $( this ).hide();
 			    event.preventDefault();
 			  });
 			});
 			</script>
-
-	    <div class="row-fluid" id="coordinates">
-				<div class="span4">
-					<div class="description_heading">
-	    			<h3>Coordinates</h3>
-	    		</div><!-- /description_heading -->
-    		</div><!-- /span4 -->
-	    	<div class="span6">
-			    <input id="query_elevation_min" name="query[filters][north_bound]" type="text" class="input-large" placeholder="Northern Boundary" style="width: 220px">
-			    *
-			    <input id="query_elevation_min" name="query[filters][south_bound]" type="text" class="input-large" placeholder="Southern Boundary" style="width: 220px">
-			    
-			    Latitude
-
-			    <br><input id="query_elevation_max" name="query[filters][east_bound]" type="text" class="input-large" placeholder="Eastern Boundary" style="width: 220px">
-			    *
-			    <input id="query_elevation_max" name="query[filters][west_bound]" type="text" class="input-large" placeholder="Western Boundary" style="width: 220px">
-					
-					Longitude
-
-					<br>
-					<a href="#" id="reveal_coords">[Hide]</a>
-					<br>
-					<br>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="coords_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="show-link">
-						<a href="#" id="reveal_coords">enter coordinates range</a>
-					</div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
 
 			<!-- jQuery to reveal/hide default settings -->
 			<script>
 			$( document ).ready(function() {
 				$( "div#default" ).hide();
 			  $( "a#reveal_default" ).click(function( event ) {
-			    $( "div#default" ).fadeToggle();
-			    $( "#default_link" ).toggle();
+			    $( "div#default" ).slideToggle();
+			    $( this ).toggleClass( 'show-link-selected' );
+			    // $( "#default_link" ).toggle();
 			    // $( this ).hide();
 			    event.preventDefault();
 			  });
 			});
 			</script>
-
-	    <div class="row-fluid" id="default">
-	    	<div class="span4">
-	    		<div style="text-align: right;">
-		    		<h3>Default Settings</h3>
-		    	</div>
-	    	</div><!-- /span4 -->
-				<div class="span5">
-			    <fieldset disabled>
-				    <input id="search_area" type="checkbox" value="yes" name="query[filters][search_area]" checked> Only search locations within search area [change text color]
-				  </fieldset>
-				  <br>
-				  <a href="#" id="reveal_default">[Hide]</a>
-				  <br>
-				  <br>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-			<div class="row-fluid" id="default_link">
-				<div class="span4">
-					<br>
-				</div><!-- /span4 -->
-				<div class="span5">
-					<div class="search-options-link">
-						<div class="show-link">
-							<a href="#" id="reveal_default">view default settings</a>
-					  </div>
-					</div>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
-
-	    <div class="row-fluid" id="standard-background-color">
-	    	<div class="span4">
-	    		<div class="description_heading">
-		    		<!-- <h3>[description heading]</h3> -->
-		    	</div>
-	    	</div><!-- /span4 -->
-				<div class="span5">
-			    <button type="submit" class="btn btn-large homepage">Search</button>
-				</div><!-- /span5 -->
-			</div><!-- /row -->
 
 		<% end %><!-- Search form -->
 
