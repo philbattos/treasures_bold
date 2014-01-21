@@ -242,7 +242,7 @@
 					</div><!-- /row -->
 
 
-			    <div class="row-fluid" id="excluded">
+			    <div class="row-fluid" id="excluded" style='margin-bottom: 15px;'>
 						<div class="span5">
 							<div class="description_heading">
 			    			<h3>Excluded Terms</h3>
@@ -298,12 +298,12 @@
 
 					  <!-- this is nested within elevation row for jquery -->
 				    <div class="row-fluid" id="cust_elevation">
-							<div class="span5">
+							<div class="span5" style='margin-top: 15px;'>
 								<div class="description_heading">
 				    			<h3>Custom Elevation</h3>
 				    		</div><!-- /description_heading -->
 			    		</div><!-- /span5 -->
-				    	<div class="span7">
+				    	<div class="span7" style='margin-top: 15px;'>
 						    <input id="query_elevation_min" name="query[filters][elevation_min]" type="text" class="input-large" placeholder="Min Elevation" style="width: 170px">
 						    *
 						    <input id="query_elevation_max" name="query[filters][elevation_max]" type="text" class="input-large" placeholder="Max Elevation" style="width: 170px">
@@ -455,7 +455,7 @@
 			$( document ).ready(function() {
 				$( "div#fields2" ).hide();
 			  $( "a#reveal_fields2" ).click(function( event ) {
-			    $( "div#fields2" ).slideToggle();
+			    $( "div#fields2" ).slideToggle( 'fast' );
 			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( "#fields2_link").toggle();
 			    // $( this ).hide();
@@ -483,7 +483,7 @@
 				$( "div#elevation" ).hide();
 				// $( "#cust_elev_link" ).hide();
 			  $( "a#reveal_elev" ).click(function( event ) {
-			    $( "div#elevation" ).slideToggle();
+			    $( "div#elevation" ).slideToggle( 'fast' );
 			    // $( "div#cust_elevation" ).slideToggle();
 			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( "#elevation_link" ).toggle();
@@ -499,7 +499,7 @@
 			$( document ).ready(function() {
 				$( "div#cust_elevation" ).hide();
 			  $( "a#reveal_cust_elev" ).click(function( event ) {
-			    $( "div#cust_elevation" ).slideToggle();
+			    $( "div#cust_elevation" ).slideToggle( 'fast' );
 			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( "#cust_elev_link" ).toggle();
 			    // $( this ).hide();
@@ -513,7 +513,7 @@
 			$( document ).ready(function() {
 				$( "div#coordinates" ).hide();
 			  $( "a#reveal_coords" ).click(function( event ) {
-			    $( "div#coordinates" ).slideToggle();
+			    $( "div#coordinates" ).slideToggle( 'fast' );
 			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( "#coords_link" ).toggle();
 			    // $( this ).hide();
@@ -527,7 +527,7 @@
 			$( document ).ready(function() {
 				$( "div#default" ).hide();
 			  $( "a#reveal_default" ).click(function( event ) {
-			    $( "div#default" ).slideToggle();
+			    $( "div#default" ).slideToggle( 'fast' );
 			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( "#default_link" ).toggle();
 			    // $( this ).hide();
