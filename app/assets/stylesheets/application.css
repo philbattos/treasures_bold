@@ -718,14 +718,14 @@ input#elevation_5000 {
 }
 		.options-sidebar-heading {
 			font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
-			font-size: 32px;
+			font-size: 26px;
 			color: #3a3a3a;
 			background-color: #B09768;
 			text-decoration: none;
-			padding: 15px;
+			padding: 10px;
 			border-radius: 0 0 20px 0;
 			width: 180px;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 		}
 
 
