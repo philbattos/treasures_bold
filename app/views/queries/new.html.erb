@@ -52,7 +52,7 @@
 			    		<!-- <p>If you submit more than one search entry, the database will only find places that include BOTH search terms. (For example, if you put "canyon" in the first search box, and "brown" in the second, the database will only find places that include both "brown" and "canyon" in their fields.) -->
 			    	<!-- </div>/span5 -->
 						<div class="span7">
-					    <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="Search Keyword (required)" style="width: 90%;">
+					    <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="Search Keyword (required)" style="width: 85%;">
 					    <img src="http://maps.google.com/mapfiles/ms/icons/green.png" style="padding-bottom: 12px;">
 						</div><!-- /span7 -->
 					</div><!-- /row -->
@@ -156,7 +156,7 @@
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
 						<div class="span7">
-					    <input id="query_entry2" name="query[entries][entry2][keyword]" type="text" class="input-large" placeholder="Search Keyword (optional)" style="width: 90%;">
+					    <input id="query_entry2" name="query[entries][entry2][keyword]" type="text" class="input-large" placeholder="Search Keyword (optional)" style="width: 85%;">
 					    <img src="http://maps.google.com/mapfiles/ms/icons/blue.png" style="padding-bottom: 12px;"></img>
 						</div><!-- /span7 -->
 					
@@ -249,7 +249,7 @@
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
 						<div class="span7">
-					    <input id="query_verbatim5" name="query[filters][exclude]" type="text" class="input-large" placeholder="Exclude Places with these Keywords" style="width: 90%;">
+					    <input id="query_verbatim5" name="query[filters][exclude]" type="text" class="input-large" placeholder="Exclude Places with these Keywords" style="width: 85%;">
 					    <!-- <a href="#" id="reveal_excluded">[Hide]</a> -->
 						</div><!-- /span7 -->
 					</div><!-- /row -->
@@ -330,21 +330,24 @@
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
 			    	<div class="span7">
-					    <input id="query_elevation_min" name="query[filters][north_bound]" type="text" class="input-large" placeholder="Northern Boundary" style="width: 220px; margin-bottom: 10px;">
-					    *
-					    <input id="query_elevation_min" name="query[filters][south_bound]" type="text" class="input-large" placeholder="Southern Boundary" style="width: 220px; margin-bottom: 10px;">
+					    <input id="query_elevation_min" name="query[filters][north_bound]" type="text" class="input-large" placeholder="Northern Boundary" style="width: 215px; margin-bottom: 10px; margin-right: 10px;"></input>
 					    
-					    Latitude
+					    <input id="query_elevation_min" name="query[filters][south_bound]" type="text" class="input-large" placeholder="Southern Boundary" style="width: 215px; margin-bottom: 10px;"></input>
 
+					    <div class='coordinate-label'>
+						    Latitude
+						  </div>
 					    <br>
-					    <input id="query_elevation_max" name="query[filters][east_bound]" type="text" class="input-large" placeholder="Eastern Boundary" style="width: 220px;">
-					    *
-					    <input id="query_elevation_max" name="query[filters][west_bound]" type="text" class="input-large" placeholder="Western Boundary" style="width: 220px;">
-							
-							Longitude
 
+					    <input id="query_elevation_max" name="query[filters][east_bound]" type="text" class="input-large" placeholder="Eastern Boundary" style="width: 215px; margin-bottom: 10px; margin-right: 10px;"></input>
+
+					    <input id="query_elevation_max" name="query[filters][west_bound]" type="text" class="input-large" placeholder="Western Boundary" style="width: 215px; margin-bottom: 10px;"></input>
+
+					    <div class='coordinate-label'>
+								Longitude
+							</div>
 							<br>
-							<br>
+
 						</div><!-- /span7 -->
 					</div><!-- /row -->
 

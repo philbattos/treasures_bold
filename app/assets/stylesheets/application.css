@@ -728,6 +728,11 @@ input#elevation_5000 {
 			margin-bottom: 5px;
 		}
 
+.coordinate-label {
+	display: inline-block;
+	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+	font-size: 20px;
+}
 
 /*** reexamine ***/
 /*/*/
