@@ -165,12 +165,12 @@ body a {
 
 /* .navbar .brand = .navbar a.brand = .navbar > .brand = .navbar > a.brand */
 .navbar .navbar-inner .brand {
-	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+	font-family: "IM Fell DW Pica", "Modern Antiqua", serif;
 	background-color: #725722;
 	/*background-image: linear-gradient(to bottom, #182A4C, #404858);*/
 	color: goldenrod;
 	text-shadow: none;
-	font-size: 30px;
+	font-size: 34px;
 	font-weight: bold;
 	height: 100%;
 	/*border-bottom: 2px;*/
@@ -236,11 +236,11 @@ body a {
 .legend-box {
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	width: 80%; /* 80% of underlying modal canvas */
-	border: 3px solid #9C7C44;
+	border: 3px solid #725722;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
-	background-color: #EBD89D;
+	background-color: #D8C195;
 	opacity: 0.8;
 	line-height: none;
 	/*box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.3);*/
@@ -250,11 +250,11 @@ body a {
 .stats-box {
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	width: 80%; /* 80% of underlying modal canvas */
-	border: 3px solid #9C7C44;
+	border: 3px solid #725722;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
-	background-color: #EBD89D;
+	background-color: #D8C195;
 	opacity: 0.8;
 	line-height: none;
 	/*box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.3);*/
@@ -264,7 +264,8 @@ body a {
 .results-heading {
 	height: 100%;
 	/*width: 100%;*/
-	background-color: #D1BE86;
+	/*background-color: #D1BE86;*/
+	background-color: #D8C7A7;
 	color: #5C4112;
 	/*font-size: 36px;*/
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
@@ -275,7 +276,7 @@ body a {
 }
 
 .results-footer {
-	background-color: #D1BE86;
+	background-color: #D8C7A7;
 	height: 100%;
 	box-shadow: 0px -2px 5px 0 rgba(0, 0, 0, 0.5);
 }
@@ -313,7 +314,8 @@ body a {
 }*/
 
 .btn-large.homepage {
-	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+	/*font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;*/
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
 	background: #4A5975;
 	color: #D8C7A7;
 	/*color: white;*/
@@ -322,11 +324,10 @@ body a {
 	text-shadow: none;
 	border: none;
 }
-
-.btn-large.homepage:hover {
-	background-color: #404858;
-	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
-}
+	.btn-large.homepage:hover {
+		background-color: #404858;
+		font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+	}
 
 .btn.disabled {
 	background-color: lightgrey;
@@ -462,25 +463,26 @@ body #statsModal {
 }
 
 .modal-button {
-	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
-	background-color: #EBD89D;
-	color: #5C4112;
-	border: 2px solid #9C7C44;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+	background: #4A5975;
+	color: #D8C7A7;
+	/*border: 2px solid #9C7C44;*/
 	/*height: 100%;*/
 	/*line-height: 100%;*/
-	font-size: 24px;
-	padding: 10px;
-	margin: 5px;
+	font-size: 20px;
+	padding: 5px;
+	margin: 10px;
 	display: inline-block;
+	/*float: right;*/
 	border-radius: 5px;
 	opacity: none;
+	text-decoration: none;
+	width: 30%;
 }
-
-.legend-button {
-	/*height: 100%;*/
-	/*padding: 5px;*/
-	/*vertical-align: bottom;*/
-}
+	.modal-button:hover {
+		background-color: #404858;
+		color: #D8C7A7;
+	}
 
 /* alignment of close button on legend-box and stats-box */
 .close {
@@ -489,13 +491,16 @@ body #statsModal {
 }
 
 .legend-title h2 {
-	/*background-color: beige;*/
-	color: #5C4112;
+	color: #725722;
+}
+
+.stats-title h2 {
+	color: #725722;
 }
 
 #legend-headings {
-	background-color: #9C7C44;
-	color: #EBD89D;
+	background-color: #725722;
+	color: #D8C7A7;
 	font-size: 20px;
 	/*line-height: 22px;*/
 	height: 20px;
@@ -503,8 +508,8 @@ body #statsModal {
 }
 
 #stats-headings {
-	background-color: #9C7C44;
-	color: #EBD89D;
+	background-color: #725722;
+	color: #D8C7A7;
 	font-size: 20px;
 	/*line-height: 22px;*/
 	height: 20px;
@@ -513,17 +518,15 @@ body #statsModal {
 
 #legend-row {
 	/*display: block;*/
-	background-color: #EBD89D;
+	/*background-color: white;*/
 	font-size: 18px;
-	border-top: 3px solid #D1BE86;
-	/*vertical-align: center;*/
+	border-top: 3px solid #b09768;
 }
 
 .stats-row {
-	background-color: #EBD89D;
+	/*background-color: #EBD89D;*/
 	font-size: 18px;
-	border-top: 3px solid #D1BE86;
-	/*padding: 10px;*/
+	border-top: 3px solid #b09768;
 }
 
 .row-fluid #fields_link [class*="span"] {
