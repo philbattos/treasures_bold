@@ -37,7 +37,7 @@
     </div><!-- /span9 -->
 
     <div class="span3" id="results-sidebar" style="height: 95%; width: 25%;">
-      <div class="row-fluid" style="height: 8%; min-height: 50px;">
+      <div class="row-fluid">
         <div class="results-heading">
           <!-- <a href='#' id='hide-sidebar'> >>> </a> -->
 
@@ -130,10 +130,10 @@
               <li id="landing-list-items" data-landing="<%= landing.feature_id %>">
               <div class="row-fluid">
                 <div class="span8"><!-- landing data -->
-                  <strong>Name: </strong>
-                  <a href="#" onclick="myClick(landing.feature_id)"><%= landing.feature_name %></a><br>
-                  <strong>Type: </strong><%= landing.feature_class %><br>
-                  <strong>County: </strong><%= landing.county %><br>
+                  name: 
+                  <strong><a href="#" onclick="myClick(landing.feature_id)"><%= landing.feature_name %></a></strong><br>
+                  type: <%= landing.feature_class %><br>
+                  county: <%= landing.county %><br>
                 </div><!-- /span8 -->
                 <div class="span2"><!-- landing marker -->
                   <div class="landing-list-marker">
