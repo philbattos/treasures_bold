@@ -27,25 +27,31 @@
     </div><!-- /span9 -->
         
     <div class="span3" style="height: 95%; width: 25%;">
-      <div class="row-fluid" style="height: 10%;">
+      <div class="row-fluid">
         <div class="results-heading">
           <h1>Place Details</h1>
         </div><!-- /results-heading -->
       </div><!-- /row -->
       <div class="row-fluid" id="landings-list"><!-- landings list -->
-        <div class="row-fluid" id="place-details">
-          <strong>Place Name:</strong>
-          <%= @landing.feature_name %>
+        <div class="row-fluid">
+          <div class="place-details">
+            place name:
+            <strong><%= @landing.feature_name %></strong>
+          </div>
         </div>
 
-        <div class="row-fluid" id="place-details">
-          <strong>Place Type:</strong>
-          <%= @landing.feature_class %>
+        <div class="row-fluid">
+          <div class="place-details">
+            place type:
+            <strong><%= @landing.feature_class %></strong>
+          </div>
         </div>
 
-        <div class="row-fluid" id="place-details">
-          <strong>Elevation:</strong>
-          <%= @landing.elevation %> ft.
+        <div class="row-fluid">
+          <div class="place-details">
+            elevation:
+            <strong><%= @landing.elevation %> ft.</strong>
+          </div>
         </div>
 
         <div class="row-fluid" id="place-details">
