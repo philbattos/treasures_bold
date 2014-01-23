@@ -110,7 +110,7 @@
                   <div class="span3" style="padding-top: 10px; padding-bottom: 10px;">
                     <%= map_data[:total_found] %>
                   </div>
-                  <div class="span3" style="padding-top: 10px; padding-bottom: 10px;">
+                  <div class="span3" id='map-landings-quantity' style="padding-top: 10px; padding-bottom: 10px;">
                     <%= map_data[:landings].size %>
                   </div><!-- /span2 -->
                 </div><!-- /stats-row -->
@@ -142,7 +142,9 @@
                 </div><!-- /span2 -->
                 <div class="span2">
                   <div class="landing-list-links">
-                    <%= link_to "open", place_path(landing.feature_id), target: "_blank" %><br>
+                    <%= link_to "open", place_path(landing.feature_id), target: "_blank" %>
+                  <div>
+                  <div class='landing-list-links'>
                     <a href="#" id="remove-landing" data-landing="<%= landing.feature_id %>">remove</a>
                     <!-- <input type="checkbox" name="save" value="#{landing.feature_name}"> -->
                   </div><!-- /landing-list-links -->
@@ -176,7 +178,7 @@
   // remove map marker from sidebar
   $( document ).ready(function() {
     $( 'a#remove-landing' ).click(function( event ) {
-      $( this ).parent().parent().parent().parent().slideToggle();
+      $( this ).parent().parent().parent().parent().parent().parent().slideToggle();
       var feature_id = $(this).data('landing');
       deleteMarker(feature_id);
       event.preventDefault();

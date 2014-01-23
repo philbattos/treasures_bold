@@ -67,15 +67,14 @@ img {
 
 /* configure links; need 'body' (not sure why) */
 body a {
-	color: #725722;
-	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
-	line-height: 30px;
-	font-size: 20px;
-	text-decoration: none;
+	/*color: #725722;*/
+	/*line-height: 30px;*/
+	/*font-size: 20px;*/
+	/*text-decoration: none;*/
 }
 
 		body a:hover {
-			color: black;
+			/*color: black;*/
 			background-color: inherit;
 			text-decoration: none;
 		}
@@ -159,6 +158,7 @@ body a {
 	background-image: none;
  	padding-left: 30px;
  	padding-right: 10px;
+ 	line-height: 30px;
 	/*background-image: linear-gradient(to bottom, #ffffff, goldenrod);*/
 	/*padding: 10px;*/
 }
@@ -173,6 +173,7 @@ body a {
 	font-size: 34px;
 	font-weight: bold;
 	height: 100%;
+	/*line-height: 30px;*/
 	/*border-bottom: 2px;*/
 }
 
@@ -183,6 +184,7 @@ body a {
 	background-color: #725722;
 	color: #D8C7A7;
 	text-shadow: none;
+	line-height: 30px;
 }
 
 .navbar .nav.pull-right > li {
@@ -265,39 +267,20 @@ body a {
 	height: 100%;
 	/*width: 100%;*/
 	/*background-color: #D1BE86;*/
-	background-color: #D8C7A7;
+	background-color: #D8C195;
 	color: #5C4112;
 	/*font-size: 36px;*/
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);
 	text-align: center;
 	/*line-height: 100%;*/
-	min-height: 40px;
+	min-height: 60px;
 }
 
 .results-footer {
-	background-color: #D8C7A7;
+	background-color: #D8C195;
 	height: 100%;
 	box-shadow: 0px -2px 5px 0 rgba(0, 0, 0, 0.5);
-}
-
-/*/*/
-#landings-list {
-	height: 87%; /* 90% of total side panel */
-	overflow-y: scroll;
-	overflow-x: hidden;
-	padding-top: 4px;
-	/*padding-bottom: 20px;*/
-	/*background-color: #F0EAD6;*/
-	/*background-color: white;*/
-}
-
-/*/*/
-.landing-list-marker {
-	text-align: center;
-	padding-top: 10px; /* center marker vertically */
-	vertical-align: middle;
-	/*width: 20%;*/
 }
 
 .input-large[class="input-large"] {
@@ -398,42 +381,88 @@ strong > .highlight {
 	padding: 20px;
 }
 
-.new-background {
-	background-color: #CCE9FC;
-	/*padding: 10px;*/
-	margin: -1px;
-	border: 1px solid lightgrey;
+/* this enables background of results sidebar to be white 
+while the ul background and li:hover are different colors */
+li {
+	background-color: white;
 }
 
 ul#landing-list-items {
 	list-style: none;
 	margin-left: 0;
 	padding-bottom: 30px;
-	/*padding: 10px;*/
-	/*background-color: white;*/
+	/*background-color: grey;*/
 }
 
 li#landing-list-items {
-	/*background-color: red;*/
 	list-style: none;
-	/*margin-left: 0;*/
 	padding: 10px;
-	/*border: 1px solid white;*/
+	font-size: 16px;
 	/*background-color: white;*/
+	/*margin-left: 0;*/
+	/*border: 1px solid white;*/
+	/*margin-top: 1px;*/
+}
+
+/*/*/
+#landings-list {
+	height: 87%; /* 90% of total side panel */
+	overflow-y: scroll;
+	overflow-x: hidden;
+	/*padding-top: 4px;*/
+	/*padding-bottom: 20px;*/
+	background-color: #D8C195;
+	/*background-color: white;*/
+}
+
+/*/*/
+.landing-list-marker {
+	text-align: center;
+	padding-top: 10px; /* center marker vertically */
+	vertical-align: middle;
+	/*width: 20%;*/
+}
+
+.new-background {
+	/*background-color: #CCE9FC;*/
+	background-color: beige;
+	/*padding: 10px;*/
+	/*margin-top: -1px;*/
+	/*margin-top: -1px;*/
+	/*margin-bottom: -1px;*/
+	/*border: 1px solid lightgrey;*/
+	/*border-top: 1px solid lightgrey;*/
+	/*border-bottom: 1px solid lightgrey;*/
+}
+
+.landing-list-links {
+	float: right;
+	text-align: right;
+	/*padding-bottom: 5px;  center links vertically  */
+	/*font-size: 14px;*/
+	/*padding: 1px;*/
+}
+
+.landing-list-links a {
+	float: right;
+	text-align: right;
+	font-size: 14px;
+	padding: 3px;
+	margin-bottom: 2px;
+}
+	  .landing-list-links a:hover {
+	  	padding: 3px;
+	  	background-color: #D8C195;
+	  	border-radius: 5px;
+	  }
+
+.landing-index {
+	text-align: center;
 }
 
 #place-details {
 	font-size: 20px;
 	padding: 5px;
-}
-
-.landing-list-links {
-	text-align: right;
-	padding-top: 9px; /* center links vertically */
-}
-
-.landing-index {
-	text-align: center;
 }
 
 /*body #myModal {
@@ -465,10 +494,10 @@ body #statsModal {
 .modal-button {
 	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
 	background: #4A5975;
-	color: #D8C7A7;
+	color: #D8C195;
 	/*border: 2px solid #9C7C44;*/
 	/*height: 100%;*/
-	/*line-height: 100%;*/
+	line-height: 30px;
 	font-size: 20px;
 	padding: 5px;
 	margin: 10px;
