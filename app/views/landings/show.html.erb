@@ -28,53 +28,63 @@
         
     <div class="span3" style="height: 95%; width: 25%;">
       <div class="row-fluid">
-        <div class="results-heading">
+        <div class="place-details-heading">
           <h1>Place Details</h1>
         </div><!-- /results-heading -->
       </div><!-- /row -->
-      <div class="row-fluid" id="landings-list"><!-- landings list -->
-        <div class="row-fluid">
-          <div class="place-details">
-            place name:
-            <strong><%= @landing.feature_name %></strong>
+      <div class="row-fluid" style="height: 100%;">
+        <div class="place-details-panel">
+          <div class="row-fluid">
+            <div class="place-details">
+              place name:
+              <strong><%= @landing.feature_name %></strong>
+            </div>
           </div>
-        </div>
 
-        <div class="row-fluid">
-          <div class="place-details">
-            place type:
-            <strong><%= @landing.feature_class %></strong>
+          <div class="row-fluid">
+            <div class="place-details">
+              place type:
+              <strong><%= @landing.feature_class %></strong>
+            </div>
           </div>
-        </div>
 
-        <div class="row-fluid">
-          <div class="place-details">
-            elevation:
-            <strong><%= @landing.elevation %> ft.</strong>
+          <div class="row-fluid">
+            <div class="place-details">
+              elevation:
+              <strong><%= @landing.elevation %> ft.</strong>
+            </div>
           </div>
-        </div>
 
-        <div class="row-fluid" id="place-details">
-          <strong>County, State:</strong>
-          <%= @landing.county %>, <%= @landing.state %>
-        </div>
+          <div class="row-fluid">
+            <div class="place-details">
+              county, state:
+              <strong><%= @landing.county %>, <%= @landing.state %></strong>
+            </div>
+          </div>
 
-        <div class="row-fluid" id="place-details">
-          <strong>Latitude:</strong>
-          <%= @landing.lat_decimal %><br>
-          <strong>Longitude:</strong>
-          <%= @landing.long_decimal %>
-        </div>
+          <div class="row-fluid">
+            <div class="place-details">
+              latitude:
+              <strong><%= @landing.lat_decimal %></strong>
+            </div>
+          </div>
 
-        <div class="row-fluid" id="place-details">
-          <strong>USGS Feature ID:</strong>
-          <%= @landing.feature_id %>
+          <div class="row-fluid">
+            <div class="place-details">
+              longitude:
+              <strong><%= @landing.long_decimal %></strong>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="place-details" hidden>
+              USGS feature id:
+              <strong><%= @landing.feature_id %></strong>
+            </div>
+          </div>
         </div>
       </div><!-- /row -->
-      <div class="row-fluid" style="height: 10%;">
-        <div class="results-footer">
-        </div>
-      </div>
+
     </div><!-- /span3 -->
   </div><!-- /row-fluid -->
 </div><!-- /container -->
