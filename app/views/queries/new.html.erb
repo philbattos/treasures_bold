@@ -36,7 +36,7 @@
 	    	</div><!-- /span5 -->
 	    </div><!-- /row -->
 
-	    <div class='row-fluid'>
+	    <div class='row-fluid standard-background-color'>
 	    	<div class='span9'>
 
 			    <div class="row-fluid">
@@ -52,7 +52,7 @@
 			    		<!-- <p>If you submit more than one search entry, the database will only find places that include BOTH search terms. (For example, if you put "canyon" in the first search box, and "brown" in the second, the database will only find places that include both "brown" and "canyon" in their fields.) -->
 			    	<!-- </div>/span5 -->
 						<div class="span7">
-					    <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="Search Keyword (required)" style="width: 85%;">
+					    <input id="query_entry1" name="query[entries][entry1][keyword]" type="text" class="input-large" placeholder="search keyword (required)" style="width: 85%;">
 					    <img src="http://maps.google.com/mapfiles/ms/icons/green.png" style="padding-bottom: 12px;">
 						</div><!-- /span7 -->
 					</div><!-- /row -->
@@ -63,7 +63,7 @@
 			    			<h3>Search Fields</h3>
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
-						<div class="span7" style='margin-top: 15px;'>
+						<div class="span7" style='margin-top: 5px;'>
 
 							<!-- simple input checkboxes -->
 		<!-- 				  <label class="checkbox-inline">
@@ -80,65 +80,65 @@
 						  </label> -->
 
 			      	<div class="row-fluid">
-			      		<div class="span3">
+			      		<div class="span2">
+						    	<div class='custom-checkbox'>
+						    		<input type="checkbox" value="1" id="checkbox-place-name-1" name="query[entries][entry1][fields][feature_name]" checked/>
+						  	  	<label for="checkbox-place-name-1"></label>
+						    	</div>
+			  		    </div><!-- /span2 -->
+			  		    <div class="span10">
 			      			<div class="checkbox-slider-text">
 				  		    	Place Name
 				  		    </div><!-- /checkbox-slider-text -->
-			  		    </div><!-- /span3 -->
-			  		    <div class="span9">
-						    	<div class="checkbox-slider">
-						    		<input type="checkbox" value="1" id="checkbox-slider-place-name" name="query[entries][entry1][fields][feature_name]" checked/>
-						  	  	<label for="checkbox-slider-place-name"></label>
-						    	</div>
-				    	  </div><!-- /span9 -->
+				    	  </div><!-- /span10 -->
 				    	</div><!-- /row -->
 
 			      	<div class="row-fluid">
-			      		<div class="span3">
+			      		<div class="span2">
+						    	<div class='custom-checkbox'>
+						    		<input type="checkbox" value="1" id="checkbox-place-type-1" name="query[entries][entry1][fields][feature_class]" checked/>
+						  	  	<label for="checkbox-place-type-1"></label>
+						    	</div>
+			  		    </div><!-- /span2 -->
+			  		    <div class="span10">
 			      			<div class="checkbox-slider-text">
 				  		    	Place Type
 				  		    </div><!-- /checkbox-slider-text -->
-			  		    </div><!-- /span3 -->
-			  		    <div class="span9">
-						    	<div class="checkbox-slider">
-						    		<input type="checkbox" value="1" id="checkbox-slider-place-type" name="query[entries][entry1][fields][feature_class]" checked/>
-						  	  	<label for="checkbox-slider-place-type"></label>
-						    	</div>
-				    	  </div><!-- /span9 -->
+				    	  </div><!-- /span10 -->
 				    	</div><!-- /row -->
 
 			      	<div class="row-fluid">
-			      		<div class="span3">
+			      		<div class="span2">
+						    	<div class='custom-checkbox'>
+						    		<input type="checkbox" value="1" id="checkbox-state-1" name="query[entries][entry1][fields][state]" checked/>
+						  	  	<label for="checkbox-state-1"></label>
+						    	</div>
+			  		    </div><!-- /span2 -->
+			  		    <div class="span10">
 			      			<div class="checkbox-slider-text">
 				  		    	State
 				  		    </div><!-- /checkbox-slider-text -->
-			  		    </div><!-- /span3 -->
-			  		    <div class="span9">
-						    	<div class="checkbox-slider">
-						    		<input type="checkbox" value="1" id="checkbox-slider-state" name="query[entries][entry1][fields][state]" checked/>
-						  	  	<label for="checkbox-slider-state"></label>
-						    	</div>
-				    	  </div><!-- /span9 -->
+				    	  </div><!-- /span10 -->
 				    	</div><!-- /row -->
 
 				    	<div class="row-fluid">
-				    		<div class="span3">
+				    		<div class="span2">
+						    	<div class='custom-checkbox'>
+						    		<input type="checkbox" value="1" id="checkbox-county-1" name="query[entries][entry1][fields][county]" checked/>
+						  	  	<label class= "checkbox-inline" for="checkbox-county-1"></label>
+						    	</div>
+						    </div><!-- /span2 -->
+						    <div class="span10">
 				    			<div class="checkbox-slider-text">
 							    	County
 							    </div>
-						    </div><!-- /span3 -->
-						    <div class="span9">
-						    	<div class="checkbox-slider">
-						    		<input type="checkbox" value="1" id="checkbox-slider-county" name="query[entries][entry1][fields][county]" checked/>
-						  	  	<label class= "checkbox-inline" for="checkbox-slider-county"></label>
-						    	</div>
-						    </div><!-- /span9 -->
+						    </div><!-- /span10 -->
 						  </div><!-- /row -->
 
 						</div><!-- /span7 -->
 					</div><!-- /row -->
 
-					<div class="row-fluid" id="fields_link">
+					<div class="row-fluid" id="fields_link" style='margin-bottom: 25px;'>
 						<div class='span5'>
 							<br><!-- empty contents to make span 'work' -->
 						</div>
@@ -167,69 +167,69 @@
 				    			<h3>Search Fields</h3>
 				    		</div><!-- /description_heading -->
 			    		</div><!-- /span5 -->
-							<div class="span7">
+							<div class="span7" style='margin-top: 5px;'>
 
-			        	<div class="row-fluid" style='margin-top: 15px;'>
-			        		<div class="span3">
+			        	<div class="row-fluid">
+			        		<div class="span2">
+			  			    	<div class='custom-checkbox'>
+			  			    		<input type="checkbox" value="1" id="checkbox-place-name-2" name="query[entries][entry2][fields][feature_name]" checked/>
+			  			  	  	<!-- <label for="checkbox-slider-place-name-2"></label> -->
+			  			  	  	<label for='checkbox-place-name-2'></label>
+			  			    	</div>
+			    		    </div><!-- /span2 -->
+			    		    <div class="span10">
 			        			<div class="checkbox-slider-text">
 			  	  		    	Place Name
 			  	  		    </div><!-- /checkbox-slider-text -->
-			    		    </div><!-- /span3 -->
-			    		    <div class="span9">
-			  			    	<div class='squaredFour'>
-			  			    		<input type="checkbox" value="1" id="checkbox-slider-place-name-2" name="query[entries][entry2][fields][feature_name]" checked/>
-			  			  	  	<!-- <label for="checkbox-slider-place-name-2"></label> -->
-			  			  	  	<label for="squaredFour"></label>
-			  			    	</div>
-			  	    	  </div><!-- /span9 -->
+			  	    	  </div><!-- /span10 -->
 			  	    	</div><!-- /row -->
 
 			        	<div class="row-fluid">
-			        		<div class="span3">
+			        		<div class="span2">
+			  			    	<div class='custom-checkbox'>
+			  			    		<input type="checkbox" value="1" id="checkbox-place-type-2" name="query[entries][entry2][fields][feature_class]" checked/>
+			  			  	  	<label for='checkbox-place-type-2'></label>
+			  			    	</div>
+			    		    </div><!-- /span2 -->
+			    		    <div class="span10">
 			        			<div class="checkbox-slider-text">
 			  	  		    	Place Type
 			  	  		    </div><!-- /checkbox-slider-text -->
-			    		    </div><!-- /span3 -->
-			    		    <div class="span9">
-			  			    	<div class="checkbox-slider">
-			  			    		<input type="checkbox" value="1" id="checkbox-slider-place-type-2" name="query[entries][entry2][fields][feature_class]" checked/>
-			  			  	  	<label for="checkbox-slider-place-type-2"></label>
-			  			    	</div>
-			  	    	  </div><!-- /span9 -->
+			  	    	  </div><!-- /span10 -->
 			  	    	</div><!-- /row -->
 
 			        	<div class="row-fluid">
-			        		<div class="span3">
+			        		<div class="span2">
+			  			    	<div class='custom-checkbox'>
+			  			    		<input type="checkbox" value="1" id="checkbox-state-2" name="query[entries][entry2][fields][state]" checked/>
+			  			  	  	<label for='checkbox-state-2'></label>
+			  			    	</div>
+			    		    </div><!-- /span2 -->
+			    		    <div class="span10">
 			        			<div class="checkbox-slider-text">
 			  	  		    	State
 			  	  		    </div><!-- /checkbox-slider-text -->
-			    		    </div><!-- /span3 -->
-			    		    <div class="span9">
-			  			    	<div class="checkbox-slider">
-			  			    		<input type="checkbox" value="1" id="checkbox-slider-state-2" name="query[entries][entry2][fields][state]" checked/>
-			  			  	  	<label for="checkbox-slider-state-2"></label>
-			  			    	</div>
-			  	    	  </div><!-- /span9 -->
+			  	    	  </div><!-- /span10 -->
 			  	    	</div><!-- /row -->
 
 			  	    	<div class="row-fluid">
-			  	    		<div class="span3">
+			  	    		<div class="span2">
+			  			    	<div class='custom-checkbox'>
+			  			    		<input type="checkbox" value="1" id="checkbox-county-2" name="query[entries][entry2][fields][county]" checked/>
+			  			  	  	<label for='checkbox-county-2'></label>
+			  			    	</div>
+			  			    </div><!-- /span2 -->
+			  			    <div class="span10">
 			  	    			<div class="checkbox-slider-text">
 			  				    	County
 			  				    </div>
-			  			    </div><!-- /span3 -->
-			  			    <div class="span9">
-			  			    	<div class="checkbox-slider">
-			  			    		<input type="checkbox" value="1" id="checkbox-slider-county-2" name="query[entries][entry2][fields][county]" checked/>
-			  			  	  	<label for="checkbox-slider-county-2"></label>
-			  			    	</div>
-			  			    </div><!-- /span9 -->
+			  			    </div><!-- /span10 -->
 			  			  </div><!-- /row -->
 
 							</div><!-- /span7 -->
 						</div><!-- /row -->
 
-						<div class="row-fluid" id="fields2_link">
+						<div class="row-fluid" id="fields2_link" style='margin-bottom: 25px;'>
 							<div class='span5'>
 								<br><!-- empty contents to make span 'work' -->
 							</div>
@@ -243,7 +243,7 @@
 					</div><!-- /row -->
 
 
-			    <div class="row-fluid" id="excluded" style='margin-bottom: 15px;'>
+			    <div class="row-fluid" id="excluded" style='margin-bottom: 25px;'>
 						<div class="span5">
 							<div class="description_heading">
 			    			<h3>Excluded Terms</h3>
@@ -255,40 +255,40 @@
 						</div><!-- /span7 -->
 					</div><!-- /row -->
 
-			    <div class="row-fluid" id="elevation" style='margin-top: 15px;'>
+			    <div class="row-fluid" id="elevation">
 						<div class="span5">
 							<div class="description_heading">
 			    			<h3>Elevation</h3>
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
-						<div class="span7">
+						<div class="span7" style='margin-top: 10px;'>
 
 		        	<div class="row-fluid">
-		    		    <div class="span2" style="width: 70px;">
-		  			    	<div class="checkbox-slider">
+		    		    <div class="span1">
+		  			    	<div class='custom-checkbox'>
 		  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_5000" name="query[filters][elevation_5000]" checked/>
 		  			  	  	<label for="checkbox-slider-elevation_5000"></label>
 		  			    	</div>
-		  	    	  </div><!-- /span2 -->
-		        		<div class="span10">
+		  	    	  </div><!-- /span1 -->
+		        		<div class="span11">
 		        			<div class="checkbox-slider-text-elevation">
 		  	  		    	Only search places above 5000 ft.
 		  	  		    </div><!-- /checkbox-slider-text -->
-		    		    </div><!-- /span10 -->
+		    		    </div><!-- /span11 -->
 		  	    	</div><!-- /row -->
 
 		        	<div class="row-fluid">
-		    		    <div class="span2" style="width: 70px;">
-		  			    	<div class="checkbox-slider">
-		  			    		<input type="checkbox" value="1" id="checkbox-slider-elevation_10200" name="query[filters][elevation_10200]" checked/>
-		  			  	  	<label for="checkbox-slider-elevation_10200"></label>
+		    		    <div class="span1">
+		  			    	<div class='custom-checkbox'>
+		  			    		<input type="checkbox" value="1" id="checkbox-elevation_10200" name="query[filters][elevation_10200]" checked/>
+		  			  	  	<label for="checkbox-elevation_10200"></label>
 		  			    	</div>
-		  	    	  </div><!-- /span2 -->
-		        		<div class="span10">
+		  	    	  </div><!-- /span1 -->
+		        		<div class="span11">
 		        			<div class="checkbox-slider-text-elevation">
 		  	  		    	Only search places below 10200 ft.
 		  	  		    </div><!-- /checkbox-slider-text -->
-		    		    </div><!-- /span10 -->
+		    		    </div><!-- /span11 -->
 		  	    	</div><!-- /row -->
 
 					    <!-- <input id="elevation_5000" type="checkbox" value="yes" name="query[filters][elevation_5000]" checked> Only search places above 5000 ft. -->
@@ -299,19 +299,19 @@
 
 					  <!-- this is nested within elevation row for jquery -->
 				    <div class="row-fluid" id="cust_elevation">
-							<div class="span5" style='margin-top: 15px;'>
+							<div class="span5">
 								<div class="description_heading">
 				    			<h3>Custom Elevation</h3>
 				    		</div><!-- /description_heading -->
 			    		</div><!-- /span5 -->
-				    	<div class="span7" style='margin-top: 15px;'>
+				    	<div class="span7" style='margin-top: 10px;'>
 						    <input id="query_elevation_min" name="query[filters][elevation_min]" type="text" class="input-large" placeholder="Min Elevation" style="width: 170px">
 						    *
 						    <input id="query_elevation_max" name="query[filters][elevation_max]" type="text" class="input-large" placeholder="Max Elevation" style="width: 170px">
 							</div><!-- /span7 -->
 						</div><!-- /row -->
 
-						<div class="row-fluid" id="cust_elev_link">
+						<div class="row-fluid" id="cust_elev_link" style='margin-bottom: 25px;'>
 							<div class='span5'>
 								<br><!-- empty contents to make span 'work' -->
 							</div>
@@ -324,7 +324,7 @@
 
 					</div><!-- /row -->
 
-			    <div class="row-fluid" id="coordinates">
+			    <div class="row-fluid" id="coordinates" style='margin-bottom: 25px;'>
 						<div class="span5">
 							<div class="description_heading">
 			    			<h3>Coordinates</h3>
@@ -352,7 +352,7 @@
 						</div><!-- /span7 -->
 					</div><!-- /row -->
 
-			    <div class="row-fluid" id="default">
+			    <div class="row-fluid" id="default" style='margin-bottom: 25px;'>
 			    	<div class="span5">
 			    		<div style="text-align: right;">
 				    		<h3>Default Settings</h3>
@@ -362,12 +362,10 @@
 					    <fieldset disabled>
 						    <input id="search_area" type="checkbox" value="yes" name="query[filters][search_area]" checked> Only search locations within search area [change text color]
 						  </fieldset>
-						  <br>
-						  <br>
 						</div><!-- /span7 -->
 					</div><!-- /row -->
 
-			    <div class="row-fluid" id="standard-background-color">
+			    <div class="row-fluid" id="standard-background-color" style='padding-bottom: 70px;'>
 			    	<div class="span5">
 			    		<div class="description_heading">
 				    		<!-- <h3>[description heading]</h3> -->
@@ -415,7 +413,7 @@
 
 						<div class="row-fluid" id="default_link">
 							<div class="show-link">
-								<a href="#" id="reveal_default">default settings</a>
+								<a href="#" id="reveal_default" hidden>default settings</a>
 						  </div>
 						</div><!-- /row -->
 

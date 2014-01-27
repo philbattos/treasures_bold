@@ -94,6 +94,10 @@ body a {
 					color: black;
 				}
 
+form {
+	margin: 0 0 0;
+}
+
 /* remove padding for homepage background image and for collapsed navbar */
 .container-fluid {
  	padding-left: 0px;
@@ -651,7 +655,6 @@ input#elevation_5000 {
 	height: 26px;
 	background: #404858;
 	/*margin: 10px 10px;*/
-
 	border-radius: 50px;
 	position: relative;
 }
@@ -716,7 +719,7 @@ input#elevation_5000 {
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	line-height: 30px;
 	font-size: 20px;
-	text-align: right;
+	/*text-align: right;*/
 	/*display: block;*/
 }
 
@@ -731,52 +734,57 @@ input#elevation_5000 {
 	/*text-align: left;*/
 }
 
-/* .squaredFour */
-.squaredFour {
+/* .custom-checkbox */
+.custom-checkbox {
   width: 20px;
   position: relative;
-  margin: 20px auto;
+  float: right;
+  margin-top: 3px;
+  /*margin: 20px auto;*/
 }
-		.squaredFour label {
-		  width: 20px;
-		  height: 20px;
-		  cursor: pointer;
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  background: #fcfff4;
-		  background: linear-gradient: top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%;;
-		  border-radius: 4px;
-		  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-		}
 
-	  .squaredFour:after {
-	    content: '';
-	    width: 9px;
-	    height: 5px;
-	    position: absolute;
-	    top: 4px;
-	    left: 4px;
-	    border: 3px solid #333;
-	    border-top: none;
-	    border-right: none;
-	    background: transparent;
-	    opacity: 0;
-	    transform: rotate(-45deg);
-	    -webkit-transform:rotate(-45deg); /* Safari & Chrome */
-	  }
-	  .squaredFour:hover::after {
-	    opacity: 0.5;
-	  }
+.custom-checkbox label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #404858;
+  /*background: linear-gradient( top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100% );*/
+  /*background: -webkit-linear-gradient( top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100% );*/
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+}
 
-		.squaredFour input[type=checkbox] {
-		  visibility: hidden;
-		}
-			  .squaredFour input[type=checkbox]:checked {
-			    opacity: 1;
-			  }
-		}   
-/* end .squaredFour */
+.custom-checkbox label:after {
+  content: '';
+  width: 10px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 3px solid lightblue;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  transform: rotate(-45deg);
+  -webkit-transform:rotate(-45deg); /* Safari & Chrome */
+}
+
+.custom-checkbox label:hover::after {
+  opacity: 0.4;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+/* end .custom-checkbox */
 
 .hide-link,
 .hide-link a {
@@ -825,7 +833,7 @@ input#elevation_5000 {
 	padding: 7px;
 	margin: 5px;
 	border-radius: 5px;
-	text-indent: 85px;
+	text-indent: 30px;
 }
 
 .show-fields-link a:hover {
@@ -853,6 +861,7 @@ input#elevation_5000 {
 	display: inline-block;
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	font-size: 20px;
+	margin-bottom: 20px;
 }
 
 /*** reexamine ***/

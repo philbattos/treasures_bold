@@ -39,6 +39,7 @@ class QueriesController < ApplicationController
     # sends search request to landings_controller to process
     redirect_to search_landings_path(params: params)
     begin
+      # binding.pry
       # creates new database entry for search query
       @query = Query.new(query_params)
       # @query = current_user.queries.build(query_params)
@@ -69,6 +70,7 @@ class QueriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
       # params.require(:query).permit(entries: [entry1: [:keyword, fields: [:feature_name]]], filters: [:exclude, :elevation_5000, :elevation_min, :elevation_max])
-      params.require(:query)
+      # params.require(:query).permit( :entries => [:entry1 => [:keyword, :fields => [:feature_name, :feature_type, :county, :state]] ], :entry2 => [:fields, :keyword] ], :filters => [:exclude, :elevation_5000, :elevation_10200, :elevation_min, :elevation_max, :north_bound, :south_bound, :east_bound, :west_bound] )
+      params.require(:query).permit(:entries, filters: [:feature_name, :feature_type, :state, :county])
     end
 end
