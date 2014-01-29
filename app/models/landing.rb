@@ -5,8 +5,8 @@ class Landing < ActiveRecord::Base
 
 	validates :feature_id, presence: true
 	# validates :feature_name, presence: true
-	# validates :lat_decimal, presence: true
-	# validates :long_decimal, presence: true
+	validates :lat_decimal, presence: true
+	validates :long_decimal, presence: true
 
 	tire.mapping do
 		indexes :feature_id, :type => :integer, index: :not_analyzed
@@ -37,14 +37,14 @@ class Landing < ActiveRecord::Base
 		end
 
 		# restrict number of results to be mapped
-		search_results.each {|keyword, map_data| map_data[:landings] = map_data[:landings][0..9] }
+		# search_results.each {|keyword, map_data| map_data[:landings] = map_data[:landings][0..9] }
 		
 		search_results
 	end
 
 	def self.search(entry, filters=nil)
-		tire.search do # (load: true) tells Tire to search objects in database, not indexed objects
-			size 100
+		tire.search do # (load: true) tells Tire to search objects in database, not indexed objects (Railscast #306)
+			size 1000
 			query do
 				boolean do
 					selected_fields = entry[:fields].keys
@@ -55,16 +55,23 @@ class Landing < ActiveRecord::Base
 					must_not { string "#{filters[:exclude]}" } if filters[:exclude].present?
 				end
 			end
+			min_elevation = filters[:elevation_min]
+			max_elevation = filters[:elevation_max]
+			north_bound = filters[:north_bound]
+			south_bound = filters[:south_bound]
+			east_bound = filters[:east_bound]
+			west_bound = filters[:west_bound]
 			### filters have specified types: :terms, :range, ??
+			filter :terms, state: filters[:select_states].keys
+			filter :range, lat_decimal: { lte: north_bound.to_f } if north_bound.present?
+			filter :range, lat_decimal: { gte: south_bound.to_f } if south_bound.present?
+			filter :range, long_decimal: { gte: east_bound.to_f } if east_bound.present?
+			filter :range, long_decimal: { gte: west_bound.to_f } if west_bound.present?
 			filter :range, elevation: { gte: 5000 } if filters[:elevation_5000].present?
 			filter :range, elevation: { lte: 10200 } if filters[:elevation_10200].present?
-			filter :range, elevation: { gte: filters[:elevation_min] } if filters[:elevation_min].present?
-			filter :range, elevation: { lte: filters[:elevation_max] } if filters[:elevation_max].present?
+			filter :range, elevation: { gte: min_elevation } if min_elevation.present?
+			filter :range, elevation: { lte: max_elevation } if max_elevation.present?
 			# change from 'lte' or 'gte' to 'from' and 'to' (see tire/elasticsearch pages for details)
-			filter :range, lat_decimal: { lte: filters[:north_bound].to_f } if filters[:north_bound].present?
-			filter :range, lat_decimal: { gte: filters[:south_bound].to_f } if filters[:south_bound].present?
-			filter :range, long_decimal: { gte: filters[:east_bound].to_f } if filters[:east_bound].present?
-			filter :range, long_decimal: { gte: filters[:west_bound].to_f } if filters[:west_bound].present?
 		end
 	end
 

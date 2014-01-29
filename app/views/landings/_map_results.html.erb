@@ -56,13 +56,16 @@
         
         // content to be displayed in infoWindows
         var contentString =
-          '<div id="firstHeading" class="firstHeading", style="font-size: 18px;"><b><%= landing.feature_name %></b>' +
+          '<div id="content" style="width: 110%; font-size: 18px; line-height: 24px;">' +
+          '<div id="firstHeading" class="firstHeading", style="font-size: 22px; color: #725722;"><b><%= landing.feature_name %></b>' +
           // '<div id="bodyContent">'+
-          '<br><b>Location-type:</b> <%= landing.feature_class %>' +
-          '<br><b>County:</b> <%= landing.county %>, <%= landing.state %>' +
-          '<br><b>Latitude:</b> <%= landing.lat_decimal %>' +
-          '<br><b>Longitude:</b> <%= landing.long_decimal %>' +
-          '<br><b>Elevation:</b> <%= landing.elevation %> ft.' +
+          '<div style="font-size: 18px; color: #3a3a3a;">place type: <b><%= landing.feature_class %></b>' +
+          '<br>county: <b><%= landing.county %>, <%= landing.state %></b>' +
+          '<br>latitude: <b><%= landing.lat_decimal %></b>' +
+          '<br>longitude: <strong><%= landing.long_decimal %></strong>' +
+          '<br>elevation: <b><%= landing.elevation %> ft.</b>' +
+          '</div>' +
+          '</div>' +
           '</div>';
         
         // create infoWindows for each marker

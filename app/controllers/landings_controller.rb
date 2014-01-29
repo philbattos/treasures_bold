@@ -1,5 +1,6 @@
 class LandingsController < ApplicationController
   before_action :set_landing, only: [:show, :edit, :update, :destroy]
+  before_filter :validate_search
   # before_action :import_search_query, only: [:search]
   # before_filter :authenticate_user!, except: [:search, :show]
   # before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
@@ -13,6 +14,59 @@ class LandingsController < ApplicationController
   # GET /landings.json
   def index
   end
+
+  def validate_search
+    @entry1 = params[:query][:entries][:entry1]
+    @entry2 = params[:query][:entries][:entry2]
+    if keywords_blank?
+      # invalidate search; return error
+      redirect_to search_path, flash: { error: 'no keywords entered' }
+    elsif searchable_fields_blank?
+      redirect_to search_path, flash: { error: 'please select searchable fields' }
+    elsif states_blank?
+      redirect_to search_path, flash: { error: 'please select at least one state' }
+    end
+  end
+
+  def searchable_fields_blank?
+    searchable_fields1_blank? || @entry2.empty? && searchable_fields2_blank?
+    # true unless searchable_fields1 
+    # true unless @entry2.present? && searchable_fields2
+  end
+
+  def searchable_fields1
+    @entry1[:fields].present?
+  end
+
+  def searchable_fields2
+    @entry2[:fields].present?
+  end
+
+  def searchable_fields1_blank?
+    @entry1[:fields].blank?
+  end
+
+  def searchable_fields2_blank?
+    params[:query][:entries][:entry2][:fields].blank?
+  end
+
+  def keywords_blank?
+    keyword1_blank? # if first search box is empty, return error
+    # params[:query][:entries].each { |label, info| info[:keyword].blank? }
+  end
+
+  def keyword1_blank?
+    @entry1[:keyword].blank?
+  end
+
+  def keyword2_blank?
+    params[:query][:entries][:entry2][:keyword].blank?
+  end
+
+  def states_blank?
+    params[:query][:filters][:select_states].blank?
+  end
+
 
   def search
     import_search_query

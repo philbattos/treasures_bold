@@ -4,11 +4,11 @@ Landing.delete_all
 Landing.tire.index.delete
 
 def inside_east_west_boundary(long_coordinate) # boundaries
-  long_coordinate.abs.between?(102, 116)
+  long_coordinate.abs.between?(102, 116) # between eastern CO border and western MT border
 end
 
 def inside_north_south_boundary(lat_coordinate) # boundaries
-  lat_coordinate.between?(35.5, 49)
+  lat_coordinate.between?(35.5, 49) # between Santa Fe (southern border) and MT/Canada border (northern border)
 end
 
 def searchable_states
@@ -36,19 +36,19 @@ seed_files = ['db/seed_data_files/CO_Features_20130404.txt',
               'db/seed_data_files/NM_Features_20130404.txt',
               'db/seed_data_files/WY_Features_20130404.txt' ]
 
-# seed_files.each do |file|
-#   CSV.table(file, col_sep: '|').each do |row|
-#     if inside_east_west_boundary(row[:prim_long_dec])
-#       if inside_north_south_boundary(row[:prim_lat_dec])
-#         if searchable_states.include?(row[:state_alpha].upcase)
+seed_files.each do |file|
+  CSV.table(file, col_sep: '|').each do |row|
+    if inside_east_west_boundary(row[:prim_long_dec])
+      if inside_north_south_boundary(row[:prim_lat_dec])
+        if searchable_states.include?(row[:state_alpha].upcase)
     
-#           add_new_landings(row)
+          add_new_landings(row)
 
-#         end
-#       end
-#     end
-#   end
-# end
+        end
+      end
+    end
+  end
+end
 
 # Santa Fe and north = 35.5+
 # Canada/Montana border = 49.0
@@ -56,20 +56,36 @@ seed_files = ['db/seed_data_files/CO_Features_20130404.txt',
 # Montana western border = -116
 
 ### small sample file for testing
-CSV.table('db/seed_samples/CO_Features_Small_20130404.txt', col_sep: '|').each do |row|
+# CSV.table('db/seed_samples/CO_Features_Small_20130404.txt', col_sep: '|').each do |row|
 
-  if inside_east_west_boundary(row[:prim_long_dec])
-    if inside_north_south_boundary(row[:prim_lat_dec])
-      if searchable_states.include?(row[:state_alpha].upcase)
+#   if inside_east_west_boundary(row[:prim_long_dec])
+#     if inside_north_south_boundary(row[:prim_lat_dec])
+#       if searchable_states.include?(row[:state_alpha].upcase)
   
-        add_new_landings(row)
-        # Landing.reindex
+#         add_new_landings(row)
+#         # Landing.reindex
 
-      end
-    end
-  end
+#       end
+#     end
+#   end
 
-end
+# end
+
+### load file for Colorado landings
+# CSV.table('db/seed_data_files/CO_Features_20130404.txt', col_sep: '|').each do |row|
+
+#   if inside_east_west_boundary(row[:prim_long_dec])
+#     if inside_north_south_boundary(row[:prim_lat_dec])
+#       if searchable_states.include?(row[:state_alpha].upcase)
+  
+#         add_new_landings(row)
+#         # Landing.reindex
+
+#       end
+#     end
+#   end
+
+# end
 
 
 ### Rails templating

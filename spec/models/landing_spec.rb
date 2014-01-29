@@ -12,7 +12,7 @@ describe Landing do
 
 	describe "validations" do
 		it { should validate_presence_of :feature_id }
-		it { should validate_presence_of :feature_name }
+		# it { should validate_presence_of :feature_name }
 		it { should validate_presence_of :lat_decimal }
 		it { should validate_presence_of :long_decimal }
 
@@ -28,6 +28,7 @@ describe Landing do
 	  end
 
 	  it "is invalid without a feature_name" do
+	  	pending "validation turned off"
 	  	@landing.feature_name = nil
 	  	@landing.should_not be_valid
 	  	expect(@landing).to_not be_valid
@@ -47,7 +48,7 @@ describe Landing do
 
 	  it "returns a landing with a feature_id, feature_name, lat_decimal, and long_decimal" do
 	  	@landing.feature_id.should_not be_nil
-	  	@landing.feature_class.should_not be_nil
+	  	# @landing.feature_name.should_not be_nil
 	  	@landing.lat_decimal.should_not be_nil
 	  	@landing.long_decimal.should_not be_nil
 	  end
@@ -68,7 +69,7 @@ describe Landing do
 
 	describe "search" do
 		it "correctly finds records that match search query based on feature_name" do
-			search_results = Landing.search "hijklm"
+			search_results = Landing.search({ fields: { county: 1, feature_class: 1, feature_name: 1, state: 1 }, keyword: "hijklm" })
 			expect(search_results.first.feature_name).to eq "abcdefg hijklm nopq"
 		end
 

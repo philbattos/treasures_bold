@@ -2,12 +2,21 @@
 
 <div class="container-fluid navbar-adjustment full-size standard-background-color">
 	<div class="row-fluid">
-		<div class="span12">
+		<div class="span4">
+			<br>
+		</div><!-- /span4 -->
+
+		<div class="span4">
 			<div class="page-heading">
 				<h1>Advanced Search Page</h1>
 				<h3>Select options to filter your search</h3>
 			</div><!-- /page_heading -->
-		</div><!-- /span12 -->
+		</div><!-- /span4 -->
+		<div class="span4">
+			<div id="alert"></div>
+			<div id="error"><%= flash[:error] %></div>
+			<div id="notice"><%= flash[:notice] %></div>
+		</div>
 	</div><!-- /row -->
 
 	<div class="row-fluid">
@@ -107,20 +116,6 @@
 				    	  </div><!-- /span10 -->
 				    	</div><!-- /row -->
 
-			      	<div class="row-fluid">
-			      		<div class="span2">
-						    	<div class='custom-checkbox'>
-						    		<input type="checkbox" value="1" id="checkbox-state-1" name="query[entries][entry1][fields][state]" checked/>
-						  	  	<label for="checkbox-state-1"></label>
-						    	</div>
-			  		    </div><!-- /span2 -->
-			  		    <div class="span10">
-			      			<div class="checkbox-slider-text">
-				  		    	State
-				  		    </div><!-- /checkbox-slider-text -->
-				    	  </div><!-- /span10 -->
-				    	</div><!-- /row -->
-
 				    	<div class="row-fluid">
 				    		<div class="span2">
 						    	<div class='custom-checkbox'>
@@ -156,7 +151,7 @@
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
 						<div class="span7">
-					    <input id="query_entry2" name="query[entries][entry2][keyword]" type="text" class="input-large" placeholder="Search Keyword (optional)" style="width: 85%;">
+					    <input id="query_entry2" name="query[entries][entry2][keyword]" type="text" class="input-large" placeholder="search keyword (optional)" style="width: 85%;">
 					    <img src="http://maps.google.com/mapfiles/ms/icons/blue.png" style="padding-bottom: 12px;"></img>
 						</div><!-- /span7 -->
 					
@@ -194,20 +189,6 @@
 			    		    <div class="span10">
 			        			<div class="checkbox-slider-text">
 			  	  		    	Place Type
-			  	  		    </div><!-- /checkbox-slider-text -->
-			  	    	  </div><!-- /span10 -->
-			  	    	</div><!-- /row -->
-
-			        	<div class="row-fluid">
-			        		<div class="span2">
-			  			    	<div class='custom-checkbox'>
-			  			    		<input type="checkbox" value="1" id="checkbox-state-2" name="query[entries][entry2][fields][state]" checked/>
-			  			  	  	<label for='checkbox-state-2'></label>
-			  			    	</div>
-			    		    </div><!-- /span2 -->
-			    		    <div class="span10">
-			        			<div class="checkbox-slider-text">
-			  	  		    	State
 			  	  		    </div><!-- /checkbox-slider-text -->
 			  	    	  </div><!-- /span10 -->
 			  	    	</div><!-- /row -->
@@ -250,8 +231,104 @@
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
 						<div class="span7">
-					    <input id="query_verbatim5" name="query[filters][exclude]" type="text" class="input-large" placeholder="Exclude Places with these Keywords" style="width: 85%;">
+					    <input id="query_verbatim5" name="query[filters][exclude]" type="text" class="input-large" placeholder="exclude places with these keywords" style="width: 85%;">
 					    <!-- <a href="#" id="reveal_excluded">[Hide]</a> -->
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+					<div class="row-fluid" id="states" style='margin-bottom: 25px;'>
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>States</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+						<div class="span7" style='margin-top: 5px;'>
+
+		        	<div class="row-fluid">
+		        		<div class="span1">
+		  			    	<div class='custom-checkbox'>
+		  			    		<input type="checkbox" value="yes" id="checkbox-montana" name="query[filters][select_states][mt]" checked/>
+		  			  	  	<!-- <label for="checkbox-slider-place-name-2"></label> -->
+		  			  	  	<label for='checkbox-montana'></label>
+		  			    	</div>
+		    		    </div><!-- /span1 -->
+		    		    <div class="span11">
+		        			<div class="checkbox-slider-text">
+		  	  		    	Montana
+		  	  		    </div><!-- /checkbox-slider-text -->
+		  	    	  </div><!-- /span11 -->
+		  	    	</div><!-- /row -->
+
+		        	<div class="row-fluid">
+		        		<div class="span1">
+		  			    	<div class='custom-checkbox'>
+		  			    		<input type="checkbox" value="yes" id="checkbox-wyoming" name="query[filters][select_states][wy]" checked/>
+		  			  	  	<label for='checkbox-wyoming'></label>
+		  			    	</div>
+		    		    </div><!-- /span1 -->
+		    		    <div class="span11">
+		        			<div class="checkbox-slider-text">
+		  	  		    	Wyoming
+		  	  		    </div><!-- /checkbox-slider-text -->
+		  	    	  </div><!-- /span11 -->
+		  	    	</div><!-- /row -->
+
+		        	<div class="row-fluid">
+		        		<div class="span1">
+		  			    	<div class='custom-checkbox'>
+		  			    		<input type="checkbox" value="yes" id="checkbox-colorado" name="query[filters][select_states][co]" checked/>
+		  			  	  	<label for='checkbox-colorado'></label>
+		  			    	</div>
+		    		    </div><!-- /span1 -->
+		    		    <div class="span11">
+		        			<div class="checkbox-slider-text">
+		  	  		    	Colorado
+		  	  		    </div><!-- /checkbox-slider-text -->
+		  	    	  </div><!-- /span11 -->
+		  	    	</div><!-- /row -->
+
+		  	    	<div class="row-fluid">
+		  	    		<div class="span1">
+		  			    	<div class='custom-checkbox'>
+		  			    		<input type="checkbox" value="yes" id="checkbox-newmexico" name="query[filters][select_states][nm]" checked/>
+		  			  	  	<label for='checkbox-newmexico'></label>
+		  			    	</div>
+		  			    </div><!-- /span1 -->
+		  			    <div class="span11">
+		  	    			<div class="checkbox-slider-text">
+		  				    	New Mexico
+		  				    </div>
+		  			    </div><!-- /span11 -->
+		  			  </div><!-- /row -->
+
+						</div><!-- /span7 -->
+					</div><!-- /row -->
+
+			    <div class="row-fluid" id="coordinates" style='margin-bottom: 25px;'>
+						<div class="span5">
+							<div class="description_heading">
+			    			<h3>Coordinates</h3>
+			    		</div><!-- /description_heading -->
+		    		</div><!-- /span5 -->
+			    	<div class="span7">
+					    <input id="query_elevation_min" name="query[filters][north_bound]" type="text" class="input-large" placeholder="northern boundary" style="width: 215px; margin-bottom: 10px; margin-right: 10px;"></input>
+					    
+					    <input id="query_elevation_min" name="query[filters][south_bound]" type="text" class="input-large" placeholder="southern boundary" style="width: 215px; margin-bottom: 10px;"></input>
+
+					    <div class='coordinate-label'>
+						    Latitude
+						  </div>
+					    <br>
+
+					    <input id="query_elevation_max" name="query[filters][east_bound]" type="text" class="input-large" placeholder="eastern boundary" style="width: 215px; margin-bottom: 10px; margin-right: 10px;"></input>
+
+					    <input id="query_elevation_max" name="query[filters][west_bound]" type="text" class="input-large" placeholder="western boundary" style="width: 215px; margin-bottom: 10px;"></input>
+
+					    <div class='coordinate-label'>
+								Longitude
+							</div>
+							<br>
+
 						</div><!-- /span7 -->
 					</div><!-- /row -->
 
@@ -261,7 +338,7 @@
 			    			<h3>Elevation</h3>
 			    		</div><!-- /description_heading -->
 		    		</div><!-- /span5 -->
-						<div class="span7" style='margin-top: 10px;'>
+						<div class="span7">
 
 		        	<div class="row-fluid">
 		    		    <div class="span1">
@@ -305,9 +382,9 @@
 				    		</div><!-- /description_heading -->
 			    		</div><!-- /span5 -->
 				    	<div class="span7" style='margin-top: 10px;'>
-						    <input id="query_elevation_min" name="query[filters][elevation_min]" type="text" class="input-large" placeholder="Min Elevation" style="width: 170px">
+						    <input id="query_elevation_min" name="query[filters][elevation_min]" type="text" class="input-large" placeholder="min elevation" style="width: 170px">
 						    *
-						    <input id="query_elevation_max" name="query[filters][elevation_max]" type="text" class="input-large" placeholder="Max Elevation" style="width: 170px">
+						    <input id="query_elevation_max" name="query[filters][elevation_max]" type="text" class="input-large" placeholder="max elevation" style="width: 170px">
 							</div><!-- /span7 -->
 						</div><!-- /row -->
 
@@ -322,34 +399,6 @@
 							</div><!-- /span7 -->
 						</div><!-- /row -->
 
-					</div><!-- /row -->
-
-			    <div class="row-fluid" id="coordinates" style='margin-bottom: 25px;'>
-						<div class="span5">
-							<div class="description_heading">
-			    			<h3>Coordinates</h3>
-			    		</div><!-- /description_heading -->
-		    		</div><!-- /span5 -->
-			    	<div class="span7">
-					    <input id="query_elevation_min" name="query[filters][north_bound]" type="text" class="input-large" placeholder="Northern Boundary" style="width: 215px; margin-bottom: 10px; margin-right: 10px;"></input>
-					    
-					    <input id="query_elevation_min" name="query[filters][south_bound]" type="text" class="input-large" placeholder="Southern Boundary" style="width: 215px; margin-bottom: 10px;"></input>
-
-					    <div class='coordinate-label'>
-						    Latitude
-						  </div>
-					    <br>
-
-					    <input id="query_elevation_max" name="query[filters][east_bound]" type="text" class="input-large" placeholder="Eastern Boundary" style="width: 215px; margin-bottom: 10px; margin-right: 10px;"></input>
-
-					    <input id="query_elevation_max" name="query[filters][west_bound]" type="text" class="input-large" placeholder="Western Boundary" style="width: 215px; margin-bottom: 10px;"></input>
-
-					    <div class='coordinate-label'>
-								Longitude
-							</div>
-							<br>
-
-						</div><!-- /span7 -->
 					</div><!-- /row -->
 
 			    <div class="row-fluid" id="default" style='margin-bottom: 25px;'>
@@ -399,9 +448,9 @@
 						  </div>
 						</div><!-- /row -->
 
-						<div class="row-fluid" id="elevation_link">
+						<div class="row-fluid" id="excluded_link">
 							<div class="show-link">
-								<a href="#" id="reveal_elev">elevation</a>
+								<a href="#" id="reveal_states">states</a>
 						  </div>
 						</div><!-- /row -->
 
@@ -409,6 +458,12 @@
 							<div class="show-link">
 								<a href="#" id="reveal_coords">coordinates</a>
 							</div>
+						</div><!-- /row -->
+
+						<div class="row-fluid" id="elevation_link">
+							<div class="show-link">
+								<a href="#" id="reveal_elev">elevation</a>
+						  </div>
 						</div><!-- /row -->
 
 						<div class="row-fluid" id="default_link">
@@ -472,6 +527,19 @@
 				$( "div#excluded" ).hide();
 			  $( "a#reveal_excluded" ).click(function( event ) {
 			    $( "div#excluded" ).slideToggle( "fast" );
+			    $( this ).toggleClass( 'show-link-selected' );
+			    // $( this ).hide();
+			    event.preventDefault();
+			  });
+			});
+			</script>
+
+			<!-- jQuery to reveal/hide states checkboxes -->
+			<script>
+			$( document ).ready(function() {
+				$( "div#states" ).hide();
+			  $( "a#reveal_states" ).click(function( event ) {
+			    $( "div#states" ).slideToggle( "fast" );
 			    $( this ).toggleClass( 'show-link-selected' );
 			    // $( this ).hide();
 			    event.preventDefault();
@@ -545,6 +613,3 @@
 </div><!-- /container -->
 
 </body><!-- /navbar-adjustment -->
-
-<p id="notice"><%= notice %></p>
-<p id="alert"></p>

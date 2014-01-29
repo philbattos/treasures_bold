@@ -98,6 +98,14 @@ form {
 	margin: 0 0 0;
 }
 
+#error {
+	display: inline-block;
+	/*float: right;*/
+	font-size: 30px;
+	color: red;
+	padding-top: 20px;
+}
+
 /* remove padding for homepage background image and for collapsed navbar */
 .container-fluid {
  	padding-left: 0px;
@@ -315,6 +323,7 @@ li#landing-list-items {
 
 li#landing-list-items a {
 	/*color: #5C4112;*/
+	/*color: #725722;*/
 }
 
 /*/*/
@@ -361,6 +370,7 @@ li#landing-list-items a {
 .landing-list-links a {
 	float: right;
 	text-align: right;
+	color: #725722;
 	font-size: 14px;
 	padding: 3px;
 	margin-bottom: 2px;
@@ -369,6 +379,7 @@ li#landing-list-items a {
 	  	padding: 3px;
 	  	background-color: #D8C195;
 	  	border-radius: 5px;
+	  	color: black;
 	  }
 
 .landing-index {

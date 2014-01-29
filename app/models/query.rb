@@ -4,7 +4,7 @@ class Query < ActiveRecord::Base
 
 	serialize :terms # this enables :terms to save arrays
 
-	validates :verbatim, presence: true
+	# validates :verbatim, presence: true
 	# validates :terms, presence: true
 
 	belongs_to :user
