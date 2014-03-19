@@ -55,18 +55,18 @@ class Landing < ActiveRecord::Base
 					must_not { string "#{filters[:exclude]}" } if filters[:exclude].present?
 				end
 			end
-			min_elevation = filters[:elevation_min]
-			max_elevation = filters[:elevation_max]
-			north_bound = filters[:north_bound]
-			south_bound = filters[:south_bound]
-			east_bound = filters[:east_bound]
-			west_bound = filters[:west_bound]
+			min_elevation = filters[:elevation_min] if filters.present?
+			max_elevation = filters[:elevation_max] if filters.present?
+			north_bound = filters[:north_bound] if filters.present?
+			south_bound = filters[:south_bound] if filters.present?
+			east_bound = filters[:east_bound] if filters.present?
+			west_bound = filters[:west_bound] if filters.present?
 			### filters have specified types: :terms, :range, ??
 			filter :terms, state: filters[:select_states].keys
 			filter :range, lat_decimal: { lte: north_bound.to_f } if north_bound.present?
 			filter :range, lat_decimal: { gte: south_bound.to_f } if south_bound.present?
 			filter :range, long_decimal: { gte: east_bound.to_f } if east_bound.present?
-			filter :range, long_decimal: { gte: west_bound.to_f } if west_bound.present?
+			filter :range, long_decimal: { lte: west_bound.to_f } if west_bound.present?
 			filter :range, elevation: { gte: 5000 } if filters[:elevation_5000].present?
 			filter :range, elevation: { lte: 10200 } if filters[:elevation_10200].present?
 			filter :range, elevation: { gte: min_elevation } if min_elevation.present?

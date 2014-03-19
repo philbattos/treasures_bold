@@ -17,6 +17,9 @@
         zoomControlOptions: {
           style: google.maps.ZoomControlStyle.MEDIUM
         },
+        panControl: false,
+        streetViewControl: false,
+        scaleControl: false, // shows up in map footer, which is currently below the edge of the window frame
         mapTypeId: google.maps.MapTypeId.TERRAIN
       };
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);

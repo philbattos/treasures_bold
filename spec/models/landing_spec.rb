@@ -69,19 +69,18 @@ describe Landing do
 
 	describe "search" do
 		it "correctly finds records that match search query based on feature_name" do
-			search_results = Landing.search({ fields: { county: 1, feature_class: 1, feature_name: 1, state: 1 }, keyword: "hijklm" })
+			search_results = Landing.search( { fields: { feature_name: 'yes' }, keyword: "hijklm" } )
 			expect(search_results.first.feature_name).to eq "abcdefg hijklm nopq"
 		end
 
 		it "correctly finds records that match search query based on feature_class" do
-			search_results = Landing.search "zyxwv"
+			search_results = Landing.search( { fields: { feature_class: 'yes' }, keyword: "zyxwv" } )
 			expect(search_results.first.feature_name).to eq "abcdefg hijklm nopq"
 		end
 
 		it "correctly counts records that match a query" do
-			search_results = Landing.search "abcdefg"
+			search_results = Landing.search( { fields: { feature_class: 'yes' }, keyword: "zyxwv" } )
 			expect(search_results).to have(1).record
-			expect(Landing.where(feature_class: "fake class")).to have(0).records
 		end
 	end
 

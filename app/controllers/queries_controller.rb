@@ -43,6 +43,10 @@ class QueriesController < ApplicationController
       # creates new database entry for search query
       @query = Query.new(query_params)
       # @query = current_user.queries.build(query_params)
+      logger.debug "params: #{params}"
+      logger.debug "query_params.permitted?: #{query_params.permitted?}"
+      logger.debug "query_params: #{query_params}"
+      logger.debug "@query: #{@query}"
       @query.save || Query.new(params).save
     rescue Exception => exc 
       # send message to log or database or somewhere if @query is not saved
@@ -71,6 +75,13 @@ class QueriesController < ApplicationController
     def query_params
       # params.require(:query).permit(entries: [entry1: [:keyword, fields: [:feature_name]]], filters: [:exclude, :elevation_5000, :elevation_min, :elevation_max])
       # params.require(:query).permit( :entries => [:entry1 => [:keyword, :fields => [:feature_name, :feature_type, :county, :state]] ], :entry2 => [:fields, :keyword] ], :filters => [:exclude, :elevation_5000, :elevation_10200, :elevation_min, :elevation_max, :north_bound, :south_bound, :east_bound, :west_bound] )
-      params.require(:query).permit(:entries, filters: [:feature_name, :feature_type, :state, :county])
+      # params.permit(:query, :entries, filters: [:feature_name, :feature_type, :state, :county, :exclude, :select_states, :north_bound, :south_bound, :east_bound, :west_bound, :elevation_5000, :elevation_10200, :elevation_min, :elevation_max])
+      # params.permit(:query => [:filters => [:exclude, :north_bound, :south_bound, :east_bound, :west_bound, :elevation_5000, :elevation_10200, :elevation_min, :elevation_max, :select_states => [:mt, :wy, :co, :nm]], :entries => [:entry1 => [:keyword, :fields => [:feature_name, :feature_class, :county]], :entry2 => [:keyword, :fields => [:feature_name, :feature_class, :county]]]])
+      params.require(:query).permit(:entries)
+      params.require(:query).permit(:filters)
+      # params.permit!
+      # logger.debug "params.permit(:query): #{params.permit(:query)}"
+      # logger.debug "params.permit(:filters): #{params.permit(:filters)}"
+      # logger.debug "params.require(:query): #{params.require(:query)}"
     end
 end
