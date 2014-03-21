@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229064043) do
+ActiveRecord::Schema.define(version: 20140321055203) do
 
   create_table "landings", force: true do |t|
     t.integer  "feature_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20131229064043) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "entries"
+    t.string   "filters"
   end
 
   add_index "queries", ["user_id"], name: "index_queries_on_user_id"
