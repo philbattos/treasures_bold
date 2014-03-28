@@ -99,11 +99,24 @@ form {
 }
 
 #error {
-	display: inline-block;
+	text-align: center;
+	/*display: inline-block;*/
 	/*float: right;*/
-	font-size: 30px;
+	font-size: 24px;
 	color: red;
-	padding-top: 20px;
+	/*padding: 10px;*/
+	line-height: 24px;
+}
+
+#notice {
+	text-align: center;
+	/*display: inline-block;*/
+	/*float: right;*/
+	font-size: 24px;
+	color: green;
+	/*padding: 10px;*/
+	/*margin: 10px;*/
+	line-height: 24px;
 }
 
 /* remove padding for homepage background image and for collapsed navbar */
