@@ -18,9 +18,9 @@ CacheMapActiveRecord::Application.routes.draw do
   ##############################################
   #####      routes for static pages       #####
   ##############################################
-  get 'about',    to: 'static_pages#about'
-  get 'contact',  to: 'remarks#new'
-  get 'chase',    to: 'static_pages#chase'
+  get 'about',    to: 'static_pages#about', as: :about
+  get 'contact',  to: 'remarks#new',        as: :contact
+  get 'chase',    to: 'static_pages#chase', as: :chase
 
   # devise_scope :user do
     # get "sign_in", to: "devise/sessions#new", as: :sign_in
