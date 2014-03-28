@@ -1,0 +1,84 @@
+<div class="container-fluid navbar-adjustment full-size standard-background-color">
+	<div class="row-fluid standard-background-color">
+		<div class="span2">
+			<br>
+		</div><!-- /span4 -->
+
+		<div class="span8">
+			<div class="page-title">
+				Contact & Feedback
+			</div>
+			<div class="page-subtitle">
+				About the Site
+			</div>
+		</div>
+		<div class="span2">
+		</div>
+	</div><!-- /row -->
+
+	<div class="row-fluid standard-background-color">
+		<div class="span9">
+			<div class="row-fluid">
+				<div class="span4">
+					<div class="description-heading">
+						Feedback
+					</div>
+				</div>
+				<div class="span8">
+					<div class="static-page-text">
+						<p>Do you have something to say about this website? 
+							Please use this form to submit questions, suggestions, comments, or kudos about TreasuresBold. 
+							And if you have found this site useful in your search for the chest, feel free to leave a donation of gold nuggets or bitcoins. 
+						</p>
+						<br>
+					</div><!-- /static-page-text -->
+				</div><!-- /span8 -->
+			</div><!-- /row -->
+
+			<div class="row-fluid">
+				<div class="span4">
+					<div class="description-heading">
+						Your Email Address
+					</div>
+				</div>
+				<div class="span8">
+					<div class="static-page-text">
+						
+						<%= form_for @remark do |f| %>
+							<% if @remark.errors.any? %>
+							  <ul>
+							    <% @remark.errors.full_messages.each do |msg| %>
+							      <li><%= msg %></li>
+							    <% end %>
+							  </ul>
+							<% end %>
+
+							<div>	
+								<%= f.label :name %>
+								<%= f.text_field :name %>
+							</div>	
+
+							<div>	
+								<%= f.label :email %>
+								<%= f.text_field :email %>
+							</div>
+							
+							<div>	
+								<%= f.label :message %>
+								<%= f.text_field :message %>
+							</div>
+
+							<div>
+								<%= f.submit "Send" %>
+							</div>
+						<% end %>
+
+					</div><!-- /static-page-text -->
+				</div><!-- /span8 -->
+			</div>
+		</div><!-- /span9 -->
+		<div class="span3">
+			Sidebar
+		</div>
+	</div><!-- /row -->
+</div><!-- /container -->

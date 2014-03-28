@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321055203) do
+ActiveRecord::Schema.define(version: 20140328185046) do
 
   create_table "landings", force: true do |t|
     t.integer  "feature_id"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20140321055203) do
   end
 
   add_index "queries", ["user_id"], name: "index_queries_on_user_id"
+
+  create_table "remarks", force: true do |t|
+    t.string   "name"
+    t.string   "email",      null: false
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

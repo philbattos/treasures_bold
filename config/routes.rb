@@ -15,7 +15,12 @@ CacheMapActiveRecord::Application.routes.draw do
   # get 'minings/data', to: 'queries#index'
   # get 'advanced_search', to: 'queries#index'
 
-  get 'about', to: 'landings#about', as: :about
+  ##############################################
+  #####      routes for static pages       #####
+  ##############################################
+  get 'about',    to: 'static_pages#about'
+  get 'contact',  to: 'remarks#new'
+  get 'chase',    to: 'static_pages#chase'
 
   # devise_scope :user do
     # get "sign_in", to: "devise/sessions#new", as: :sign_in
@@ -24,6 +29,7 @@ CacheMapActiveRecord::Application.routes.draw do
   # resources :users
   resources :queries, only: [:create]
   # resources :landings, only: :show
+  resources :remarks, only: [:new, :create]
 
 
   ### Current routes
