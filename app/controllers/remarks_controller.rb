@@ -10,9 +10,9 @@ class RemarksController < ApplicationController
     if @remark.save
     	RemarksMailer.contact_form(@remark).deliver
       flash.now[:error] = nil
-      redirect_to :contact, notice: 'Your message was sent.'
+      redirect_to :contact, notice: 'Your message was sent. Thank you!'
     else
-      flash.now[:error] = 'Cannot send message.'
+      flash.now[:error] = 'Cannot send message'
       render :new
     end
   end

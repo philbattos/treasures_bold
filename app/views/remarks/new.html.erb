@@ -11,14 +11,6 @@
 			<div class="page-subtitle">
 				About the Site
 			</div>
-
-			<div id="alert">
-			</div>
-			<div id="error"><%= flash[:error] %>
-			</div>
-			<div id="notice"><%= flash[:notice] %>
-			</div>
-
 		</div>
 		<div class="span2">
 		</div>
@@ -38,10 +30,113 @@
 							Please use this form to submit questions, suggestions, comments, or kudos about TreasuresBold. 
 							And if you have found this site useful in your search for the chest, feel free to leave a donation of gold nuggets or bitcoins. 
 						</p>
-						<br>
 					</div><!-- /static-page-text -->
 				</div><!-- /span8 -->
 			</div><!-- /row -->
+
+			<%= form_for @remark do |f| %>
+
+				<div class="row-fluid">
+					<div class="span4">
+						<div class="description-heading">
+							<br>
+						</div>
+					</div>
+					<div class="span8">
+
+						<div id="alert">
+						</div>
+						<div id="error"><%= flash[:error] %>
+						</div>
+
+						<% if @remark.errors.any? %>
+						  <ul>
+						    <% @remark.errors.full_messages.each do |msg| %>
+						      <div id="error">
+						      	<%= msg %>
+						      </div>
+						    <% end %>
+						  </ul>
+						<% end %>
+
+						<div id="notice"><%= flash[:notice] %>
+						</div>
+						<br>
+
+					</div><!-- /span8 -->
+				</div><!-- /row -->
+
+
+				<div class="row-fluid">
+					<div class="span4">
+						<div class="description-heading">
+							Your Name
+						</div>
+					</div>
+					<div class="span8">
+						<div class="static-page-text">
+
+							<div>	
+								<%= f.text_field :name, :class => "input-large", :placeholder => "John Smith", :style => "width: 85%;" %>
+							</div>	
+
+						</div><!-- /static-page-text -->
+					</div><!-- /span8 -->
+				</div><!-- /row -->
+
+				<div class="row-fluid">
+					<div class="span4">
+						<div class="description-heading">
+							Your Email
+						</div>
+					</div>
+					<div class="span8">
+						<div class="static-page-text">
+
+							<div>	
+								<%= f.text_field :email, :class => "input-large", :placeholder => "john.smith@example.com", :style => "width: 85%;" %>
+							</div>
+
+						</div><!-- /static-page-text -->
+					</div><!-- /span8 -->
+				</div><!-- /row -->
+							
+				<div class="row-fluid">
+					<div class="span4">
+						<div class="description-heading">
+							Comments
+						</div>
+					</div>
+					<div class="span8">
+						<div class="static-page-text">
+
+							<div>	
+								<%= f.text_area :message, :class => "comment-box", :placeholder => "I love this site and i have some suggestions for improving it...", :size => "15x5" %>
+							</div>
+
+						</div><!-- /static-page-text -->
+					</div><!-- /span8 -->
+				</div><!-- /row -->
+
+				<div class="row-fluid">
+					<div class="span4">
+						<br>
+					</div>
+					<div class="span8">
+						<div class="static-page-text">
+
+							<div>
+								<%= f.submit "Send", :class => "btn btn-large homepage", :align => "middle" %>
+							</div>
+
+						</div><!-- /static-page-text -->
+					</div><!-- /span8 -->
+				</div><!-- /row -->
+				<br>
+				<br>
+				<br>
+
+			<% end %>
 
 			<div class="row-fluid">
 				<div class="span4">
@@ -51,54 +146,13 @@
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
-						<p><%= mail_to "philbattos@gmail.com", "philbattos@gmail.com", subject: "Message about TreasuresBold" %>
+						<p>If you prefer to send an email directly, please use this address: <%= mail_to "treasuresbold@gmail.com", "treasuresbold@gmail.com", subject: "Message about TreasuresBold" %>
 						</p>
 						<br>
 					</div><!-- /static-page-text -->
 				</div><!-- /span8 -->
 			</div><!-- /row -->
 
-			<div class="row-fluid">
-				<div class="span4">
-					<div class="description-heading">
-						Your Email Address
-					</div>
-				</div>
-				<div class="span8">
-					<div class="static-page-text">
-						
-						<%= form_for @remark do |f| %>
-							<% if @remark.errors.any? %>
-							  <ul>
-							    <% @remark.errors.full_messages.each do |msg| %>
-							      <li><%= msg %></li>
-							    <% end %>
-							  </ul>
-							<% end %>
-
-							<div>	
-								<%= f.label :name %>
-								<%= f.text_field :name %>
-							</div>	
-
-							<div>	
-								<%= f.label :email %>
-								<%= f.text_field :email %>
-							</div>
-							
-							<div>	
-								<%= f.label :message %>
-								<%= f.text_field :message %>
-							</div>
-
-							<div>
-								<%= f.submit "Send" %>
-							</div>
-						<% end %>
-
-					</div><!-- /static-page-text -->
-				</div><!-- /span8 -->
-			</div>
 		</div><!-- /span9 -->
 		<div class="span3">
 			Sidebar

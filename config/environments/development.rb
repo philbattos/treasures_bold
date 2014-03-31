@@ -21,8 +21,8 @@ CacheMapActiveRecord::Application.configure do
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'gmail.com',
-    user_name: 'philbattos',
-    password: 'sims1974',
+    user_name: 'treasuresbold',
+    password: 'goldchest',
     authentication: 'plain',
     enable_starttls_auto: true 
   }

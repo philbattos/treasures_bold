@@ -105,7 +105,7 @@ form {
 	font-size: 24px;
 	color: red;
 	/*padding: 10px;*/
-	line-height: 24px;
+	line-height: 32px;
 }
 
 #notice {
@@ -441,8 +441,15 @@ li#landing-list-items a {
 	line-height: 30px;
 	font-size: 24px;
 	width: 100%;
-	margin-left: -10px;
+	/*margin-left: -10px;*/
 	/*padding: 10px;*/
+}
+
+.comment-box {
+	width: 100%;
+	margin-left: -10px;
+	font-size: 24px;
+	line-height: 30px;
 }
 
 /*button > .btn {
@@ -1000,6 +1007,11 @@ th {
 td {
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
  	color: #3a3a3a;
+}
+
+.field_with_errors {
+	/*display: inline;*/
+	width: 100%;
 }
 
 
