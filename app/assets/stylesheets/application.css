@@ -98,14 +98,22 @@ form {
 	margin: 0 0 0;
 }
 
-#error {
-	text-align: center;
+#error-heading {
+	/*text-align: center;*/
 	/*display: inline-block;*/
 	/*float: right;*/
 	font-size: 24px;
 	color: red;
 	/*padding: 10px;*/
 	line-height: 32px;
+}
+
+#error-message,
+#error-message > li {
+	font-size: 18px;
+	color: red;
+	line-height: 24px;
+	background: inherit;
 }
 
 #notice {
@@ -440,14 +448,12 @@ li#landing-list-items a {
 	height: 40px;
 	line-height: 30px;
 	font-size: 24px;
-	width: 100%;
-	/*margin-left: -10px;*/
+	width: 85%;
 	/*padding: 10px;*/
 }
 
 .comment-box {
-	width: 100%;
-	margin-left: -10px;
+	/*width: 100%;*/
 	font-size: 24px;
 	line-height: 30px;
 }
@@ -1010,8 +1016,7 @@ td {
 }
 
 .field_with_errors {
-	/*display: inline;*/
-	width: 100%;
+
 }
 
 

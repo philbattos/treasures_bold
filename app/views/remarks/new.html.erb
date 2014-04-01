@@ -46,14 +46,14 @@
 
 						<div id="alert">
 						</div>
-						<div id="error"><%= flash[:error] %>
+						<div id="error-heading"><%= flash[:error] %>
 						</div>
 
 						<% if @remark.errors.any? %>
 						  <ul>
 						    <% @remark.errors.full_messages.each do |msg| %>
-						      <div id="error">
-						      	<%= msg %>
+						      <div id="error-message">
+						      	<li><%= msg %></li>
 						      </div>
 						    <% end %>
 						  </ul>
@@ -77,7 +77,7 @@
 						<div class="static-page-text">
 
 							<div>	
-								<%= f.text_field :name, :class => "input-large", :placeholder => "John Smith", :style => "width: 85%;" %>
+								<%= f.text_field :name, :class => "input-large", :placeholder => "John Smith", :style => "width: 500px;" %>
 							</div>	
 
 						</div><!-- /static-page-text -->
@@ -94,7 +94,7 @@
 						<div class="static-page-text">
 
 							<div>	
-								<%= f.text_field :email, :class => "input-large", :placeholder => "john.smith@example.com", :style => "width: 85%;" %>
+								<%= f.text_field :email, :class => "input-large", :placeholder => "john.smith@example.com", :style => "width: 500px;" %>
 							</div>
 
 						</div><!-- /static-page-text -->
@@ -111,7 +111,7 @@
 						<div class="static-page-text">
 
 							<div>	
-								<%= f.text_area :message, :class => "comment-box", :placeholder => "I love this site and i have some suggestions for improving it...", :size => "15x5" %>
+								<%= f.text_area :message, :class => "comment-box", :placeholder => "I love this site and i have some suggestions for improving it...", :style => "width: 600px; height: 200px;" %>
 							</div>
 
 						</div><!-- /static-page-text -->
@@ -126,7 +126,7 @@
 						<div class="static-page-text">
 
 							<div>
-								<%= f.submit "Send", :class => "btn btn-large homepage", :align => "middle" %>
+								<%= f.submit "Send", :class => "btn btn-large homepage", :align => "middle", :style => "width: 50%;" %>
 							</div>
 
 						</div><!-- /static-page-text -->
