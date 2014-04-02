@@ -905,6 +905,7 @@ input#elevation_5000 {
 	border-radius: 0 0 15px 0;
 	background-color: #BFA97E;
 	color: darkbrown;
+	display: inline-block;
 }
 
 .show-fields-link,
@@ -927,6 +928,7 @@ input#elevation_5000 {
 }
 
 .sidebar {
+	margin-left: 20px;
 	border-left: 5px solid #B09768;
 }
 		.sidebar-heading {
