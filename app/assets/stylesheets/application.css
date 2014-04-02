@@ -110,9 +110,10 @@ form {
 
 #error-message,
 #error-message > li {
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 	font-size: 18px;
-	color: red;
 	line-height: 24px;
+	color: red;
 	background: inherit;
 }
 
@@ -449,6 +450,8 @@ li#landing-list-items a {
 	line-height: 30px;
 	font-size: 24px;
 	width: 85%;
+	margin-top: -10px;
+	background: beige;
 	/*padding: 10px;*/
 }
 
@@ -456,6 +459,9 @@ li#landing-list-items a {
 	/*width: 100%;*/
 	font-size: 24px;
 	line-height: 30px;
+	margin-top: -10px;
+	margin-bottom: 0px;
+	background: beige;
 }
 
 /*button > .btn {
@@ -529,10 +535,10 @@ li#landing-list-items a {
 
 .description-heading {
 	text-align: right;
-	padding-top: 8px;
-	font-size: 26px;
+	/*padding-top: 8px;*/
+	font-size: 28px;
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
-	line-height: 30px;
+	line-height: 34px;
 	font-weight: bold;
 	margin-bottom: 20px;
 	/*vertical-align: middle;*/
@@ -559,19 +565,20 @@ strong > .highlight {
 .page-subtitle {
 	text-align: center;
 	padding: 5px;
-	font-size: 26px;
+	font-size: 28px;
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
-	line-height: 30px;
-	font-weight: bold;
+	line-height: 34px;
+	font-weight: normal;
 	margin-bottom: 20px;
 }
 
 .static-page-text,
 .static-page-text p {
-	font-size: 20px;
+	font-size: 22px;
 	line-height: 32px;
 	letter-spacing: 0.5px;
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+	font-weight: lighter;
 }
 
 /*body #myModal {
@@ -883,8 +890,21 @@ input#elevation_5000 {
 
 .show-link-selected {
 	/*border: 5px solid #4A5975;*/
-	background-color: #B09768;
+	background-color: #BFA97E;
 	color: black;
+}
+
+.sidebar-plank {
+	font-size: 16px;
+	line-height: 24px;
+	/*text-align: center;*/
+	font-family: "Arial";
+	text-decoration: none;
+	padding: 7px;
+	/*padding: 10px 0 10px 0;*/
+	border-radius: 0 0 15px 0;
+	background-color: #BFA97E;
+	color: darkbrown;
 }
 
 .show-fields-link,
@@ -906,10 +926,10 @@ input#elevation_5000 {
 	border-radius: 5px;
 }
 
-.search-options-sidebar {
+.sidebar {
 	border-left: 5px solid #B09768;
 }
-		.options-sidebar-heading {
+		.sidebar-heading {
 			font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 			font-size: 26px;
 			color: #3a3a3a;

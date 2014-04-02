@@ -12,7 +12,7 @@ class RemarksController < ApplicationController
       flash.now[:error] = nil
       redirect_to :contact, notice: 'Your message was sent. Thank you!'
     else
-      flash.now[:error] = 'Cannot send message'
+      flash.now[:error] = 'There seems to be a small problem.'
       render :new
     end
   end
