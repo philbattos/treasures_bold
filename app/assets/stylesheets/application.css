@@ -479,10 +479,10 @@ li#landing-list-items a {
 	text-shadow: none;
 	border: none;
 }
-	.btn-large.homepage:hover {
-		background-color: #404858;
-		font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
-	}
+		.btn-large.homepage:hover {
+			background-color: #404858;
+			font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+		}
 
 .btn.disabled {
 	background-color: lightgrey;
@@ -580,6 +580,15 @@ strong > .highlight {
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
 	font-weight: lighter;
 }
+		.static-page-text a {
+			color: #664D1C;
+		}
+				.static-page-text a:hover {
+					color: black;
+				}
+				.static-page-text a:visited {
+					color: lightbrown;
+				}
 
 /*body #myModal {
 	width: 20%;
@@ -905,7 +914,6 @@ input#elevation_5000 {
 	border-radius: 0 0 15px 0;
 	background-color: #BFA97E;
 	color: darkbrown;
-	display: inline-block;
 }
 
 .show-fields-link,
@@ -941,6 +949,7 @@ input#elevation_5000 {
 			border-radius: 0 0 20px 0;
 			width: 180px;
 			margin-bottom: 5px;
+			font-weight: bolder;
 		}
 
 .coordinate-label {

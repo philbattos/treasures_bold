@@ -26,11 +26,21 @@
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
-						<p>This site [Treasure Finder] combines two web services that are often [used/employed] to assist with the Fenn Treasure hunt [link]: searching for place names and locating those places on a map. 
-							It provides searchable access to the Geographical Names Information System (GNIS) database compiled by the United States Geological Survey (USGS) - the most comprehensive list of place names on the web - and then maps the search results on customized Google Maps. 
-							In addition to mapping multiple places with one click, Treasure Finder also provides faster search results than the GNIS site.[link]
+						<p>This website combines two services that are often used to assist in the search for the <%= link_to "Fenn treasure", "http://en.wikipedia.org/wiki/Fenn_treasure" %>: 1) searching for geographic places that might be related to the clues, and 2) locating those places on a map. 
+							First, TreasuresBold provides searchable access to the <%= link_to "Geographical Names Information System (GNIS)", "https://geonames.usgs.gov/pls/gnispublic/" %> database compiled by the <%= link_to "United States Geological Survey (USGS)", "http://www.usgs.gov/" %>, the most comprehensive list of place names on the web.
+							Then, all of the search results are instantly mapped, using the <%= link_to "Google Maps API", "https://developers.google.com/maps/" %>, to show their location and relation to each other. 
+							This significantly reduces the time it takes to search and map places in the GNIS database.
+							In addition to mapping multiple places with one click, TreasuresBold also provides faster search results than the GNIS site. 
+							<!-- graph comparing performance times of TreasuresBold and GNIS search -->
 						</p>
 						<br>
+
+						<p>By utilizing the <%= link_to "advanced search", "/search" %> options, TreasuresBold allows you to find places that fit your specific criteria, which can save research time and lead to new ideas about where the chest is hidden. 
+							This site also allows you to map multiple sets of search results together on one map. 
+							For example, by doing a search for "canyon" and "brown", I can instantly see what areas in the Rocky Mountains have a place named "canyon" and a place named "brown" in close proximity.
+							This feature is invaluable for finding promising search locations. 
+							(Currently, it is only possible to combine two sets of search results but we hope to expand this functionality in the future.)
+						</p>
 
 						<p>There are plans to expand the Treasure Finder site to include, for example, customizable searches, "smarter" search results, savable search results, maps populated with places mentioned in The Thrill of the Chase & Too Far to Walk, search suggestions, etc. 
 							If there are any features or improvements that you would like to see, please [submit the feedback form below] [send an email to: admin@treasurefinder.com].
@@ -88,7 +98,33 @@
 			</div>
 		</div><!-- /span9 -->
 		<div class="span3">
-			Sidebar
-		</div>
+  		<div class="sidebar">
+
+				<div class="row-fluid">
+					<div class="sidebar-heading" style="text-indent: 15px;">
+						<indent>About
+					</div>
+				</div><!-- /row -->
+
+				<div class="row-fluid">
+					<div class="show-link">
+						<span class="sidebar-plank">Purpose</span>
+					</div>
+				</div><!-- /row -->
+
+				<div class="row-fluid">
+					<div class="show-link">
+						<span class="sidebar-plank">Author</span>
+					</div>
+				</div><!-- /row -->
+
+				<div class="row-fluid">
+					<div class="show-link">
+						<span hidden>placeholder</span>
+				  </div>
+				</div><!-- /row -->
+
+			</div><!-- /sidebar -->
+		</div><!-- /span3 -->
 	</div><!-- /row -->
 </div><!-- /container -->
