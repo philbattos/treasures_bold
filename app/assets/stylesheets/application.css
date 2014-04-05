@@ -952,6 +952,18 @@ input#elevation_5000 {
 			font-weight: bolder;
 		}
 
+.author-details {
+	font-size: 16px;
+	line-height: 24px;
+	font-family: 'Helvetica Neue', 'Helvetica', 'Arial', serif;
+	text-decoration: none;
+	text-align: right;
+	font-weight: normal;
+	margin-right: 8px;
+	/*padding: 7px;*/
+	/*padding: 10px 0 10px 0;*/
+}
+
 .coordinate-label {
 	display: inline-block;
 	font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;

@@ -37,18 +37,18 @@
 
 						<p>By utilizing the <%= link_to "advanced search", "/search" %> options, TreasuresBold allows you to find places that fit your specific criteria, which can save research time and lead to new ideas about where the chest is hidden. 
 							This site also allows you to map multiple sets of search results together on one map. 
-							For example, by doing a search for "canyon" and "brown", I can instantly see what areas in the Rocky Mountains have a place named "canyon" and a place named "brown" in close proximity.
+							For example, by doing a search for "canyon" and "brown", you can instantly see what areas in the Rocky Mountains have a place named "canyon" and a place named "brown" in close proximity.
 							This feature is invaluable for finding promising search locations. 
-							(Currently, it is only possible to combine two sets of search results but we hope to expand this functionality in the future.)
-						</p>
-
-						<p>There are plans to expand the Treasure Finder site to include, for example, customizable searches, "smarter" search results, savable search results, maps populated with places mentioned in The Thrill of the Chase & Too Far to Walk, search suggestions, etc. 
-							If there are any features or improvements that you would like to see, please [submit the feedback form below] [send an email to: admin@treasurefinder.com].
+							For more details about using the search options, visit the <%= link_to "advanced search", "/search" %> page and click the info buttons.
 						</p>
 						<br>
 
-						<p>Some notes about this site: [move this section to advanced_search page?]
-							<ul>
+						<p hidden>We have plans to expand the Treasure Finder site to include, for example, customizable searches, "smarter" search results, savable search results, maps populated with places mentioned in The Thrill of the Chase & Too Far to Walk, search suggestions, etc. 
+							If there are any features or improvements that you would like to see, please submit the feedback form on the <%= link_to "contact page", "/contact" %> or send an email to <%= mail_to "treasuresbold@gmail.com" %>.
+						</p>
+
+						<p hidden>Some notes about this site: [move this section to advanced_search page?]
+							<ul hidden>
 								<li>Search results are restricted to the four states that currently comprise the "search area": New Mexico, Colorado, Wyoming, and Montana. (If you are interested in searching other states, please send an email to admin@treasurefinder.com.)</li>
 								<ul>
 									<li>All search results south of Santa Fe have been omitted (since FF has said the chest is "somewhere north of Santa Fe").</li>
@@ -57,7 +57,6 @@
 								<li>Database contains over [200,000] searchable places.</li>
 							</ul>
 						</p>
-						<br>
 					</div><!-- /static-page-text -->
 				</div><!-- /span8 -->
 			</div><!-- /row -->
@@ -66,32 +65,49 @@
 				<div class="span4">
 					<div class="description-heading">
 						About the Author
+						<br>
+						<%= image_tag "headshot.jpg", size: "144x178", style: "align: right; margin: 50px 0 0 0; border:1px solid #; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;" %>
+						<div class="author-details">
+							Phil Battos<br>
+						</div>
 					</div>
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
-						[pic]
-						<p>I first learned about Forrest Fenn and his brilliant scheme after reading [article] in 2011. 
-							My first reaction was to smile at the boldness and creativity of the idea but i had no interest in becoming a crazed treasure hunter who was always chasing some half-true legend of ancient gold and who always carried around a metal-detector "just in case". 
-							Over the next couple weeks, my curiosity and skepticism grew into excitement at the thought of taking up the challenge of finding the chest. 
-							I read the poem a few times and convinced myself that: a) I was in the perfect place to look for the treasure, since i lived in the Rocky Mountains, and b) that i would certainly find it if devoted myself to the hunt. 
+							I first learned about Forrest Fenn and his brilliant scheme after reading the <%= link_to "Newsweek article", "http://www.newsweek.com/forrest-fenn-wants-you-find-his-treasure-and-his-bones-64427" %> about him in the summer of 2012. 
+							My first reaction was to smile at the boldness and creativity of the idea but i had no interest in becoming a crazed treasure hunter who was always chasing half-true legends of gold with a metal-detector always in tow "just in case". 
+							However, over the next few weeks, my curiosity and skepticism grew into excitement at the thought of taking up the challenge of finding the chest. 							
 							Soon, i became mildly obsessed with the thrill of the chase. 
-							I bought the book, memorized the poem, and pondered the meaning of the clues whenever i had a free moment. 
-							I have had several adventures in search of the chest - and been disappointed every time - but i still have the confidence that i will find it. </p>
+							I bought the book, memorized the poem, formed a band of searchers (the Marvel Gazers), and pondered the meaning of the clues whenever i had a free moment. 
+							I have had several adventures in search of the chest and, despite being disappointed every time, i continue to enjoy having my imagination tickled by the prospect of solving the clues and finding the chest. 
+						</p>
+						<br>
 
-						<p>My main method of searching online is think up interpretations of the clues and then find places that correspond to those interpretations by searching the <a href="http://geonames.usgs.gov/pls/gnispublic">USGS place name database</a>. 
+						<p>My main method of researching possible locations is think up interpretations of the clues and then find places that correspond to those interpretations by searching the <a href="http://geonames.usgs.gov/pls/gnispublic">USGS place name database</a>. 
 							For example, i might search for "brown" in New Mexico to get a list of all the places that have "brown" in the name. 
 							Then, i often look for those places on <a href="http://maps.google.com/">Google Maps</a> (or another mapping website). 
 							When there are many places to consider, this can be a tedious process. 
-							So i decided to simplify it by creating Treasure Finder, which combines these two steps into one.</p>
+							So i decided to simplify it by creating <%= link_to "TreasuresBold", "/" %>, which combines these two steps into one.
+						</p>
+						<br>
 
-						<p>So now, instead of searching for places and then going to Google Maps to see their location, i can do a search in Treasure Finder and it will find all related places in the USGS place name database and put them all on a map for me, instantly! 
-							I've found that this tool saves a lot of time. 
-							And i thought that other searchers might appreciate having access to it. 
+						<p>So now, instead of doing a place name search and then going to Google Maps to see their location, i can do a search on this site and it will find all related places in the USGS place name database and put them all on a map for me - instantly! 
+							I've found that this tool saves a lot of time and i thought that other searchers might appreciate having access to it. 
 							So i built a website to share it with other Fenners or anyone else who might find it useful. 
-							I designed it with the intention of helping people on the Fenn Treasure hunt but there are other applications that people may want to use it for.</p>
+							I designed it with the intention of helping people on the Fenn Treasure hunt but there are other applications that it could be used for.
+						</p>
+						<br>
 
-						<p>[request for feedback]</p>
+						<p>If you have any comments or questions about the site, please contact me via the feedback form on the <%= link_to "contact page", "/contact" %> or send me an email to <%= mail_to "treasuresbold@gmail.com" %>.
+						</p>
+						<br>
+
+						<p>Good luck in your searches!
+						</p>
+
+						<br>
+						<br>
+						<br>
 
 					</div><!-- /static-page-text -->
 				</div><!-- /span8 -->
