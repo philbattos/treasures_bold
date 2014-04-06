@@ -6,4 +6,6 @@ class StaticPagesController < ApplicationController
 
 	def contact; end
 
+	def poem; end
+
 end
