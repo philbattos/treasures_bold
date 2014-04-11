@@ -1,40 +1,24 @@
-<div class="container-fluid navbar-adjustment full-size standard-background-color">
-	<div class="row-fluid standard-background-color">
-		<div class="span2">
-			<br>
-		</div><!-- /span4 -->
-
-		<div class="span8">
-			<div class="page-title">
-				The Thrill of the Chase
-			</div>
-			<div class="page-subtitle">
-				The Poem
-			</div>
-		</div>
-		<div class="span2">
-		</div>
-	</div><!-- /row -->
-
-	<div class="row-fluid standard-background-color">
+@@ -20,12 +20,12 @@
 		<div class="span9">
 			<div class="row-fluid">
 				<div class="span4">
 					<div class="description-heading">
+					<div class="description-heading" id="intro_heading">
 						Introduction<br>
 					</div>
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
+					<div class="static-page-text" id="intro">
 						<p>Forrest Fenn's <%= link_to "book", "http://www.collectedworksbookstore.com/product/thrill-chase-forrest-fenn", target: "_blank" %> and <%= link_to "website", "http://www.oldsantafetradingco.com/the-thrill-resource-page", target: "_blank" %> introduce the poem with slightly different sentences. 
 							Both introductions are provided below.
 						</p>
-						<br>
-					</div><!-- /static-page-text -->
+@@ -34,14 +34,14 @@
 				</div><!-- /span8 -->
 			</div>
 
 			<div class="row-fluid">
+			<div class="row-fluid" id="intro_book_heading">
 				<div class="span4">
 					<div class="description-heading">
 						Intro from Book
@@ -42,18 +26,16 @@
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
+					<div class="static-page-text" id="intro_book">
 						<p>I knew exactly where to hide the chest so it would be difficult to find but not impossible. 
 							It's in the mountains somewhere north of Santa Fe.
 							Indecision is the key to flexibility and that's why I waited so long to secret my cache. George Burns was 100 years old when someone asked him how his health was. 
-							He replied, "My health's good, it's my age that's killing me."
-							And like Eric Sloane, at age almost-eighty, I figured it was time to act. 
-							So I wrote a poem containing nine clues that if followed precisely, will lead to the end of my rainbow and the treasure.
-						</p>
-					</div><!-- /static-page-text -->
+@@ -53,14 +53,14 @@
 				</div><!-- /span8 -->
 			</div>
 
 			<div class="row-fluid">
+			<div class="row-fluid" id="intro_web_heading">
 				<div class="span4">
 					<div class="description-heading">
 						Intro from Web
@@ -61,112 +43,92 @@
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
+					<div class="static-page-text" id="intro_web">
 						<p>This poem written by Forrest Fenn contains nine clues that if followed precisely, will lead to the end of his rainbow and the treasure. 
 							Happy Hunting!
 						</p>
-						<br>
-					</div><!-- /static-page-text -->
-				</div><!-- /span8 -->
-			</div>
+@@ -71,12 +71,12 @@
 
 			<div class="row-fluid">
 				<div class="span4">
 					<div class="description-heading">
+					<div class="description-heading" id="poem_heading">
 						The Poem
 					</div>
 				</div>
 				<div class="span8">
 					<div class="static-page-text" style="text-align: center;">
+					<div class="static-page-text" style="text-align: center;" id="poem_body">
 						As I have gone alone in there<br>
 						And with my treasures bold,<br>
 						I can keep my secret where,<br>
-						And hint of riches new and old.<br>
-						<br>
-						Begin it where warm waters halt<br>
-						And take it in the canyon down,<br>
-						Not far, but too far to walk.<br>
-						Put in below the home of Brown.<br>
-						<br>
-						From there it's no place for the meek,<br>
-						The end is ever drawing nigh;<br>
-						There'll be no paddle up your creek,<br>
-						Just heavy loads and water high.<br>
-						<br>
-						If you've been wise and found the blaze,<br>
-						Look quickly down, your quest to cease,<br>
-						But tarry scant with marvel gaze,<br>
-						Just take the chest and go in peace.<br>
-						<br>
-						So why is it that I must go<br>
-						And leave my trove for all to seek?<br>
-						<span id="answers">The answers<sup><%= link_to "1", "#footnotes" %></sup> I already know,</span><br>
-						I've done it tired, and now I'm weak.<br>
-						<br>
-						So hear me all and listen good,<br>
-						Your effort will be worth the cold.<br>
-						If you are brave and in the wood<br>
-						I give you title to the gold.<br>
-						<br>
-						<br>
-					</div><!-- /static-page-text -->
-				</div><!-- /span8 -->
+@@ -113,12 +113,12 @@
 			</div><!-- /row -->
 			<div class="row-fluid" id="footnotes">
 				<div class="span4">
 					<div class="description-heading">
+					<div class="description-heading" id="notes_heading">
 						Notes
 					</div>
 				</div>
 				<div class="span8">
 					<div class="static-page-text">
+					<div class="static-page-text" id="notes_body">
 						<p>1. In the book version of the poem, this word is "answers"; in the online version of the poem the word is "answer".
 							In response to someone who wrote to him about this discrepancy, <%= link_to "Fenn replied", "http://dalneitzel.com/2013/06/19/forrest-gets-mail-4/", target: "_blank" %>, "It makes no difference, one of them is only an innocent typo. You can pick which one. f"
 							<%= link_to "[return]", "#answers" %>
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-					</div><!-- /static-page-text -->
-				</div><!-- /span8 -->
-			</div><!-- /row -->
-
-		</div><!-- /span9 -->
-
-		<div class="span3">
-  		<div class="sidebar">
-
-				<div class="row-fluid">
-					<div class="sidebar-heading" style="text-indent: 15px;">
-						<indent>Poem
-					</div>
-				</div><!-- /row -->
+@@ -144,19 +144,19 @@
 
 				<div class="row-fluid">
 					<div class="show-link">
 						<span class="sidebar-plank">Web Intro</span>
+						<span class="sidebar-plank" id="web_intro">Web Intro</span>
 					</div>
 				</div><!-- /row -->
 
 				<div class="row-fluid">
 					<div class="show-link">
 						<span class="sidebar-plank">Book Intro</span>
+						<span class="sidebar-plank" id="book_intro">Book Intro</span>
 					</div>
 				</div><!-- /row -->
 
 				<div class="row-fluid">
 					<div class="show-link">
 						<span class="sidebar-plank">Poem</span>
+						<span class="sidebar-plank" id="poem">Poem</span>
 					</div>
 				</div><!-- /row -->
 
-				<div class="row-fluid">
-					<div class="show-link">
-						<span hidden>placeholder</span>
-				  </div>
-				</div><!-- /row -->
-
-			</div><!-- /sidebar -->
+@@ -170,3 +170,31 @@
 		</div><!-- /span3 -->
 	</div><!-- /row -->
 </div><!-- /container -->
+
+<script>
+	$( document ).ready(function() {
+		$("#intro_web_heading").click(function() {
+			$("#intro_web").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#poem_heading").click(function() {
+			$("#poem_body").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#intro_book_heading").click(function() {
+			$("#intro_book").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#intro_heading").click(function() {
+			$("#intro").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#notes_heading").click(function() {
+			$("#notes_body").toggle("slow");
+		});
+	});
+</script>
