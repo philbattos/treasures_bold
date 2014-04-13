@@ -20,12 +20,12 @@
 		<div class="span9">
 			<div class="row-fluid">
 				<div class="span4">
-					<div class="description-heading">
+					<div class="description-heading" id="intro_heading">
 						Introduction<br>
 					</div>
 				</div>
 				<div class="span8">
-					<div class="static-page-text">
+					<div class="static-page-text" id="intro">
 						<p>Forrest Fenn's <%= link_to "book", "http://www.collectedworksbookstore.com/product/thrill-chase-forrest-fenn", target: "_blank" %> and <%= link_to "website", "http://www.oldsantafetradingco.com/the-thrill-resource-page", target: "_blank" %> introduce the poem with slightly different sentences. 
 							Both introductions are provided below.
 						</p>
@@ -36,12 +36,12 @@
 
 			<div class="row-fluid">
 				<div class="span4">
-					<div class="description-heading">
+					<div class="description-heading" id="intro_book_heading">
 						Intro from Book
 					</div>
 				</div>
 				<div class="span8">
-					<div class="static-page-text">
+					<div class="static-page-text" id="intro_book">
 						<p>I knew exactly where to hide the chest so it would be difficult to find but not impossible. 
 							It's in the mountains somewhere north of Santa Fe.
 							Indecision is the key to flexibility and that's why I waited so long to secret my cache. George Burns was 100 years old when someone asked him how his health was. 
@@ -55,12 +55,12 @@
 
 			<div class="row-fluid">
 				<div class="span4">
-					<div class="description-heading">
+					<div class="description-heading" id="intro_web_heading">
 						Intro from Web
 					</div>
 				</div>
 				<div class="span8">
-					<div class="static-page-text">
+					<div class="static-page-text" id="intro_web">
 						<p>This poem written by Forrest Fenn contains nine clues that if followed precisely, will lead to the end of his rainbow and the treasure. 
 							Happy Hunting!
 						</p>
@@ -71,11 +71,11 @@
 
 			<div class="row-fluid">
 				<div class="span4">
-					<div class="description-heading">
+					<div class="description-heading" id="poem_heading">
 						The Poem
 					</div>
 				</div>
-				<div class="span8">
+				<div class="span8" id="poem_body">
 					<div class="static-page-text" style="text-align: center;">
 						As I have gone alone in there<br>
 						And with my treasures bold,<br>
@@ -113,12 +113,12 @@
 			</div><!-- /row -->
 			<div class="row-fluid" id="footnotes">
 				<div class="span4">
-					<div class="description-heading">
+					<div class="description-heading" id="notes_heading">
 						Notes
 					</div>
 				</div>
 				<div class="span8">
-					<div class="static-page-text">
+					<div class="static-page-text" id="notes_body">
 						<p>1. In the book version of the poem, this word is "answers"; in the online version of the poem the word is "answer".
 							In response to someone who wrote to him about this discrepancy, <%= link_to "Fenn replied", "http://dalneitzel.com/2013/06/19/forrest-gets-mail-4/", target: "_blank" %>, "It makes no difference, one of them is only an innocent typo. You can pick which one. f"
 							<%= link_to "[return]", "#answers" %>
@@ -170,3 +170,31 @@
 		</div><!-- /span3 -->
 	</div><!-- /row -->
 </div><!-- /container -->
+
+<script>
+	$( document ).ready(function() {
+		$("#intro_web_heading").click(function() {
+			$("#intro_web").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#poem_heading").click(function() {
+			$("#poem_body").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#intro_book_heading").click(function() {
+			$("#intro_book").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#intro_heading").click(function() {
+			$("#intro").toggle("slow");
+		});
+	});
+	$( document ).ready(function() {
+		$("#notes_heading").click(function() {
+			$("#notes_body").toggle("slow");
+		});
+	});
+</script>

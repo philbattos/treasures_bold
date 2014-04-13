@@ -19,7 +19,7 @@ gem 'less-rails'
 group :development do
 	gem 'pry'
 	gem 'pry-rails'
-	gem 'debugger'
+	#gem 'debugger'
 	gem 'better_errors'
 end
 
@@ -38,7 +38,7 @@ end
 group :development, :test do
 	gem "rspec-rails", ">= 2.11.4"
 	gem "factory_girl_rails", ">= 4.1.0"
-	gem "debugger"
+	#gem "debugger"
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
