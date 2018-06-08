@@ -1,0 +1,66 @@
+//
+// ALL STYLES FOR GEO_FEATURES
+//
+
+// the #map elements - and all of its parents - must have height and width set to 100%
+#map-container {
+  height: 100%;
+  width: 100%;
+  max-width: 100%; // this is necessary to stretch the map to the width of the window
+  padding: 0px; // override bootstrap .container settings
+}
+
+// the #map elements - and all of its parents - must have height and width set to 100%
+#map-row {
+  height: 100%;
+  width: 100%;
+  margin: 0px; // override bootstrap .row settings
+}
+
+// the #map elements - and all of its parents - must have height and width set to 100%
+#map-canvas {
+  height: 100%;
+  width: 100%;
+}
+
+// the #map elements - and all of its parents - must have height and width set to 100%
+#map {
+  height: 100%;
+  width: 100%;
+  position: relative; // this is automatically set by Google Maps API
+  overflow: hidden;   // this is automatically set by Google Maps API
+}
+
+.search-field-explanation {
+  background-color: lightblue;
+}
+
+
+// ========================================================================================
+
+
+//.map-top {
+//  top: -7px;
+//  left: 0;
+//  right: 0;
+//  height: 3px;
+//}
+//.map-right {
+//  right: -7px;
+//  top: 0;
+//  bottom: 0;
+//  width: 5px;
+//}
+//.map-bottom {
+//  bottom: -5px;
+//  left: 0;
+//  right: 0;
+//  height: 5px;
+//}
+//.map-left {
+//  left: -2px;
+//  top: 0;
+//  bottom: 0;
+//  width: 0px;
+//}
+

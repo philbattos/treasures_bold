@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "navbar";
+@import "geo_features";
+
+
+// color scheme
+// http://colorschemedesigner.com/
+// RGB: B09768
+// primary colors: #B09768 #84765B #725722 #D8C195 #D8C7A7
+// complement colors: #4A5975 #404858 #182A4C #8798BA #94A1BA
+// custom charcoal color: #3a3a3a
+
+
+// Google Maps API Docs: https://developers.google.com/maps/documentation/javascript/tutorial
+//   Note that some CSS that works within quirks mode is not valid in standards mode. In specific, all percentage-based
+//   sizes must inherit from parent block elements, and if any of those ancestors fail to specify a size, they are assumed
+//   to be sized at 0 x 0 pixels. For that reason, we include the following <style> declaration:
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+// ========================================================================================
+
+
+// h1, h2, h3, h4, h5, h6 {
+//   margin: 0 0;
+//   font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+//   color: #3a3a3a;
+// }
+
+// body,
+// body ul {
+//   font-family: 'IM Fell DW Pica', 'Modern Antiqua', 'Georgia', serif;
+//   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+//   color: #3a3a3a;
+// }
+
+/* fix for zoom control on google maps */
+/* source: http://stackoverflow.com/questions/8879544/google-maps-zoom-control */
+img {
+  max-width: none;
+}
+
+/* configure links; need 'body' (not sure why) */
+// body a {
+//   color: #725722;*/
+//   line-height: 30px;*/
+//   font-size: 20px;*/
+//   text-decoration: none;*/
+// }
+
+// remove padding for homepage background image and for collapsed navbar
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+// .standard-background-color {
+//   background-color: #D8C7A7;
+// }
+
+
+.place-details-heading {
+    /*height: 100%;*/
+    /*width: 100%;*/
+    height: 50px;
+    padding-top: 10px;
+    background-color: #D8C195;
+    text-align: center;
+    /*box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.5);*/
+}
+
+.place-details-heading h1 {
+    /*color: #5C4112;*/
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
+.place-details-panel {
+    height: 100%; /* 90% of total side panel */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: beige;
+    padding: 10px;
+}
+
+/* formatting for landing#show page */
+.place-details {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    color: #5C4112;
+}
+
+.place-details-footer {
+    background-color: #D8C195;
+    height: 100%;
+}
+
+
+

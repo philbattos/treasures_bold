@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title TreasuresBold
+    = csrf_meta_tags
+    -#%link{ :rel => "stylesheet", :type => "text/css", :href => "http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica" }
+    -#%link{ :href => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css", :rel => "stylesheet" }
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    = yield :map
+
+  %body
+    / global nav_bar
+    = render :partial => "/nav_bar"
+
+    = yield
