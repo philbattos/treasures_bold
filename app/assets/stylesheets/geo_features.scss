@@ -32,7 +32,16 @@
 }
 
 .search-field-explanation {
-  background-color: lightblue;
+  // background-color: lightblue;
+  font-style: italic;
+  color: darkgoldenrod;
+}
+
+#feature-type-list-button {
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  border-radius: 0.15rem;
 }
 
 

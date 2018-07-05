@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'                      # Build JSON APIs with ease. Read 
 gem 'haml'                                    # use haml instead of html
 gem 'pg'                                      # use postgres database instead of sqlite
 gem 'bootstrap', '~> 4.0.0'                   # use Bootstrap for styling
+gem 'gon'                                     # use Gon to pass variables from Rails to Haml to Javascript (Google Maps)
 
 #==============================#
 # Environment-dependent gems   #
