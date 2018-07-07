@@ -2,7 +2,7 @@
 // ALL STYLES FOR GEO_FEATURES
 //
 
-// the #map elements - and all of its parents - must have height and width set to 100%
+// the parent elements of #map must have height and width set to 100%
 #map-container {
   height: 100%;
   width: 100%;
@@ -10,22 +10,32 @@
   padding: 0px; // override bootstrap .container settings
 }
 
-// the #map elements - and all of its parents - must have height and width set to 100%
+// the parent elements of #map must have height and width set to 100%
 #map-row {
   height: 100%;
   width: 100%;
   margin: 0px; // override bootstrap .row settings
 }
 
-// the #map elements - and all of its parents - must have height and width set to 100%
+// the parent elements of #map must have height and width set to 100%
+#map-column {
+  height: 100%;
+  width: 100%;
+  margin: 0px;  // override bootstrap .col- settings
+  padding: 0px; // override bootstrap .col- settings
+}
+
+// the parent elements of #map must have height and width set to 100%
 #map-canvas {
   height: 100%;
   width: 100%;
+  // padding-bottom: 60px; // this offsets the height of the navbar so that the bottom of the map lines up with the bottom of the browser window
 }
 
-// the #map elements - and all of its parents - must have height and width set to 100%
+// the parent elements of #map must have height and width set to 100%
 #map {
   height: 100%;
+  max-height: 90%;
   width: 100%;
   position: relative; // this is automatically set by Google Maps API
   overflow: hidden;   // this is automatically set by Google Maps API
@@ -44,32 +54,48 @@
   border-radius: 0.15rem;
 }
 
+#results-panel {
+  height: 90%;
+  width: 100%;
+  margin: 0px;  // override bootstrap settings
+  padding: 0px; // override bootstrap settings
+}
 
-// ========================================================================================
+.results-summary {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+  text-align: center;
+  overflow: visible;
+}
 
+.results-list {
+  height: 95%; // a height value must be present for the overflow values to take effect
+  //overflow: hidden;
+  overflow-y: scroll;
+}
 
-//.map-top {
-//  top: -7px;
-//  left: 0;
-//  right: 0;
-//  height: 3px;
-//}
-//.map-right {
-//  right: -7px;
-//  top: 0;
-//  bottom: 0;
-//  width: 5px;
-//}
-//.map-bottom {
-//  bottom: -5px;
-//  left: 0;
-//  right: 0;
-//  height: 5px;
-//}
-//.map-left {
-//  left: -2px;
-//  top: 0;
-//  bottom: 0;
-//  width: 0px;
-//}
+.result-card {
+  padding: 8px;
+}
 
+.result-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: royalblue;
+}
+
+.result-location {
+  font-size: 14px;
+  font-weight: bold;
+  color: green;
+}
+
+.result-body {
+  font-size: 14px;
+}
+
+.result-background-hover {
+  background-color: #f2f2f2;
+
+}

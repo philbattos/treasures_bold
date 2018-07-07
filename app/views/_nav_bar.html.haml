@@ -1,10 +1,10 @@
 .container#navbar-container
   %nav.navbar
-    .container
-      %a.brand{:href => "/"} Treasures Bold
-      = form_for(geo_features_path, method: 'get') do |f|
-        .form-inline
-          = f.text_field :query, name: 'search[query]', class: 'form-control mr-sm-2', placeholder: 'Keyword'
-          // = f.hidden_field :elevation_low, name: 'search[elevation][lowest]', value: '5000'
-          // = f.hidden_field :elevation_low, name: 'search[elevation][highest]', value: '10200'
-          = f.submit 'Search', class: 'btn btn-outline-info my-2 my-sm-0'
+    %a.brand{href: "/"} Treasures Bold
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.mx-5
+        %a.nav-link{href: "/search"} Advanced Search
+    = form_for(geo_features_path, method: 'get') do |f|
+      .form-inline
+        = f.text_field :query, name: 'search[query]', class: 'form-control mr-sm-2', placeholder: 'Keyword'
+        = f.submit 'Search', class: 'btn btn-outline-info my-2 my-sm-0', id: 'navbar-search-button'

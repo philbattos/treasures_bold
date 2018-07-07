@@ -29,8 +29,10 @@
         var latDec = landing.lat_decimal;
         var longDec = landing.long_decimal;
         var coordinates = new google.maps.LatLng(latDec, longDec);
-        var geoName = 'geo' + landing.feature_id;
-        window[geoName] = coordinates;
+
+        // we need a distinct reference for each landing
+        // var geoName = 'geo' + landing.feature_id;
+        // window[geoName] = coordinates;
 
         // generate markers
         var markerIcon = mapData.marker;
@@ -38,8 +40,7 @@
           position: coordinates,
           map: map,
           draggable: false,
-          icon: markerIcon
-          // animation: google.maps.Animation.DROP,
+          icon: markerIcon // we send icon url in search results so that we can use different color icons for different keywords
           // icon: 'http://maps.google.com/mapfiles/ms/icons/purple.png',
           // title: landing.feature_name
         });
@@ -49,14 +50,6 @@
 
         // zoom out to fit all markers
         bounds.extend(coordinates);
-
-        // function toggleBounce() {
-        //   if (marker#landing.feature_id.getAnimation() !=null) {
-        //     marker#landing.feature_id.setAnimation(null);
-        //   } else {
-        //     marker#landing.feature_id.setAnimation(google.maps.Animation.BOUNCE);
-        //   }
-        // };
 
         // content to be displayed in infoWindows
         var contentString =
@@ -123,16 +116,19 @@
   //   markers[feature_id].setMap(null);
   //   markers[feature_id]=null;
   // }
-  //
-  // function toggleBounce(feature_id) {
-  //   var marker = markers[feature_id];
-  //   if (marker.getAnimation() != null) {
-  //     marker.setAnimation(null);
-  //   } else {
-  //   marker.setAnimation(google.maps.Animation.BOUNCE);
-  //   }
-  // }
 
-  function mapResize() {
-    google.maps.event.trigger(map, 'resize');
+  // markers bounce when their search result is hovered
+  function toggleBounce(feature_id) {
+      var markerId = markers[feature_id];
+      var marker = window[markerId];
+      if (marker.getAnimation() != null) {
+          marker.setAnimation(null);
+      } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
   }
+
+  // used to resize map when side panel is hidden by user
+  // function mapResize() {
+  //     google.maps.event.trigger(map, 'resize');
+  // }

@@ -5,137 +5,75 @@
 // all the parent elements for #map must have 'height: 100%'
 .container#map-container
   .row#map-row
-    #map-canvas
-      #map
-      // javascript for map inserted into application layout
-      - content_for :map do
-        = render "map_results.html.haml"
-  .row
-    .results-heading
-    -#  / Buttons to trigger modal
-    -#  %a#legend-button.modal-button{:href => "#legendModal", :role => "button"} Legend
-    -#  %a#stats-button.modal-button{:href => "#statsModal", :role => "button"} Stats
-    -#  / Modal: canvas to display legend-box and stats-box
-    -#  #legendModal.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "legendModalLabel", :role => "dialog", :tabindex => "-1"}
-    -#    .legend-box
-    -#      .row-fluid
-    -#        .legend-title
-    -#          %button#close-legend-box.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
-    -#          %h2 Legend
-    -#      .row-fluid
-    -#        #legend-headings
-    -#          .col-8
-    -#            Keywords
-    -#          .col-4
-    -#            Marker
-    -#      - @search_results.each do |keyword, map_data|
-    -#        - next if keyword.nil?
-    -#        .row-fluid
-    -#          #legend-row
-    -#            .col-8{:style => "padding-top: 10px; padding-bottom: 5px;"}
-    -#              "#{keyword}"
-    -#            .col-4{:style => "padding-top: 5px; padding-bottom: 5px;"}
-    -#              %img{:src => "#{map_data[:marker]}"}
-    -#    .stats-box
-    -#      .row-fluid
-    -#        .stats-title
-    -#          %button#close-stats-box.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
-    -#          %h2 Statistics
-    -#      .row-fluid
-    -#        #stats-headings
-    -#          .col-6
-    -#            Searches
-    -#          .col-3
-    -#            Found
-    -#          .col-3
-    -#            Map
-    -#      - @search_results.each do |keyword, map_data|
-    -#        - next if keyword.nil?
-    -#        .row-fluid
-    -#          .stats-row
-    -#            .col-6{:style => "padding-top: 10px; padding-bottom: 10px;"}
-    -#              "#{keyword}"
-    -#            .col-3{:style => "padding-top: 10px; padding-bottom: 10px;"}
-    -#              = map_data[:total_found]
-    -#            #map-landings-quantity.col-3{:style => "padding-top: 10px; padding-bottom: 10px;"}
-    -#              = map_data[:landings].size
-    .results-list
-      %ul#landing-list-items
+    .col-9#map-column
+      #map-canvas
+        #map
+        // javascript for map inserted into application layout
+        - content_for :map do
+          = render "map_results"
+    .col-3#results-panel
+      .results-summary
+        = "#{@search_results.values.first[:landings].count} results for \"#{@search_results.keys.first}\""
+      .results-list
         - @search_results.each do |keyword, map_data|
-          - map_data[:landings].each_with_index do |landing, index|
-            %li#landing-list-items{"data-landing" => "#{landing.feature_id}"}
-              .row-fluid
-                .col-8
-                  / landing data
-                  name:
-                  %strong
-                    %a{:href => "#", :onclick => "myClick(landing.feature_id)"}= landing.feature_name
-                  %br/
-                  type: #{landing.feature_class}
-                  %br/
-                  county: #{landing.county}
-                  %br/
-                .col-2
-                  / landing marker
-                  .landing-list-marker
-                    %img{:src => "#{map_data[:marker]}"}/
-                .col-2
-                  .landing-list-links
-                    = link_to "open", geo_feature_path(landing.feature_id), target: "_blank"
-                    %div
-                      .landing-list-links
-                        %a#remove-landing{"data-landing" => "#{landing.feature_id}", :href => "#"} remove
-                        / <input type="checkbox" name="save" value="#{landing.feature_name}">
+          - map_data[:landings].each do |place|
+            .result-card{"data-landing" => "#{place.feature_id}"}
+              .result-header
+                = place.feature_name
+                %img{src: map_data[:marker], class: 'float-right'}
+              .result-location
+                = "#{place.county}, #{place.state}"
+              .result-body
+                = "Elevation: #{place.elevation} ft."
 
-    / jQuery
+    // jQuery
     :javascript
-      // bounce map marker on hover in sidebar
       $( document ).ready(function() {
-          $( 'li#landing-list-items' ).hover(function() {
-              $( this ).toggleClass( 'new-background' );
+          $( '.result-card' ).hover(function() {
+              $( this ).toggleClass( 'result-background-hover' );
               var feature_id = $(this).data('landing');
               toggleBounce(feature_id); // bouncing marker
           });
       });
 
       // remove map marker from sidebar
-      $( document ).ready(function() {
-          $( 'a#remove-landing' ).click(function( event ) {
-              $( this ).parent().parent().parent().parent().parent().parent().slideToggle();
-              var feature_id = $(this).data('landing');
-              deleteMarker(feature_id);
-              event.preventDefault();
-          });
-      });
+      // $( document ).ready(function() {
+      //     $( 'a#remove-landing' ).click(function( event ) {
+      //         $( this ).parent().parent().parent().parent().parent().parent().slideToggle();
+      //         var feature_id = $(this).data('landing');
+      //         deleteMarker(feature_id);
+      //         event.preventDefault();
+      //     });
+      // });
 
       // hide sidebar and enlarge map
       // $( document ).ready(function() {
-      //   $( '#hide-sidebar' ).click(function( event ) {
-      //     $( '#full-size' ).css( 'width', '125%' );
-      //     mapResize();
-      //   });
+      //     $( '#hide-sidebar' ).click(function( event ) {
+      //         $( '#full-size' ).css( 'width', '125%' );
+      //         mapResize();
+      //     });
       // });
 
       // show legend and stats on map
-      $( document ).ready(function() {
-          $( '#legendModal' ).show();
-          $( '.legend-box' ).hide();
-          $( '.stats-box' ).hide();
-          $( '#legend-button' ).click(function( event ) {
-              $( '.legend-box' ).fadeToggle( 'fast' );
-              event.preventDefault();
-          });
-          $( '#close-legend-box' ).click(function( event ) {
-              $( '.legend-box' ).fadeToggle( 'fast' );
-              event.preventDefault();
-          });
-          $( '#stats-button' ).click(function( event ) {
-              $( '.stats-box' ).fadeToggle( 'fast' );
-              event.preventDefault();
-          });
-          $( '#close-stats-box' ).click(function( event ) {
-              $( '.stats-box' ).fadeToggle( 'fast' );
-              event.preventDefault();
-          });
-      });
-    / Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28">
+      // $( document ).ready(function() {
+      //     $( '#legendModal' ).show();
+      //     $( '.legend-box' ).hide();
+      //     $( '.stats-box' ).hide();
+      //     $( '#legend-button' ).click(function( event ) {
+      //         $( '.legend-box' ).fadeToggle( 'fast' );
+      //         event.preventDefault();
+      //     });
+      //     $( '#close-legend-box' ).click(function( event ) {
+      //         $( '.legend-box' ).fadeToggle( 'fast' );
+      //         event.preventDefault();
+      //     });
+      //     $( '#stats-button' ).click(function( event ) {
+      //         $( '.stats-box' ).fadeToggle( 'fast' );
+      //         event.preventDefault();
+      //     });
+      //     $( '#close-stats-box' ).click(function( event ) {
+      //         $( '.stats-box' ).fadeToggle( 'fast' );
+      //         event.preventDefault();
+      //     });
+      // });
+    // Gold coin: <img src="assets/empty-gold-coin-icon.jpg" width="35" height="28">

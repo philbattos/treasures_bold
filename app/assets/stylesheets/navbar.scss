@@ -17,3 +17,23 @@
     color: goldenrod;
     text-decoration: none;
   }
+
+#navbar-search-button {
+  color: gold;
+  border-color: gold;
+  background-color: transparent; // inherited from bootstrap defaults
+  background-image: none;        // inherited from bootstrap defaults
+}
+  #navbar-search-button:hover {
+    color: #725722;
+    background-color: gold;
+    border-color: gold;
+  }
+
+.nav-link {
+  color: goldenrod;
+  font-size: 24px;
+}
+  .nav-link:hover {
+    color: tan;
+  }

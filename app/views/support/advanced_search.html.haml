@@ -2,7 +2,13 @@
   .row
     .col
       %h2 Advanced Search
+      %br
       = form_for(geo_features_path, method: 'get') do |f|
+        .form-group#search-submit-top
+          .row
+            .col-7
+              = f.submit 'Search', class: 'btn btn-info'
+            .col-5.search-field-explanation
         .form-group#search-query
           %strong= f.label :keyword
           .row
@@ -109,7 +115,7 @@
                 .col-5.search-field-explanation
                   Select the types of features that you would like to search.
         %br
-        .form-group#search-submit
+        .form-group#search-submit-bottom
           .row
             .col-7
               = f.submit 'Search', class: 'btn btn-info'

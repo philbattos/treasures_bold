@@ -58,7 +58,7 @@ class GeoFeature < ActiveRecord::Base
     search_results = default_search if search_results.empty?
     # TODO: return message to user explaining why search returned no results
 
-    { query => { landings: search_results, marker: "http://maps.google.com/mapfiles/ms/icons/green.png" }}
+    { query => { landings: search_results, marker: "http://maps.google.com/mapfiles/ms/icons/purple.png" }}
   end
 
   def self.sanitize_feature_query(query)
