@@ -10,7 +10,7 @@
         #map
         // javascript for map inserted into application layout
         - content_for :map do
-          = render "map_results"
+          = render "google_map"
     .col-3#results-panel
       .results-summary
         - @search_results.each do |result|

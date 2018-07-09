@@ -4,7 +4,7 @@
     %ul.navbar-nav.mr-auto
       %li.nav-item.mx-5
         %a.nav-link{href: "/search"} Advanced Search
-    = form_for(geo_features_path, method: 'get') do |f|
+    = form_for(map_path, method: 'get') do |f|
       .form-inline
         = f.text_field :query, name: 'search[query]', class: 'form-control mr-sm-2', placeholder: 'Keyword'
         = f.submit 'Search', class: 'btn btn-outline-info my-2 my-sm-0', id: 'navbar-search-button'

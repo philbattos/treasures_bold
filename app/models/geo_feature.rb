@@ -30,14 +30,14 @@ class GeoFeature < ActiveRecord::Base
   def self.search(params)
     Rails.logger.debug "GeoFeature params: #{params.inspect}"
     if params.present? && params[:query].present?
-      query         = params[:query]
+      queries       = params[:query].split(', ').map(&:strip)
       states        = params[:states]
       elevation     = params[:elevation]
       feature_types = params[:feature_types]
       county        = params[:county]
       coordinates   = params[:coordinates]
 
-      Rails.logger.debug "GeoFeature query: #{query.inspect}"
+      Rails.logger.debug "GeoFeature query: #{queries.inspect}"
 
       query_params                                            = {}
       query_params[:elevation]                                = sanitize_elevation(elevation)
@@ -48,17 +48,19 @@ class GeoFeature < ActiveRecord::Base
 
       Rails.logger.debug "query_params: #{query_params.inspect}"
 
-      search_results = GeoFeature.with_keyword(query).where(query_params)
+      queries.map.with_index do |query, index|
+        search_results = GeoFeature.with_keyword(query).where(query_params)
+        { query => { landings: search_results, marker: select_marker[index] }}
+      end
     else
-      search_results = default_search
+      search_results = [{ nil => { landings: [], marker: nil }}]
     end
 
-    Rails.logger.debug "search-results: #{search_results.inspect}"
+    # Rails.logger.debug "search-results: #{search_results.inspect}"
 
-    search_results = default_search if search_results.empty?
+    # search_results = [] if search_results.nil? || search_results.empty?
     # TODO: return message to user explaining why search returned no results
 
-    { query => { landings: search_results, marker: "http://maps.google.com/mapfiles/ms/icons/purple.png" }}
   end
 
   def self.sanitize_feature_query(query)
@@ -121,25 +123,13 @@ class GeoFeature < ActiveRecord::Base
     [DEFAULT_SOUTH_BOUNDARY..DEFAULT_NORTH_BOUNDARY, DEFAULT_WEST_BOUNDARY..DEFAULT_EAST_BOUNDARY]
   end
 
-
-
-  # def self.compile_results(search_query)
-  #   search_results = Hash.new { |hash, key| hash[key] = {} }
-  #   filters = search_query[:filters] || []
-  #   entries = search_query[:entries] || []
-  #
-  #   entries.each do |name, data|
-  #     keyword = data[:keyword].to_sym
-  #     next if keyword.empty?
-  #     search_results[keyword][:landings] = search(data, filters)
-  #     search_results[keyword][:marker] = select_marker(name)
-  #     search_results[keyword][:total_found] = search_results[keyword][:landings].size
-  #   end
-  #
-  #   # restrict number of results to be mapped
-  #   # search_results.each {|keyword, map_data| map_data[:landings] = map_data[:landings][0..9] } # this removes Tire metadata from results hash
-  #
-  #   search_results
-  # end
+  def self.select_marker
+    [
+      "http://maps.google.com/mapfiles/ms/icons/purple.png",
+      "http://maps.google.com/mapfiles/ms/icons/orange.png",
+      "http://maps.google.com/mapfiles/ms/icons/green.png",
+      "http://maps.google.com/mapfiles/ms/icons/blue.png"
+    ]
+  end
 
 end

@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   get 'home',   to: 'support#home',            as: :home
   get 'search', to: 'support#advanced_search', as: :advanced_search
+  get 'map',    to: 'support#map',             as: :map
 
-  resources :geo_features, only: [:index, :show]
+  # resources :geo_features, only: [:index, :show]
 
 end

@@ -1,5 +1,5 @@
 //
-// ALL STYLES FOR GEO_FEATURES
+// ALL STYLES FOR MAP PAGE
 //
 
 // the parent elements of #map must have height and width set to 100%
@@ -15,6 +15,7 @@
   height: 100%;
   width: 100%;
   margin: 0px; // override bootstrap .row settings
+  padding-bottom: 68px;
 }
 
 // the parent elements of #map must have height and width set to 100%
@@ -35,7 +36,7 @@
 // the parent elements of #map must have height and width set to 100%
 #map {
   height: 100%;
-  max-height: 90%;
+  max-height: 100%;
   width: 100%;
   position: relative; // this is automatically set by Google Maps API
   overflow: hidden;   // this is automatically set by Google Maps API
@@ -55,10 +56,11 @@
 }
 
 #results-panel {
-  height: 90%;
+  height: 100%;
   width: 100%;
   margin: 0px;  // override bootstrap settings
   padding: 0px; // override bootstrap settings
+  //padding-bottom: 68px;
 }
 
 .results-summary {
@@ -70,7 +72,7 @@
 }
 
 .results-list {
-  height: 95%; // a height value must be present for the overflow values to take effect
+  height: 100%; // a height value must be present for the overflow values to take effect
   //overflow: hidden;
   overflow-y: scroll;
 }
