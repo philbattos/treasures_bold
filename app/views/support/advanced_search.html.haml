@@ -1,126 +1,129 @@
-.container.mt-5.mb-5
-  .row
-    .col
-      %h2 Advanced Search
-      %br
-      = form_for(map_path, method: 'get') do |f|
-        .form-group#search-submit-top
-          .row
-            .col-7
-              = f.submit 'Search', class: 'btn btn-info'
-            .col-5.search-field-explanation
-        .form-group#search-query
-          %strong= f.label :keyword
-          .row
-            .col-7
-              .row
-                .col-6
-                  = f.text_field :query, name: 'search[query]', class: 'form-control', placeholder: 'blaze, the wood'
-            .col-5.search-field-explanation
-              = "Enter keywords to search for in place names. Search for multiple keywords by separating them with a comma."
-        .form-group#search-state
-          %strong= f.label :states
-          .row
-            .col-7
-              .form-check#search-state-co
-                = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'CO', id: 'CO-checkbox'}, 'CO', nil)
-                = f.label(:colorado, class: 'form-check-label', for: 'CO-checkbox')
-              .form-check#search-state-mt
-                = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'MT', id: 'MT-checkbox'}, 'MT', nil)
-                = f.label(:montana, class: 'form-check-label', for: 'MT-checkbox')
-              .form-check#search-state-nm
-                = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'NM', id: 'NM-checkbox'}, 'NM', nil)
-                = f.label(:new_mexico, class: 'form-check-label', for: 'NM-checkbox')
-              .form-check#search-state-wy
-                = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'WY', id: 'WY-checkbox'}, 'WY', nil)
-                = f.label(:wyoming, class: 'form-check-label', for: 'WY-checkbox')
-            .col-5.search-field-explanation
-              Select states to search.
-        .form-group#search-county
-          %strong= f.label :county
-          .row
-            .col-7
-              .row
-                .col-auto
-                  = f.text_field :county, name: 'search[county]', class: 'form-control', placeholder: 'Denver'
-                  // = f.label "* The county name must be correctly capitalized or it will not match", class: 'small text-muted'
-            .col-5.search-field-explanation
-              Enter the county name that you want to search. If this field is left blank, all counties will be searched. (The county name must be correctly capitalized or it will not match.)
-        .form-group#search-elevation
-          %strong= f.label :elevation
-          .row
-            .col-7
-              .row
-                .col-auto
-                  = f.text_field :elevation_lowest, name: 'search[elevation][lowest]', class: 'form-control mb-2 mr-sm-3', placeholder: GeoFeature::DEFAULT_ELEVATION_LOW.to_s
-                  // = f.label "Lowest elevation", class: 'small text-muted'
-                  = f.text_field :elevation_highest, name: 'search[elevation][highest]', class: 'form-control mb-2 mr-sm-3', placeholder: GeoFeature::DEFAULT_ELEVATION_HIGH.to_s
-                  // = f.label "Highest elevation", class: 'small text-muted'
-            .col-5.search-field-explanation
-              Enter the elevation range that you want to search. If nothing is entered in these fields, the default
-              values 5000 and 10,200 will be used. If you want to search for ALL features, use 0 and 14,500 since the
-              highest point in the Rockies is 14,422 (Mount Elbert).
-        .form-group#search-coordinates
-          %strong= f.label :coordinates
-          .row
-            .col-7
-              .row
-                .col-auto
-                  = f.label "North Boundary", class: "small text-muted"
-                  = f.text_field :north_boundary, name: 'search[coordinates][north]', class: 'form-control mb-2 mr-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_NORTH_BOUNDARY, precision: 3)
-                .col-auto
-                  = f.label "East Boundary", class: "small text-muted"
-                  = f.text_field :east_boundary, name: 'search[coordinates][east]', class: 'form-control mb-2-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_EAST_BOUNDARY, precision: 3)
-              .row
-                .col-auto
-                  = f.label "South Boundary", class: "small text-muted"
-                  = f.text_field :south_boundary, name: 'search[coordinates][south]', class: 'form-control mb-2 mr-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_SOUTH_BOUNDARY, precision: 3)
-                .col-auto
-                  = f.label "West Boundary", class: "small text-muted"
-                  = f.text_field :west_boundary, name: 'search[coordinates][west]', class: 'form-control mb-2-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_WEST_BOUNDARY, precision: 3)
-            .col-5.search-field-explanation
-              Enter decimal coordinates as boundaries for your search. The default settings include all of Montana, Wyoming, and Colorado - and everything north of Santa Fe (35.685°) in New Mexico. You can search south of Santa Fe by entering a value lower than 35.685 for the South boundary.
-        .form-group#search-feature-type
-          .row
-            .col
-              %strong= f.label :feature_type
-              .row
-                .col-7
-                  .row
-                    .col
-                      .form-check{id: "search-all-feature-types"}
-                        = f.check_box(:all_feature_types, {checked: true, name: 'search[feature_types][]', class: 'form-check-input', type: 'checkbox', value: 'all-feature-types', id: "all-feature-types-checkbox"}, "all-feature-types", nil)
-                        = f.label("all", class: 'form-check-label', for: "all-feature-types-checkbox")
-                      .form-check{id: "search-none-feature-types"}
-                        = f.check_box(:none_feature_types, {checked: false, name: 'search[feature_types][]', class: 'form-check-input', type: 'checkbox', value: 'none-feature-types', id: "none-feature-types-checkbox"}, "none-feature-types", nil)
-                        = f.label("none", class: 'form-check-label', for: "none-feature-types-checkbox")
-                  %button{type: 'button', id: 'feature-type-list-button', class: 'btn-outline-secondary btn-sm mt-2', "data-toggle": 'collapse', "data-target": '#feature-type-list', "aria-expanded": 'false', "aria-controls": 'feature-type-list'} Show Feature Types
-                  %div#feature-type-list{class: 'collapse', "aria-labelledby": 'feature-type-list-button', "data-parent": '#accordion'}
+%body
+  = render :partial => "/nav_bar"
+
+  .container.mt-5.mb-5
+    .row
+      .col
+        %h2 Advanced Search
+        %br
+        = form_for(map_path, method: 'get') do |f|
+          .form-group#search-submit-top
+            .row
+              .col-7
+                = f.submit 'Search', class: 'btn btn-info'
+              .col-5.search-field-explanation
+          .form-group#search-query
+            %strong= f.label :keyword
+            .row
+              .col-7
+                .row
+                  .col-6
+                    = f.text_field :query, name: 'search[query]', class: 'form-control', placeholder: 'blaze, the wood'
+              .col-5.search-field-explanation
+                = "Enter keywords to search for in place names. Search for multiple keywords by separating them with a comma."
+          .form-group#search-state
+            %strong= f.label :states
+            .row
+              .col-7
+                .form-check#search-state-co
+                  = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'CO', id: 'CO-checkbox'}, 'CO', nil)
+                  = f.label(:colorado, class: 'form-check-label', for: 'CO-checkbox')
+                .form-check#search-state-mt
+                  = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'MT', id: 'MT-checkbox'}, 'MT', nil)
+                  = f.label(:montana, class: 'form-check-label', for: 'MT-checkbox')
+                .form-check#search-state-nm
+                  = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'NM', id: 'NM-checkbox'}, 'NM', nil)
+                  = f.label(:new_mexico, class: 'form-check-label', for: 'NM-checkbox')
+                .form-check#search-state-wy
+                  = f.check_box(:states, {checked: true, name: 'search[states][]', class: 'form-check-input', type: 'checkbox', value: 'WY', id: 'WY-checkbox'}, 'WY', nil)
+                  = f.label(:wyoming, class: 'form-check-label', for: 'WY-checkbox')
+              .col-5.search-field-explanation
+                Select states to search.
+          .form-group#search-county
+            %strong= f.label :county
+            .row
+              .col-7
+                .row
+                  .col-auto
+                    = f.text_field :county, name: 'search[county]', class: 'form-control', placeholder: 'Denver'
+                    // = f.label "* The county name must be correctly capitalized or it will not match", class: 'small text-muted'
+              .col-5.search-field-explanation
+                Enter the county name that you want to search. If this field is left blank, all counties will be searched. (The county name must be correctly capitalized or it will not match.)
+          .form-group#search-elevation
+            %strong= f.label :elevation
+            .row
+              .col-7
+                .row
+                  .col-auto
+                    = f.text_field :elevation_lowest, name: 'search[elevation][lowest]', class: 'form-control mb-2 mr-sm-3', placeholder: GeoFeature::DEFAULT_ELEVATION_LOW.to_s
+                    // = f.label "Lowest elevation", class: 'small text-muted'
+                    = f.text_field :elevation_highest, name: 'search[elevation][highest]', class: 'form-control mb-2 mr-sm-3', placeholder: GeoFeature::DEFAULT_ELEVATION_HIGH.to_s
+                    // = f.label "Highest elevation", class: 'small text-muted'
+              .col-5.search-field-explanation
+                Enter the elevation range that you want to search. If nothing is entered in these fields, the default
+                values 5000 and 10,200 will be used. If you want to search for ALL features, use 0 and 14,500 since the
+                highest point in the Rockies is 14,422 (Mount Elbert).
+          .form-group#search-coordinates
+            %strong= f.label :coordinates
+            .row
+              .col-7
+                .row
+                  .col-auto
+                    = f.label "North Boundary", class: "small text-muted"
+                    = f.text_field :north_boundary, name: 'search[coordinates][north]', class: 'form-control mb-2 mr-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_NORTH_BOUNDARY, precision: 3)
+                  .col-auto
+                    = f.label "East Boundary", class: "small text-muted"
+                    = f.text_field :east_boundary, name: 'search[coordinates][east]', class: 'form-control mb-2-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_EAST_BOUNDARY, precision: 3)
+                .row
+                  .col-auto
+                    = f.label "South Boundary", class: "small text-muted"
+                    = f.text_field :south_boundary, name: 'search[coordinates][south]', class: 'form-control mb-2 mr-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_SOUTH_BOUNDARY, precision: 3)
+                  .col-auto
+                    = f.label "West Boundary", class: "small text-muted"
+                    = f.text_field :west_boundary, name: 'search[coordinates][west]', class: 'form-control mb-2-sm-3', placeholder: number_with_precision(GeoFeature::DEFAULT_WEST_BOUNDARY, precision: 3)
+              .col-5.search-field-explanation
+                Enter decimal coordinates as boundaries for your search. The default settings include all of Montana, Wyoming, and Colorado - and everything north of Santa Fe (35.685°) in New Mexico. You can search south of Santa Fe by entering a value lower than 35.685 for the South boundary.
+          .form-group#search-feature-type
+            .row
+              .col
+                %strong= f.label :feature_type
+                .row
+                  .col-7
                     .row
                       .col
-                        - GeoFeature::ALL_FEATURE_TYPES[0..19].map do |feature_class|
-                          .form-check{id: "search-#{feature_class.parameterize}"}
-                            = f.check_box(feature_class.parameterize.to_sym, {checked: true, name: 'search[feature_types][]', class: 'form-check-input feature-type', type: 'checkbox', value: feature_class, id: "#{feature_class.parameterize}-checkbox"}, feature_class, nil)
-                            = f.label(feature_class, class: 'form-check-label', for: "#{feature_class.parameterize}-checkbox")
-                      .col
-                        - GeoFeature::ALL_FEATURE_TYPES[20..39].map do |feature_class|
-                          .form-check{id: "search-#{feature_class.parameterize}"}
-                            = f.check_box(feature_class.parameterize.to_sym, {checked: true, name: 'search[feature_types][]', class: 'form-check-input feature-type', type: 'checkbox', value: feature_class, id: "#{feature_class.parameterize}-checkbox"}, feature_class, nil)
-                            = f.label(feature_class, class: 'form-check-label', for: "#{feature_class.parameterize}-checkbox")
-                      .col
-                        - GeoFeature::ALL_FEATURE_TYPES[40..100].map do |feature_class|
-                          .form-check{id: "search-#{feature_class.parameterize}"}
-                            = f.check_box(feature_class.parameterize.to_sym, {checked: true, name: 'search[feature_types][]', class: 'form-check-input feature-type', type: 'checkbox', value: feature_class, id: "#{feature_class.parameterize}-checkbox"}, feature_class, nil)
-                            = f.label(feature_class, class: 'form-check-label', for: "#{feature_class.parameterize}-checkbox")
-                .col-5.search-field-explanation
-                  Select the types of features that you would like to search.
-        %br
-        .form-group#search-submit-bottom
-          .row
-            .col-7
-              = f.submit 'Search', class: 'btn btn-info'
-            .col-5.search-field-explanation
-              Use this page to perform a search with the selected restrictions. If you perform a search using the navigation bar (at the top of the page), it will use the default search settings: all four states, all counties, elevation between 5000-10,200 feet, all coordinates north of Santa Fe, NM, and all feature types.
+                        .form-check{id: "search-all-feature-types"}
+                          = f.check_box(:all_feature_types, {checked: true, name: 'search[feature_types][]', class: 'form-check-input', type: 'checkbox', value: 'all-feature-types', id: "all-feature-types-checkbox"}, "all-feature-types", nil)
+                          = f.label("all", class: 'form-check-label', for: "all-feature-types-checkbox")
+                        .form-check{id: "search-none-feature-types"}
+                          = f.check_box(:none_feature_types, {checked: false, name: 'search[feature_types][]', class: 'form-check-input', type: 'checkbox', value: 'none-feature-types', id: "none-feature-types-checkbox"}, "none-feature-types", nil)
+                          = f.label("none", class: 'form-check-label', for: "none-feature-types-checkbox")
+                    %button{type: 'button', id: 'feature-type-list-button', class: 'btn-outline-secondary btn-sm mt-2', "data-toggle": 'collapse', "data-target": '#feature-type-list', "aria-expanded": 'false', "aria-controls": 'feature-type-list'} Show Feature Types
+                    %div#feature-type-list{class: 'collapse', "aria-labelledby": 'feature-type-list-button', "data-parent": '#accordion'}
+                      .row
+                        .col
+                          - GeoFeature::ALL_FEATURE_TYPES[0..19].map do |feature_class|
+                            .form-check{id: "search-#{feature_class.parameterize}"}
+                              = f.check_box(feature_class.parameterize.to_sym, {checked: true, name: 'search[feature_types][]', class: 'form-check-input feature-type', type: 'checkbox', value: feature_class, id: "#{feature_class.parameterize}-checkbox"}, feature_class, nil)
+                              = f.label(feature_class, class: 'form-check-label', for: "#{feature_class.parameterize}-checkbox")
+                        .col
+                          - GeoFeature::ALL_FEATURE_TYPES[20..39].map do |feature_class|
+                            .form-check{id: "search-#{feature_class.parameterize}"}
+                              = f.check_box(feature_class.parameterize.to_sym, {checked: true, name: 'search[feature_types][]', class: 'form-check-input feature-type', type: 'checkbox', value: feature_class, id: "#{feature_class.parameterize}-checkbox"}, feature_class, nil)
+                              = f.label(feature_class, class: 'form-check-label', for: "#{feature_class.parameterize}-checkbox")
+                        .col
+                          - GeoFeature::ALL_FEATURE_TYPES[40..100].map do |feature_class|
+                            .form-check{id: "search-#{feature_class.parameterize}"}
+                              = f.check_box(feature_class.parameterize.to_sym, {checked: true, name: 'search[feature_types][]', class: 'form-check-input feature-type', type: 'checkbox', value: feature_class, id: "#{feature_class.parameterize}-checkbox"}, feature_class, nil)
+                              = f.label(feature_class, class: 'form-check-label', for: "#{feature_class.parameterize}-checkbox")
+                  .col-5.search-field-explanation
+                    Select the types of features that you would like to search.
+          %br
+          .form-group#search-submit-bottom
+            .row
+              .col-7
+                = f.submit 'Search', class: 'btn btn-info'
+              .col-5.search-field-explanation
+                Use this page to perform a search with the selected parameters. If you perform a search using the navigation bar (at the top of the page), it will use the default search settings: all four states, all counties, elevation between 5000-10,200 feet, all coordinates north of Santa Fe, NM, and all feature types.
 
 :javascript
   $(document).ready( function() {

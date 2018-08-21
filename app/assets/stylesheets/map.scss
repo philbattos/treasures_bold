@@ -56,7 +56,7 @@
 }
 
 #results-panel {
-  height: 100%;
+  height: inherit;
   width: 100%;
   margin: 0px;  // override bootstrap settings
   padding: 0px; // override bootstrap settings
@@ -72,8 +72,8 @@
 }
 
 .results-list {
-  height: 100%; // a height value must be present for the overflow values to take effect
-  //overflow: hidden;
+  // height: 100%; // a height value must be present for the overflow values to take effect
+  height: inherit; // a height value must be present for the overflow values to take effect
   overflow-y: scroll;
 }
 

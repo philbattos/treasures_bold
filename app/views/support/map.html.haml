@@ -1,34 +1,33 @@
-// %body.navbar-adjustment.nonscroll.hide-scroll
-// #full-size.container-fluid.navbar-adjustment
-// #full-size.row-fluid
+%body.no-scroll
+  = render :partial => "/nav_bar"
 
-// all the parent elements for #map must have 'height: 100%'
-.container#map-container
-  .row#map-row
-    .col-9#map-column
-      #map-canvas
-        #map
-        // javascript for map inserted into application layout
-        - content_for :map do
-          = render "google_map"
-    .col-3#results-panel
-      .results-summary
-        - @search_results.each do |result|
-          = "#{result.values.first[:landings].count} results for \"#{result.keys.first}\""
-          %img{src: result.values.first[:marker], style: 'max-height: 20px;'}
-          %br
-      .results-list
-        - @search_results.each do |result|
-          - result.each do |keyword, map_data|
-            - map_data[:landings].each do |place|
-              .result-card{"data-landing" => "#{place.feature_id}"}
-                .result-header
-                  = place.feature_name
-                  %img{src: map_data[:marker], class: 'float-right'}
-                .result-location
-                  = "#{place.county}, #{place.state}"
-                .result-body
-                  = "Elevation: #{place.elevation} ft."
+  // all the parent elements for #map must have 'height: 100%'
+  .container#map-container
+    .row#map-row
+      .col-9#map-column
+        #map-canvas
+          #map
+          // javascript for map inserted into application layout
+          - content_for :map do
+            = render "google_map"
+      .col-3.d-flex.flex-column#results-panel
+        .results-summary
+          - @search_results.each do |result|
+            = "#{result.values.first[:landings].count} results for \"#{result.keys.first}\""
+            %img{src: result.values.first[:marker], style: 'max-height: 20px;'}
+            %br
+        .results-list
+          - @search_results.each do |result|
+            - result.each do |keyword, map_data|
+              - map_data[:landings].each do |place|
+                .result-card{"data-landing" => "#{place.feature_id}"}
+                  .result-header
+                    = place.feature_name
+                    %img{src: map_data[:marker], class: 'float-right'}
+                  .result-location
+                    = "#{place.county}, #{place.state}"
+                  .result-body
+                    = "Elevation: #{place.elevation} ft."
 
     // jQuery
     :javascript

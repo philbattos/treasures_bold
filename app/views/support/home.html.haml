@@ -1,5 +1,8 @@
-%h3 Home page
+%body
+  = render :partial => "/nav_bar"
 
-= form_tag(geo_features_path, method: 'get') do
-  = text_field_tag(:query, params[:query])
-  = submit_tag("Search", name: nil)
+  %h3 Home page
+
+  = form_tag(geo_features_path, method: 'get') do
+    = text_field_tag(:query, params[:query])
+    = submit_tag("Search", name: nil)
